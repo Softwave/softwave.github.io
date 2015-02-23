@@ -133,6 +133,37 @@
   
   <div class="post">
     <h1 class="post-title">
+      <a href="/2014/10/25/c64code/">
+        C64 Assembly programming
+      </a>
+    </h1>
+
+    <span class="post-date">25 Oct 2014</span>
+
+    <p>I’ve been experimenting with Commodore 64 programming in 6502 assembly, as of late. I’ve been using the wonderful DASM assembler, which I simply installed on OS X through Homebrew.</p>
+
+<div class="highlight"><pre><code class="language-asm" data-lang="asm"><span class="nf">processor</span> <span class="mi">6502</span>
+    
+    <span class="nf">org</span> <span class="no">$0801</span> <span class="err">;</span> <span class="no">sys2061</span>
+<span class="nl">sysline:</span>
+    <span class="na">.byte</span> <span class="no">$0b</span><span class="p">,</span><span class="no">$08</span><span class="p">,</span><span class="no">$01</span><span class="p">,</span><span class="no">$00</span><span class="p">,</span><span class="no">$9e</span><span class="p">,</span><span class="no">$32</span><span class="p">,</span><span class="no">$30</span><span class="p">,</span><span class="no">$36</span><span class="p">,</span><span class="no">$31</span><span class="p">,</span><span class="no">$00</span><span class="p">,</span><span class="no">$00</span><span class="p">,</span><span class="no">$00</span>
+
+    <span class="nf">org</span> <span class="no">$080d</span> <span class="err">;</span> <span class="no">sys2061</span>
+
+    <span class="nf">jsr</span> <span class="no">$e544</span> <span class="err">;</span> <span class="no">clear</span> <span class="no">the</span> <span class="no">screen</span>
+    <span class="nf">lda</span> <span class="c">#0 </span>
+    <span class="nf">sta</span> <span class="mi">53281</span> <span class="err">;</span> <span class="no">set</span> <span class="no">the</span> <span class="no">screen</span> <span class="no">to</span> <span class="no">black</span>
+    <span class="nf">sta</span> <span class="mi">53280</span> <span class="err">;</span> <span class="no">set</span> <span class="no">the</span> <span class="no">border</span> <span class="no">to</span> <span class="no">black</span> 
+    <span class="no">lda</span> <span class="c">#1</span>
+    <span class="nf">sta</span> <span class="mi">646</span> <span class="err">;</span> <span class="no">set</span> <span class="no">the</span> <span class="no">text</span> <span class="no">color</span> <span class="no">to</span> <span class="no">white</span> 
+    <span class="no">rts</span></code></pre></div>
+
+<p>Haven’t done much with it yet but I definitely plan to keep playing with it… and it’d be nice if I could get my hands on an actual Commodore 64 to play with.</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
       <a href="/2014/10/12/newsite/">
         New Blog
       </a>
