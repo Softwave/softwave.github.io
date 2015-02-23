@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Softwave</title>
+ <link href="http://softwavestudios.com/atom.xml" rel="self"/>
+ <link href="http://softwavestudios.com/"/>
+ <updated>2015-02-23T12:07:56-07:00</updated>
+ <id>http://softwavestudios.com</id>
+ <author>
+   <name>JC Leyba</name>
+   <email>jcleyba92@gmail.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>Updated</title>
+   <link href="http://softwavestudios.com/2015/02/23/updated/"/>
+   <updated>2015-02-23T00:00:00-07:00</updated>
+   <id>http://softwavestudios.com/2015/02/23/updated</id>
+   <content type="html">&lt;p&gt;I&amp;#39;ve updated my jekyll blog using the &lt;a href=&quot;http://lanyon.getpoole.com/&quot;&gt;lanyon&lt;/a&gt; theme as a base. &lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>New Blog</title>
+   <link href="http://softwavestudios.com/2014/10/12/newsite/"/>
+   <updated>2014-10-12T00:00:00-06:00</updated>
+   <id>http://softwavestudios.com/2014/10/12/newsite</id>
+   <content type="html">&lt;p&gt;So I&amp;#39;m trying out Jekyll and it&amp;#39;s pretty rad. Static site generators in general are a pretty cool thing and for-me, definitely preferable to something like WordPress. &lt;/p&gt;
+</content>
+ </entry>
+ 
+
+</feed>

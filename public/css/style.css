@@ -1,0 +1,16 @@
+/* THEME */
+.theme-base-sw .sidebar,
+.theme-base-sw .sidebar-toggle:active,
+.theme-base-sw #sidebar-checkbox:checked ~ .sidebar-toggle {
+  background-color: #ff00aa;
+}
+.theme-base-sw .container a,
+.theme-base-sw .sidebar-toggle,
+.theme-base-sw .related-posts li a:hover {
+  color: #ff00aa;
+}
+/* 9c78e8 6800a6 ff00aa*/
+
+.theme-base-sw .masthead {
+	background-color: #7716FF;
+}
