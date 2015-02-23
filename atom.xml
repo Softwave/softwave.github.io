@@ -4,7 +4,7 @@
  <title>Softwave</title>
  <link href="http://softwave.github.io/atom.xml" rel="self"/>
  <link href="http://softwave.github.io/"/>
- <updated>2015-02-23T14:12:39-07:00</updated>
+ <updated>2015-02-23T14:52:07-07:00</updated>
  <id>http://softwave.github.io</id>
  <author>
    <name>JC Leyba</name>
@@ -18,6 +18,17 @@
    <updated>2015-02-23T00:00:00-07:00</updated>
    <id>http://softwave.github.io/2015/02/23/updated</id>
    <content type="html">&lt;p&gt;I&amp;#39;ve updated my jekyll blog using the &lt;a href=&quot;http://lanyon.getpoole.com/&quot;&gt;lanyon&lt;/a&gt; theme as a base. &lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Car Model</title>
+   <link href="http://softwave.github.io/2015/02/23/model/"/>
+   <updated>2015-02-23T00:00:00-07:00</updated>
+   <id>http://softwave.github.io/2015/02/23/model</id>
+   <content type="html">&lt;p&gt;A simple, low-poly, 1970&amp;#39;s-esque racecar I made.  &lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/images/render.png&quot; alt=&quot;car&quot;&gt;&lt;/p&gt;
 </content>
  </entry>
  
