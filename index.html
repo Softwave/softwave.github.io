@@ -1,228 +1,65 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="en">
+<head>
 
-  <head>
-  <link href="http://gmpg.org/xfn/11" rel="profile">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Code is art</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-  <!-- Enable responsiveness on mobile devices-->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>
-    
-      Softwave &middot; Code is art
-    
-  </title>
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="/public/css/poole.css">
-  <link rel="stylesheet" href="/public/css/syntax.css">
-  <link rel="stylesheet" href="/public/css/lanyon.css">
-  <link rel="stylesheet" href="/public/css/style.css">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/btns.css">
+  <link rel="stylesheet" href="css/font-awesome.css">
+  <link rel="stylesheet" href="css/style.css">
 
-  <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
-  <link rel="shortcut icon" href="/public/favicon.ico">
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
 
-  <!-- RSS -->
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 </head>
+<body>
 
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <section class="header">
+      <h1 class="title">SOFTWAVE</h1>
+      <p class="info">Creative coder, developer</p>
+    </section>
 
-  <body class="theme-base-sw">
-
-    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
-     styles, `#sidebar-checkbox` for behavior. -->
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
-
-<!-- Toggleable sidebar -->
-<div class="sidebar" id="sidebar">
-  <div class="sidebar-item">
-    <p>Web developer, creative coder</p>
-  </div>
-
-  <nav class="sidebar-nav">
-    <a class="sidebar-nav-item active" href="/">Home</a>
-
-    
-
-    
-    
-      
-        
-      
-    
-      
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/about/">About</a>
-        
-      
-    
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/portfolio/">Portfolio</a>
-        
-      
-    
-
-    <!-- 
-    <a class="sidebar-nav-item" href="/archive/v1.0.0.zip">Download</a>
-    <a class="sidebar-nav-item" href="">GitHub project</a>
-    <span class="sidebar-nav-item">Currently v1.0.0</span>
-  -->
-  </nav>
-
-  <div class="sidebar-item">
-    <p>
-      &copy; 2015. All rights reserved.
-    </p>
-  </div>
-</div>
-
-
-    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
-         content to avoid any CSS collisions with our real content. -->
-    <div class="wrap">
-      <div class="masthead">
-        <div class="container">
-          <h3 class="masthead-title">
-            <a href="/" title="Home">Softwave</a>
-            <small>Code is art</small>
-          </h3>
-        </div>
-      </div>
-
-      <div class="container content">
-        <div class="posts">
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2015/02/23/updated/">
-        Updated
-      </a>
-    </h1>
-
-    <span class="post-date">23 Feb 2015</span>
-
-    <p>I&#39;ve updated my jekyll blog using the <a href="http://lanyon.getpoole.com/">lanyon</a> theme as a base. </p>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2015/02/23/model/">
-        Car Model
-      </a>
-    </h1>
-
-    <span class="post-date">23 Feb 2015</span>
-
-    <p>A simple, low-poly, 1970&#39;s-esque racecar I made.  </p>
-
-<p><img src="/public/images/render.png" alt="car"></p>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2014/10/25/c64code/">
-        C64 Assembly programming
-      </a>
-    </h1>
-
-    <span class="post-date">25 Oct 2014</span>
-
-    <p>I’ve been experimenting with Commodore 64 programming in 6502 assembly, as of late. I’ve been using the wonderful DASM assembler, which I simply installed on OS X through Homebrew.</p>
-
-<div class="highlight"><pre><code class="language-asm" data-lang="asm"><span class="nf">processor</span> <span class="mi">6502</span>
-    
-    <span class="nf">org</span> <span class="no">$0801</span> <span class="err">;</span> <span class="no">sys2061</span>
-<span class="nl">sysline:</span>
-    <span class="na">.byte</span> <span class="no">$0b</span><span class="p">,</span><span class="no">$08</span><span class="p">,</span><span class="no">$01</span><span class="p">,</span><span class="no">$00</span><span class="p">,</span><span class="no">$9e</span><span class="p">,</span><span class="no">$32</span><span class="p">,</span><span class="no">$30</span><span class="p">,</span><span class="no">$36</span><span class="p">,</span><span class="no">$31</span><span class="p">,</span><span class="no">$00</span><span class="p">,</span><span class="no">$00</span><span class="p">,</span><span class="no">$00</span>
-
-    <span class="nf">org</span> <span class="no">$080d</span> <span class="err">;</span> <span class="no">sys2061</span>
-
-    <span class="nf">jsr</span> <span class="no">$e544</span> <span class="err">;</span> <span class="no">clear</span> <span class="no">the</span> <span class="no">screen</span>
-    <span class="nf">lda</span> <span class="c">#0 </span>
-    <span class="nf">sta</span> <span class="mi">53281</span> <span class="err">;</span> <span class="no">set</span> <span class="no">the</span> <span class="no">screen</span> <span class="no">to</span> <span class="no">black</span>
-    <span class="nf">sta</span> <span class="mi">53280</span> <span class="err">;</span> <span class="no">set</span> <span class="no">the</span> <span class="no">border</span> <span class="no">to</span> <span class="no">black</span> 
-    <span class="no">lda</span> <span class="c">#1</span>
-    <span class="nf">sta</span> <span class="mi">646</span> <span class="err">;</span> <span class="no">set</span> <span class="no">the</span> <span class="no">text</span> <span class="no">color</span> <span class="no">to</span> <span class="no">white</span> 
-    <span class="no">rts</span></code></pre></div>
-
-<p>Haven’t done much with it yet but I definitely plan to keep playing with it… and it’d be nice if I could get my hands on an actual Commodore 64 to play with.</p>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2014/10/22/swift/">
-        Swift
-      </a>
-    </h1>
-
-    <span class="post-date">22 Oct 2014</span>
-
-    <p>Swift is a programming language I can see myself falling in love with. I’ve always been interested in developing for iOS and the Mac but Objective-C’s odd syntax has been a stumbling block for me. Nothing I don’t think I would get over eventually, but Swift is letting me get an easier entry into the whole thing.</p>
-
-<p>I’ve been spending a lot of time playing around with it; playing around with playgrounds and writing programs in it.</p>
-
-  </div>
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/2014/10/12/newsite/">
-        New Blog
-      </a>
-    </h1>
-
-    <span class="post-date">12 Oct 2014</span>
-
-    <p>So I&#39;m trying out Jekyll and it&#39;s pretty rad. Static site generators in general are a pretty cool thing and for-me, definitely preferable to something like WordPress. </p>
-
-  </div>
-  
-</div>
-
-<div class="pagination">
-  
-    <span class="pagination-item older">Older</span>
-  
-  
-    <span class="pagination-item newer">Newer</span>
-  
-</div>
-
-
-      </div>
+    <div class="articleSection" id="intro">
+      <h6 class="articleHeader">ABOUT</h6>
+      <p>Yet another developer homepage. This is where I put cool things, when I get around to it anyway...</p>
     </div>
 
-    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    <div class="articleSection" id="intro">
+      <h6 class="articleHeader">Contact</h6>
+      <p>You can find me at the following locations</p>
+      <a href="https://twitter.com/SoftwaveStudios">Twitter</a>
+      <a href="https://github.com/Softwave">GitHub</a>
+      <a href="http://gamejolt.com/profile/jc/71091/">GameJolt</a>
+      <a href="http://softwave.itch.io/">itch.io</a>
+    </div>
 
-    <script>
-      (function(document) {
-        var toggle = document.querySelector('.sidebar-toggle');
-        var sidebar = document.querySelector('#sidebar');
-        var checkbox = document.querySelector('#sidebar-checkbox');
 
-        document.addEventListener('click', function(e) {
-          var target = e.target;
 
-          if(!checkbox.checked ||
-             sidebar.contains(target) ||
-             (target === checkbox || target === toggle)) return;
+  </div>
 
-          checkbox.checked = false;
-        }, false);
-      })(document);
-    </script>
-  </body>
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
 </html>
