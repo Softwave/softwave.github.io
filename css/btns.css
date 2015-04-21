@@ -179,7 +179,8 @@
   background-color: #001F3F;
   border-color: #001F3F; }
 
-/* Keep it mobile-first and responsive */
+/* 
 @media screen and (min-width: 32em) {
   .btn--full {
     max-width: 16em !important; } }
+*/
