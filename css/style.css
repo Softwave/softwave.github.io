@@ -1,7 +1,7 @@
 .header {
   margin-top: 6rem;
   text-align: center; 
-  font-family: 'avenir next', avenir, 'Lato', helvetica,'helvetica neue',arial,sans-serif;
+  font-family: 'avenir next',avenir,helvetica,'helvetica neue',arial,sans-serif;
 }
 
 .header h1 {
@@ -23,7 +23,7 @@
   margin-top: 6rem;
   margin-bottom: 4rem; }
 
-  .container {
+.container {
   max-width: 800px; }
 
 .articleHeader {
