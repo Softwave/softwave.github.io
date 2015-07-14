@@ -1,11 +1,11 @@
 .header {
   margin-top: 6rem;
   text-align: center; 
-  font-family: 'avenir next', avenir, 'Josefin Sans', helvetica,'helvetica neue',arial,sans-serif;
+  font-family: 'Open Sans', avenir, 'Josefin Sans', helvetica,'helvetica neue',arial,sans-serif;
 }
 
 .header h1 {
-	font-weight: 700;
+	font-weight: 800;
 	letter-spacing: .2em;
 }
 
