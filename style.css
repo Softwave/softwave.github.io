@@ -49,10 +49,28 @@ body {
 	padding-top: 5%;
 }
 
+#app {
+	text-align: center;
+}
+
 #name {
 	background: #ecf0f1;
 	padding: 2px 5px;
 	border-radius: 5px;
+}
+
+#download {
+	font-size: 18px;
+	font-weight: 400;
+	background: #d8e1e3;
+	color: #333;
+	padding: 6px 10px;
+	border-radius: 5px;
+}
+
+#download:hover {
+	background: #ced9dc;
+	color: #000;
 }
 
 #footer {
