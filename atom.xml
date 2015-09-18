@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Softwave</title>
+ <link href="http://softwave.github.io/atom.xml" rel="self"/>
+ <link href="http://softwave.github.io/"/>
+ <updated>2015-09-18T13:51:40-06:00</updated>
+ <id>http://softwave.github.io</id>
+ <author>
+   <name>Mark Otto</name>
+   <email>markdotto@gmail.com</email>
+ </author>
+
+ 
+ <entry>
+   <title>New site</title>
+   <link href="http://softwave.github.io/2015/09/21/new-site/"/>
+   <updated>2015-09-21T00:00:00-06:00</updated>
+   <id>http://softwave.github.io/2015/09/21/new-site</id>
+   <content type="html">&lt;p&gt;So I’ve decided to just use Lanyon as my jekyll blogging theme for the moment. I considered making one from scratch for a while but I’d like to have something that’s simple and ‘just works’ and I thought “why reinvent the wheel?”.&lt;/p&gt;
+</content>
+ </entry>
+ 
+
+</feed>
