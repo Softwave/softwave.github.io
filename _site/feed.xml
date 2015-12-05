@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+<title type="text">Softwave</title>
+<generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
+<link rel="self" type="application/atom+xml" href="/feed.xml" />
+<link rel="alternate" type="text/html" href="" />
+<updated>2015-12-05T15:24:24-07:00</updated>
+<id>/</id>
+<author>
+  <name>JC Leyba</name>
+  <uri>/</uri>
+  <email>jcleyba92@gmail.com</email>
+</author>
+
+
+<entry>
+  <title type="html"><![CDATA[Lambda Calculus]]></title>
+ <link rel="alternate" type="text/html" href="/lambda-calculus/" />
+  <id>/lambda-calculus</id>
+  <published>2015-10-01T00:00:00-06:00</published>
+  <updated>2015-10-01T00:00:00-06:00</updated>
+  <author>
+    <name>JC Leyba</name>
+    <uri></uri>
+    <email>jcleyba92@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;In my last post I had mentioned that I was playing around with &lt;a href=&quot;http://sonic-pi.net/&quot;&gt;Sonic Pi&lt;/a&gt;, and since then things have spiraled into me actually making a &lt;a href=&quot;https://lambdacalculus.bandcamp.com/&quot;&gt;Bandcamp page&lt;/a&gt; to share music I’ve made.&lt;/p&gt;
+
+&lt;p&gt;I’m also learning &lt;a href=&quot;http://overtone.github.io/&quot;&gt;Overtone&lt;/a&gt;, Sonic Pi’s more powerful, Clojure sibling. In general I’ve been making an effort to properly learn lisp.&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/lambda-calculus/&quot;&gt;Lambda Calculus&lt;/a&gt; was originally published by JC Leyba at &lt;a href=&quot;&quot;&gt;Softwave&lt;/a&gt; on October 01, 2015.&lt;/p&gt;
+  </content>
+</entry>
+
+
+<entry>
+  <title type="html"><![CDATA[Sonic Pi]]></title>
+ <link rel="alternate" type="text/html" href="/sonic-pi/" />
+  <id>/sonic-pi</id>
+  <published>2015-09-22T00:00:00-06:00</published>
+  <updated>2015-09-22T00:00:00-06:00</updated>
+  <author>
+    <name>JC Leyba</name>
+    <uri></uri>
+    <email>jcleyba92@gmail.com</email>
+  </author>
+  <content type="html">
+    &lt;p&gt;Lately I’ve been playing with &lt;a href=&quot;http://sonic-pi.net/&quot;&gt;Sonic Pi&lt;/a&gt;, a delightful Ruby-based language for livecoding music.&lt;/p&gt;
+
+&lt;p&gt;I have a hard time making music with traditional software but somehow am able to code it - it’s easier.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-rb&quot; data-lang=&quot;rb&quot;&gt;&lt;span class=&quot;c1&quot;&gt;#Pegago - one of my first Sonic Pi songs&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;with_fx&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:ixi_techno&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;mix: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;phase_slide: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;with_fx&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:reverb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;mix: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;live_loop&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:dthing&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;sample&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:bass_thick_c&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;sample&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:bass_thick_c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;rate: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;sample&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:bass_thick_c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;rate: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;sample&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:bass_thick_c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;rate: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;sample&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:bass_thick_c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;rate: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;25&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;sleep&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+
+&lt;span class=&quot;n&quot;&gt;live_loop&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:noodle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;delay: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;ns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;scale&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:C4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:jiao&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;num_octaves: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;take&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;use_synth&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:prophet&lt;/span&gt;
+
+  &lt;span class=&quot;n&quot;&gt;with_fx&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:reverb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;room: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;reps: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;times&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;play&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ns&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;choose&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;release: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;detune: &lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;12&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;amp: &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;rand&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;cutoff: &lt;/span&gt;&lt;span class=&quot;n&quot;&gt;rrand&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;80&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;sleep&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;It’s a ton of fun and a great way to waste time.&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;/sonic-pi/&quot;&gt;Sonic Pi&lt;/a&gt; was originally published by JC Leyba at &lt;a href=&quot;&quot;&gt;Softwave&lt;/a&gt; on September 22, 2015.&lt;/p&gt;
+  </content>
+</entry>
+
+</feed>
