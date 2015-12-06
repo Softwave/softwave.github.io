@@ -154,7 +154,7 @@
 		transform: translateY(0px);
 	}
 	.dl-submenu {
-		@include rounded(3px);
+		@include rounded(0px);
 		box-shadow: 0 12px 24px rgba($black,0.4);
 		.btn {
 			margin-bottom: 0;
