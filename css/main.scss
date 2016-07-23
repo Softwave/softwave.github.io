@@ -1,0 +1,116 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+@import "tachyons";
+@import "colors";
+
+@import "mixins";
+@import "syntax";
+
+//
+$S:     320px;   
+$M:     768px;     
+$L:     1170px;   
+@mixin MQ($canvas) {
+  @if $canvas == S {
+   @media only screen and (min-width: $S) { @content; } 
+  }
+  @else if $canvas == M {
+   @media only screen and (min-width: $M) { @content; } 
+  }
+  @else if $canvas == L {
+   @media only screen and (min-width: $L) { @content; } 
+  }
+}
+
+@mixin media-query($device) {
+    @media screen and (max-width: $device) {
+        @content;
+    }
+}
+
+
+// container grid system
+@mixin column($percentage, $float-direction:left) {
+  width: 100% * $percentage;
+  float: $float-direction;
+}
+
+html * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body, html {
+  font-family: 'Ubuntu Mono', 'Inconsolata', -apple-system,  'avenir next', avenir, roboto, noto, ubuntu, 'helvetica neue', helvetica, arial, sans-serif;
+  background-color: #fcfcfc;
+  box-sizing: content-box;
+}
+
+.title {
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  font-family: 'avenir next', avenir, roboto, noto, ubuntu, 'helvetica neue', helvetica, arial, sans-serif;
+}
+
+p {
+  font-size: 1.3rem;
+}
+
+.wc-container {
+    width: 90%;
+    max-width: $M; // see breakpoints in _sass/partials/_layout.scss
+    margin: 0 auto;
+
+    &::after { /* Clearfix */
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+.page-content {
+	padding: 1em 0;
+	@include MQ(M) { padding: 2em 0; }
+}
+
+.thingy {
+	border-bottom: 2px transparent solid;
+	&:hover, &:focus, &:active {
+      border-bottom-color: inherit;
+    }
+}
+
+.post-title {
+	color: #000000;
+}
+
+div.post {
+	padding-top: .5em;
+  	padding-bottom: 1em;
+	border-bottom: 1px #000000 solid;
+}
+
+.woggle {
+	border-bottom: 1px #000000 solid;
+}
+
+a {
+  color: #000000;
+}
+
+.image-wrapper{
+  max-width:90%;
+  height:auto;
+  position: relative;
+  display:block;
+  margin:0 auto;
+}
+
+.image-wrapper img{
+  max-width:100% !important;
+  height:auto;
+  display:block;
+}

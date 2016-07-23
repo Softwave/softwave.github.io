@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Lambda Calculus
+categories: sonic-pi blog
 ---
 
 In my last post I had mentioned that I was playing around with [Sonic Pi](http://sonic-pi.net/), and since then things have spiraled into me actually making a [Bandcamp page](https://lambdacalculus.bandcamp.com/) to share music I've made. 

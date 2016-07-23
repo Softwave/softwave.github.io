@@ -1,31 +1,411 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
-<title type="text">Softwave</title>
-<generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="/feed.xml" />
-<link rel="alternate" type="text/html" href="" />
-<updated>2015-12-08T15:42:08-07:00</updated>
-<id>/</id>
-<author>
-  <name>JC Leyba</name>
-  <uri>/</uri>
-  <email>jcleyba92@gmail.com</email>
-</author>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Softwave</title>
+    <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+</description>
+    <link>http://yourdomain.com/</link>
+    <atom:link href="http://yourdomain.com/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 23 Jul 2016 14:30:40 -0600</pubDate>
+    <lastBuildDate>Sat, 23 Jul 2016 14:30:40 -0600</lastBuildDate>
+    <generator>Jekyll v3.1.6</generator>
+    
+      <item>
+        <title>THREE.js embedding</title>
+        <description>&lt;p&gt;Testing embedding three.js into my blog.&lt;/p&gt;
 
+&lt;script src=&quot;/js/three.js&quot;&gt;&lt;/script&gt;
 
-<entry>
-  <title type="html"><![CDATA[Forth]]></title>
- <link rel="alternate" type="text/html" href="/forth/" />
-  <id>/forth</id>
-  <published>2015-12-08T00:00:00-07:00</published>
-  <updated>2015-12-08T00:00:00-07:00</updated>
-  <author>
-    <name>JC Leyba</name>
-    <uri></uri>
-    <email>jcleyba92@gmail.com</email>
-  </author>
-  <content type="html">
-    &lt;p&gt;A long time ago I briefly played with the programming language Forth.&lt;/p&gt;
+&lt;style&gt;
+    #blog-threejs canvas {
+      /* force the canvas to fill out the entire area */
+      width: 100%!important; height: 100%!important; 
+      
+      /* force the z-pos of the canvas to be on-top */
+      z-index: 0; 
+    }
+&lt;/style&gt;
+
+&lt;div id=&quot;blog-threejs&quot;&gt;&lt;/div&gt;
+
+&lt;script&gt;
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require==&quot;function&quot;&amp;&amp;require;if(!u&amp;&amp;a)return a(o,!0);if(i)return i(o,!0);var f=new Error(&quot;Cannot find module &#39;&quot;+o+&quot;&#39;&quot;);throw f.code=&quot;MODULE_NOT_FOUND&quot;,f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require==&quot;function&quot;&amp;&amp;require;for(var o=0;o&lt;r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+&#39;use strict&#39;;
+
+// Requires
+
+var createBackground = require(&#39;three-vignette-background&#39;);
+
+// THREE.js things
+var camera, scene, renderer;
+var mesh, ambientLight, uniforms;
+var startVertices = [];
+var background;
+var clock;
+
+init();
+animate();
+
+function init() {
+    // Clock
+    clock = new THREE.Clock();
+
+    // Renderer and scene 
+    renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setClearColor(0x000000, 1.0);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.getElementById(&quot;blog-threejs&quot;).appendChild( renderer.domElement ); 
+
+    scene = new THREE.Scene();
+
+    // Camera
+    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 1.0, 1000);
+    camera.position.z = 40;
+
+    // Background 
+    background = createBackground();
+
+    // Lights
+    ambientLight = new THREE.AmbientLight(0x111111);
+
+    // Objects
+    var geometry = new THREE.BoxGeometry(10, 10, 10);
+    var material = new THREE.MeshBasicMaterial({
+        color: 0xffffff,
+        side: THREE.DoubleSide,
+        wireframe: true
+    });
+    mesh = new THREE.Mesh(geometry, material);
+
+    // Adding things
+    scene.add(background);
+    scene.add(ambientLight);
+    scene.add(mesh);
+
+    // Listeners
+    window.addEventListener(&#39;resize&#39;, onWindowResize, false);
+}
+
+function animate() {
+    requestAnimationFrame(animate);
+
+    setBackground();
+
+    mesh.rotation.x += 0.001;
+    mesh.rotation.y += 0.001;
+    mesh.rotation.z += 0.001;
+
+    renderer.render(scene, camera);
+}
+
+function setBackground() {
+    background.style({
+        aspect: window.innerWidth / window.innerHeight,
+        aspectCorrection: true,
+        scale: 1.5,
+        offset: [-0.2, 0.25],
+        colors: [&quot;#4776E6&quot;, &quot;#8E54E9&quot;],
+        grainScale: 1.5 / Math.min(window.innerWidth, window.innerHeight)
+    });
+}
+
+function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+}
+
+},{&quot;three-vignette-background&quot;:2}],2:[function(require,module,exports){
+
+var vert = &quot;#define GLSLIFY 1\nattribute vec3 position;\nuniform mat4 modelViewMatrix;\nuniform mat4 projectionMatrix;\nvarying vec2 vUv;\nvoid main() {\n  gl_Position = vec4(position, 1.0);\n  vUv = vec2(position.x, position.y) * 0.5 + 0.5;\n}&quot;
+var frag = &quot;precision mediump float;\n#define GLSLIFY 1\n//\n// GLSL textureless classic 3D noise \&quot;cnoise\&quot;,\n// with an RSL-style periodic variant \&quot;pnoise\&quot;.\n// Author:  Stefan Gustavson (stefan.gustavson@liu.se)\n// Version: 2011-10-11\n//\n// Many thanks to Ian McEwan of Ashima Arts for the\n// ideas for permutation and gradient selection.\n//\n// Copyright (c) 2011 Stefan Gustavson. All rights reserved.\n// Distributed under the MIT license. See LICENSE file.\n// https://github.com/ashima/webgl-noise\n//\n\nvec3 mod289_1604150559(vec3 x)\n{\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n\nvec4 mod289_1604150559(vec4 x)\n{\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n\nvec4 permute_1604150559(vec4 x)\n{\n  return mod289_1604150559(((x*34.0)+1.0)*x);\n}\n\nvec4 taylorInvSqrt_1604150559(vec4 r)\n{\n  return 1.79284291400159 - 0.85373472095314 * r;\n}\n\nvec3 fade_1604150559(vec3 t) {\n  return t*t*t*(t*(t*6.0-15.0)+10.0);\n}\n\n// Classic Perlin noise, periodic variant\nfloat pnoise_1604150559(vec3 P, vec3 rep)\n{\n  vec3 Pi0 = mod(floor(P), rep); // Integer part, modulo period\n  vec3 Pi1 = mod(Pi0 + vec3(1.0), rep); // Integer part + 1, mod period\n  Pi0 = mod289_1604150559(Pi0);\n  Pi1 = mod289_1604150559(Pi1);\n  vec3 Pf0 = fract(P); // Fractional part for interpolation\n  vec3 Pf1 = Pf0 - vec3(1.0); // Fractional part - 1.0\n  vec4 ix = vec4(Pi0.x, Pi1.x, Pi0.x, Pi1.x);\n  vec4 iy = vec4(Pi0.yy, Pi1.yy);\n  vec4 iz0 = Pi0.zzzz;\n  vec4 iz1 = Pi1.zzzz;\n\n  vec4 ixy = permute_1604150559(permute_1604150559(ix) + iy);\n  vec4 ixy0 = permute_1604150559(ixy + iz0);\n  vec4 ixy1 = permute_1604150559(ixy + iz1);\n\n  vec4 gx0 = ixy0 * (1.0 / 7.0);\n  vec4 gy0 = fract(floor(gx0) * (1.0 / 7.0)) - 0.5;\n  gx0 = fract(gx0);\n  vec4 gz0 = vec4(0.5) - abs(gx0) - abs(gy0);\n  vec4 sz0 = step(gz0, vec4(0.0));\n  gx0 -= sz0 * (step(0.0, gx0) - 0.5);\n  gy0 -= sz0 * (step(0.0, gy0) - 0.5);\n\n  vec4 gx1 = ixy1 * (1.0 / 7.0);\n  vec4 gy1 = fract(floor(gx1) * (1.0 / 7.0)) - 0.5;\n  gx1 = fract(gx1);\n  vec4 gz1 = vec4(0.5) - abs(gx1) - abs(gy1);\n  vec4 sz1 = step(gz1, vec4(0.0));\n  gx1 -= sz1 * (step(0.0, gx1) - 0.5);\n  gy1 -= sz1 * (step(0.0, gy1) - 0.5);\n\n  vec3 g000 = vec3(gx0.x,gy0.x,gz0.x);\n  vec3 g100 = vec3(gx0.y,gy0.y,gz0.y);\n  vec3 g010 = vec3(gx0.z,gy0.z,gz0.z);\n  vec3 g110 = vec3(gx0.w,gy0.w,gz0.w);\n  vec3 g001 = vec3(gx1.x,gy1.x,gz1.x);\n  vec3 g101 = vec3(gx1.y,gy1.y,gz1.y);\n  vec3 g011 = vec3(gx1.z,gy1.z,gz1.z);\n  vec3 g111 = vec3(gx1.w,gy1.w,gz1.w);\n\n  vec4 norm0 = taylorInvSqrt_1604150559(vec4(dot(g000, g000), dot(g010, g010), dot(g100, g100), dot(g110, g110)));\n  g000 *= norm0.x;\n  g010 *= norm0.y;\n  g100 *= norm0.z;\n  g110 *= norm0.w;\n  vec4 norm1 = taylorInvSqrt_1604150559(vec4(dot(g001, g001), dot(g011, g011), dot(g101, g101), dot(g111, g111)));\n  g001 *= norm1.x;\n  g011 *= norm1.y;\n  g101 *= norm1.z;\n  g111 *= norm1.w;\n\n  float n000 = dot(g000, Pf0);\n  float n100 = dot(g100, vec3(Pf1.x, Pf0.yz));\n  float n010 = dot(g010, vec3(Pf0.x, Pf1.y, Pf0.z));\n  float n110 = dot(g110, vec3(Pf1.xy, Pf0.z));\n  float n001 = dot(g001, vec3(Pf0.xy, Pf1.z));\n  float n101 = dot(g101, vec3(Pf1.x, Pf0.y, Pf1.z));\n  float n011 = dot(g011, vec3(Pf0.x, Pf1.yz));\n  float n111 = dot(g111, Pf1);\n\n  vec3 fade_xyz = fade_1604150559(Pf0);\n  vec4 n_z = mix(vec4(n000, n100, n010, n110), vec4(n001, n101, n011, n111), fade_xyz.z);\n  vec2 n_yz = mix(n_z.xy, n_z.zw, fade_xyz.y);\n  float n_xyz = mix(n_yz.x, n_yz.y, fade_xyz.x);\n  return 2.2 * n_xyz;\n}\n\n//\n// Description : Array and textureless GLSL 2D/3D/4D simplex\n//               noise functions.\n//      Author : Ian McEwan, Ashima Arts.\n//  Maintainer : ijm\n//     Lastmod : 20110822 (ijm)\n//     License : Copyright (C) 2011 Ashima Arts. All rights reserved.\n//               Distributed under the MIT License. See LICENSE file.\n//               https://github.com/ashima/webgl-noise\n//\n\nvec3 mod289_1117569599(vec3 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n\nvec4 mod289_1117569599(vec4 x) {\n  return x - floor(x * (1.0 / 289.0)) * 289.0;\n}\n\nvec4 permute_1117569599(vec4 x) {\n     return mod289_1117569599(((x*34.0)+1.0)*x);\n}\n\nvec4 taylorInvSqrt_1117569599(vec4 r)\n{\n  return 1.79284291400159 - 0.85373472095314 * r;\n}\n\nfloat snoise_1117569599(vec3 v)\n  {\n  const vec2  C = vec2(1.0/6.0, 1.0/3.0) ;\n  const vec4  D_1117569599 = vec4(0.0, 0.5, 1.0, 2.0);\n\n// First corner\n  vec3 i  = floor(v + dot(v, C.yyy) );\n  vec3 x0 =   v - i + dot(i, C.xxx) ;\n\n// Other corners\n  vec3 g_1117569599 = step(x0.yzx, x0.xyz);\n  vec3 l = 1.0 - g_1117569599;\n  vec3 i1 = min( g_1117569599.xyz, l.zxy );\n  vec3 i2 = max( g_1117569599.xyz, l.zxy );\n\n  //   x0 = x0 - 0.0 + 0.0 * C.xxx;\n  //   x1 = x0 - i1  + 1.0 * C.xxx;\n  //   x2 = x0 - i2  + 2.0 * C.xxx;\n  //   x3 = x0 - 1.0 + 3.0 * C.xxx;\n  vec3 x1 = x0 - i1 + C.xxx;\n  vec3 x2 = x0 - i2 + C.yyy; // 2.0*C.x = 1/3 = C.y\n  vec3 x3 = x0 - D_1117569599.yyy;      // -1.0+3.0*C.x = -0.5 = -D.y\n\n// Permutations\n  i = mod289_1117569599(i);\n  vec4 p = permute_1117569599( permute_1117569599( permute_1117569599(\n             i.z + vec4(0.0, i1.z, i2.z, 1.0 ))\n           + i.y + vec4(0.0, i1.y, i2.y, 1.0 ))\n           + i.x + vec4(0.0, i1.x, i2.x, 1.0 ));\n\n// Gradients: 7x7 points over a square, mapped onto an octahedron.\n// The ring size 17*17 = 289 is close to a multiple of 49 (49*6 = 294)\n  float n_ = 0.142857142857; // 1.0/7.0\n  vec3  ns = n_ * D_1117569599.wyz - D_1117569599.xzx;\n\n  vec4 j = p - 49.0 * floor(p * ns.z * ns.z);  //  mod(p,7*7)\n\n  vec4 x_ = floor(j * ns.z);\n  vec4 y_ = floor(j - 7.0 * x_ );    // mod(j,N)\n\n  vec4 x = x_ *ns.x + ns.yyyy;\n  vec4 y = y_ *ns.x + ns.yyyy;\n  vec4 h = 1.0 - abs(x) - abs(y);\n\n  vec4 b0 = vec4( x.xy, y.xy );\n  vec4 b1 = vec4( x.zw, y.zw );\n\n  //vec4 s0 = vec4(lessThan(b0,0.0))*2.0 - 1.0;\n  //vec4 s1 = vec4(lessThan(b1,0.0))*2.0 - 1.0;\n  vec4 s0 = floor(b0)*2.0 + 1.0;\n  vec4 s1 = floor(b1)*2.0 + 1.0;\n  vec4 sh = -step(h, vec4(0.0));\n\n  vec4 a0 = b0.xzyw + s0.xzyw*sh.xxyy ;\n  vec4 a1_1117569599 = b1.xzyw + s1.xzyw*sh.zzww ;\n\n  vec3 p0_1117569599 = vec3(a0.xy,h.x);\n  vec3 p1 = vec3(a0.zw,h.y);\n  vec3 p2 = vec3(a1_1117569599.xy,h.z);\n  vec3 p3 = vec3(a1_1117569599.zw,h.w);\n\n//Normalise gradients\n  vec4 norm = taylorInvSqrt_1117569599(vec4(dot(p0_1117569599,p0_1117569599), dot(p1,p1), dot(p2, p2), dot(p3,p3)));\n  p0_1117569599 *= norm.x;\n  p1 *= norm.y;\n  p2 *= norm.z;\n  p3 *= norm.w;\n\n// Mix final noise value\n  vec4 m = max(0.6 - vec4(dot(x0,x0), dot(x1,x1), dot(x2,x2), dot(x3,x3)), 0.0);\n  m = m * m;\n  return 42.0 * dot( m*m, vec4( dot(p0_1117569599,x0), dot(p1,x1),\n                                dot(p2,x2), dot(p3,x3) ) );\n  }\n\nfloat grain_2281831123(vec2 texCoord, vec2 resolution, float frame, float multiplier) {\n    vec2 mult = texCoord * resolution;\n    float offset = snoise_1117569599(vec3(mult / multiplier, frame));\n    float n1 = pnoise_1604150559(vec3(mult, offset), vec3(1.0/texCoord * resolution, 1.0));\n    return n1 / 2.0 + 0.5;\n}\n\nfloat grain_2281831123(vec2 texCoord, vec2 resolution, float frame) {\n    return grain_2281831123(texCoord, resolution, frame, 2.5);\n}\n\nfloat grain_2281831123(vec2 texCoord, vec2 resolution) {\n    return grain_2281831123(texCoord, resolution, 0.0);\n}\n\nvec3 blendSoftLight_1540259130(vec3 base, vec3 blend) {\n    return mix(\n        sqrt(base) * (2.0 * blend - 1.0) + 2.0 * base * (1.0 - blend), \n        2.0 * base * blend + base * base * (1.0 - 2.0 * blend), \n        step(base, vec3(0.5))\n    );\n}\n\n// Using conditionals\n// vec3 blendSoftLight(vec3 base, vec3 blend) {\n//     return vec3(\n//         ((blend.r &lt; 0.5) ? (2.0 * base.r * blend.r + base.r * base.r * (1.0 - 2.0 * blend.r)) : (sqrt(base.r) * (2.0 * blend.r - 1.0) + 2.0 * base.r * (1.0 - blend.r))),\n//         ((blend.g &lt; 0.5) ? (2.0 * base.g * blend.g + base.g * base.g * (1.0 - 2.0 * blend.g)) : (sqrt(base.g) * (2.0 * blend.g - 1.0) + 2.0 * base.g * (1.0 - blend.g))),\n//         ((blend.b &lt; 0.5) ? (2.0 * base.b * blend.b + base.b * base.b * (1.0 - 2.0 * blend.b)) : (sqrt(base.b) * (2.0 * blend.b - 1.0) + 2.0 * base.b * (1.0 - blend.b)))\n//     );\n// }\n\nuniform vec3 color1;\nuniform vec3 color2;\nuniform float aspect;\nuniform vec2 offset;\nuniform vec2 scale;\nuniform float noiseAlpha;\nuniform bool aspectCorrection;\nuniform float grainScale;\nuniform float grainTime;\nuniform vec2 smooth;\n\nvarying vec2 vUv;\n\nvoid main() {\n  vec2 q = vec2(vUv - 0.5);\n  if (aspectCorrection) {\n    q.x *= aspect;\n  }\n  q /= scale;\n  q -= offset;\n  float dst = length(q);\n  dst = smoothstep(smooth.x, smooth.y, dst);\n  vec3 color = mix(color1, color2, dst);\n  \n  if (noiseAlpha &gt; 0.0 &amp;&amp; grainScale &gt; 0.0) {\n    float gSize = 1.0 / grainScale;\n    float g = grain_2281831123(vUv, vec2(gSize * aspect, gSize), grainTime);\n    vec3 noiseColor = blendSoftLight_1540259130(color, vec3(g));\n    gl_FragColor.rgb = mix(color, noiseColor, noiseAlpha);\n  } else {\n    gl_FragColor.rgb = color;\n  }\n  gl_FragColor.a = 1.0;\n}&quot;
+
+module.exports = createBackground
+function createBackground (opt) {
+  opt = opt || {}
+  var geometry = opt.geometry || new THREE.PlaneGeometry(2, 2, 1)
+  var material = new THREE.RawShaderMaterial({
+    vertexShader: vert,
+    fragmentShader: frag,
+    side: THREE.DoubleSide,
+    uniforms: {
+      aspectCorrection: { type: &#39;i&#39;, value: false },
+      aspect: { type: &#39;f&#39;, value: 1 },
+      grainScale: { type: &#39;f&#39;, value: 0.005 },
+      grainTime: { type: &#39;f&#39;, value: 0 },
+      noiseAlpha: { type: &#39;f&#39;, value: 0.25 },
+      offset: { type: &#39;v2&#39;, value: new THREE.Vector2(0, 0) },
+      scale: { type: &#39;v2&#39;, value: new THREE.Vector2(1, 1) },
+      smooth: { type: &#39;v2&#39;, value: new THREE.Vector2(0.0, 1.0) },
+      color1: { type: &#39;c&#39;, value: new THREE.Color(&#39;#fff&#39;) },
+      color2: { type: &#39;c&#39;, value: new THREE.Color(&#39;#283844&#39;) }
+    },
+    depthTest: false
+  })
+  var mesh = new THREE.Mesh(geometry, material)
+  mesh.style = style
+  if (opt) mesh.style(opt)
+  return mesh
+
+  function style (opt) {
+    opt = opt || {}
+    if (Array.isArray(opt.colors)) {
+      var colors = opt.colors.map(function (c) {
+        if (typeof c === &#39;string&#39; || typeof c === &#39;number&#39;) {
+          return new THREE.Color(c)
+        }
+        return c
+      })
+      material.uniforms.color1.value.copy(colors[0])
+      material.uniforms.color2.value.copy(colors[1])
+    }
+    if (typeof opt.aspect === &#39;number&#39;) {
+      material.uniforms.aspect.value = opt.aspect
+    }
+    if (typeof opt.grainScale === &#39;number&#39;) {
+      material.uniforms.grainScale.value = opt.grainScale
+    }
+    if (typeof opt.grainTime === &#39;number&#39;) {
+      material.uniforms.grainTime.value = opt.grainTime
+    }
+    if (opt.smooth) {
+      var smooth = fromArray(opt.smooth, THREE.Vector2)
+      material.uniforms.smooth.value.copy(smooth)
+    }
+    if (opt.offset) {
+      var offset = fromArray(opt.offset, THREE.Vector2)
+      material.uniforms.offset.value.copy(offset)
+    }
+    if (typeof opt.noiseAlpha === &#39;number&#39;) {
+      material.uniforms.noiseAlpha.value = opt.noiseAlpha
+    }
+    if (typeof opt.scale !== &#39;undefined&#39;) {
+      var scale = opt.scale
+      if (typeof scale === &#39;number&#39;) {
+        scale = [ scale, scale ]
+      }
+      scale = fromArray(scale, THREE.Vector2)
+      material.uniforms.scale.value.copy(scale)
+    }
+    if (typeof opt.aspectCorrection !== &#39;undefined&#39;) {
+      material.uniforms.aspectCorrection.value = Boolean(opt.aspectCorrection)
+    }
+  }
+
+  function fromArray (array, VectorType) {
+    if (Array.isArray(array)) {
+      return new VectorType().fromArray(array)
+    }
+    return array
+  }
+}
+
+},{}]},{},[1]);
+
+&lt;/script&gt;
+
+&lt;!-- 
+&lt;script&gt;
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera( 75, window.innerWidth/window.innerHeight, 0.1, 1000 );
+
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setSize( window.innerWidth, window.innerHeight );
+  
+    // this line adds threejs to the entire page, we don&#39;t want to do that
+    // document.body.appendChild( renderer.domElement );
+  
+    // set the threejs to render onto the blog post&#39;s &lt;div&gt;
+    document.getElementById(&quot;blog-threejs&quot;).appendChild( renderer.domElement ); 
+  
+    var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+    var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+    var cube = new THREE.Mesh( geometry, material );
+    scene.add( cube );
+
+    camera.position.z = 5;
+  
+    // set default background color
+    renderer.setClearColor( 0xffffff, 1);
+  
+    var render = function () 
+    {
+      requestAnimationFrame( render );
+
+      cube.rotation.x += 0.01;
+      cube.rotation.y += 0.01;
+      renderer.render(scene, camera);
+    };
+  
+    render();
+&lt;/script&gt;
+--&gt;
+</description>
+        <pubDate>Sat, 23 Jul 2016 00:00:00 -0600</pubDate>
+        <link>http://yourdomain.com/testing/blog/2016/07/23/threeembed.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/testing/blog/2016/07/23/threeembed.html</guid>
+        
+        
+        <category>testing</category>
+        
+        <category>blog</category>
+        
+      </item>
+    
+      <item>
+        <title>GLSL Superformula</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://github.com/Softwave/glsl-superformula&quot;&gt;glsl-superformula&lt;/a&gt; is a GLSL function for generating 3D &lt;a href=&quot;https://en.wikipedia.org/wiki/Superformula&quot;&gt;supershapes&lt;/a&gt;. It’s released as an npm module and intended for use with &lt;a href=&quot;https://github.com/stackgl/glslify&quot;&gt;glslify&lt;/a&gt; and &lt;a href=&quot;http://browserify.org/&quot;&gt;browserify&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;links&quot;&gt;Links&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/Softwave/glsl-superformula&quot;&gt;Github&lt;/a&gt;
+&lt;a href=&quot;https://www.npmjs.com/package/glsl-superformula&quot;&gt;NPM&lt;/a&gt;
+&lt;a href=&quot;https://softwave.github.io/glsl-superformula/&quot;&gt;Demo&lt;/a&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Thu, 21 Jul 2016 00:00:00 -0600</pubDate>
+        <link>http://yourdomain.com/glsl/webgl/npm/work/2016/07/21/superformula.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/glsl/webgl/npm/work/2016/07/21/superformula.html</guid>
+        
+        
+        <category>glsl</category>
+        
+        <category>webgl</category>
+        
+        <category>npm</category>
+        
+        <category>work</category>
+        
+      </item>
+    
+      <item>
+        <title>Spirals</title>
+        <description>&lt;p&gt;Spirals is a little program to make cool spiral patterns.&lt;/p&gt;
+
+&lt;p&gt;It was written in C++ with the openFrameworks creative coding toolset.&lt;/p&gt;
+
+&lt;p&gt;You can download it &lt;a href=&quot;https://softwave.itch.io/spirals&quot;&gt;here&lt;/a&gt; for PC or Mac.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 21 Jul 2016 00:00:00 -0600</pubDate>
+        <link>http://yourdomain.com/openframeworks/c++/work/2016/07/21/spirals.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/openframeworks/c++/work/2016/07/21/spirals.html</guid>
+        
+        
+        <category>openframeworks</category>
+        
+        <category>c++</category>
+        
+        <category>work</category>
+        
+      </item>
+    
+      <item>
+        <title>Lambda Calculus</title>
+        <description>&lt;p&gt;&lt;a href=&quot;http://lambdacalculus.bandcamp.com/&quot;&gt;Lambda Calculus&lt;/a&gt; is my project for creating algorithmic music. I presently use &lt;a href=&quot;http://sonic-pi.net/&quot;&gt;Sonic-Pi&lt;/a&gt; and &lt;a href=&quot;https://overtone.github.io/&quot;&gt;Overtone&lt;/a&gt; to program mostly atmospheric tracks. L.C. is an off and on project - hopefully I’ll have time to do more with it in the future.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 21 Jul 2016 00:00:00 -0600</pubDate>
+        <link>http://yourdomain.com/work/sonic-pi/2016/07/21/lambda.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/work/sonic-pi/2016/07/21/lambda.html</guid>
+        
+        
+        <category>work</category>
+        
+        <category>sonic-pi</category>
+        
+      </item>
+    
+      <item>
+        <title>Drifter</title>
+        <description>&lt;p&gt;&lt;a href=&quot;https://softwave.itch.io/drifter&quot;&gt;Drifter&lt;/a&gt; is an experimental exploration game I made with Unity in May of 2015. It’s not finished and I’ve wanted to either update or (more likely) completely re-do it for a long time. That said, I’m proud of the aesthetic and feeling of the game.&lt;/p&gt;
+
+&lt;p&gt;As featured on &lt;a href=&quot;https://www.youtube.com/watch?v=5CsT9GJ7l4M&quot;&gt;Indie Impressions&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The music is “Thunder Dreams” by &lt;a href=&quot;https://incompetech.com/&quot;&gt;Incompetech&lt;/a&gt;.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 21 Jul 2016 00:00:00 -0600</pubDate>
+        <link>http://yourdomain.com/unity/c%23/work/2016/07/21/drifter.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/unity/c%23/work/2016/07/21/drifter.html</guid>
+        
+        
+        <category>unity</category>
+        
+        <category>c#</category>
+        
+        <category>work</category>
+        
+      </item>
+    
+      <item>
+        <title>C64 Programming Resources</title>
+        <description>&lt;p&gt;The following is a collection of resources and tools for Commodore 64 development. If it’s on this list I consider it worth checking out at the very least; most of these things have proven invaluable to me.&lt;/p&gt;
+
+&lt;h3 id=&quot;books-guides-wikis-and-cheatsheets&quot;&gt;Books, Guides, Wikis and Cheatsheets&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Commodore 64 Programmers Reference Guide - The original Commodore programming book. Can easily be bought on eBay. Can also be found for free online but I don’t know about the legality of that.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://skilldrick.github.io/easy6502/&quot;&gt;Easy6502&lt;/a&gt; - A wonderful resource for learning general 6502 programming in the browser&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://sta.c64.org/cbm64mem.html&quot;&gt;6502 Memory Map&lt;/a&gt; - Extremely useful&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://codebase64.org/doku.php&quot;&gt;Codebase 64&lt;/a&gt; - C64 programming Wiki, very useful&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.c64-wiki.com/index.php/Main_Page&quot;&gt;C64 Wiki&lt;/a&gt; - Lots of resources here&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;programming&quot;&gt;Programming&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://dustlayer.com/&quot;&gt;Dust&lt;/a&gt; - Excellent tool for C64 programming on the Mac&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://cc65.github.io/cc65/&quot;&gt;cc65&lt;/a&gt; - C compiler for the 6502; targets the C64 by default&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.ajordison.co.uk/&quot;&gt;CBM prg Studio&lt;/a&gt; - Complete IDE for C64 programming on Windows&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.popelganda.de/relaunch64.html&quot;&gt;Relaunch64&lt;/a&gt; - Cross platform C64 IDE written in Java&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://sourceforge.net/projects/acme-crossass/&quot;&gt;ACME&lt;/a&gt; - The assembler I mostly use; comes with Dust&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://dasm-dillon.sourceforge.net/&quot;&gt;DASM&lt;/a&gt; - A nice 6502 assembler&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.theweb.dk/KickAssembler/Main.php&quot;&gt;Kick Assembler&lt;/a&gt; - I have not tried but it looks interesting&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;tools&quot;&gt;Tools&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.subchristsoftware.com/spritepad.htm&quot;&gt;SpritePad&lt;/a&gt; - Make C64 sprites; Windows only but works well in Wine&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.subchristsoftware.com/charpad.htm&quot;&gt;CharPad&lt;/a&gt; - Make C64 character sets, levels and tile sets; Windows only but works well in Wine&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://droid64.sourceforge.net/&quot;&gt;droiD64&lt;/a&gt; - Edit D64 disk images; Cross platform Java program&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;emulators&quot;&gt;Emulators&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://vice-emu.sourceforge.net/&quot;&gt;VICE&lt;/a&gt; - Invaluable&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;game-enginesconstruction-kits&quot;&gt;Game Engines/Construction Kits&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;SEUCK - Make shoot-em-ups on the C64&lt;/li&gt;
+  &lt;li&gt;Gary Kitchen’s GameMaker - An easy game and animation creation system for the Commodore 64&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;hardware&quot;&gt;Hardware&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.thefuturewas8bit.com/&quot;&gt;SD2IEC&lt;/a&gt; - SD card reader for the C64&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+        <pubDate>Fri, 05 Feb 2016 00:00:00 -0700</pubDate>
+        <link>http://yourdomain.com/assembly/retrocomputing/c64/blog/2016/02/05/c64-coding-resources.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/assembly/retrocomputing/c64/blog/2016/02/05/c64-coding-resources.html</guid>
+        
+        
+        <category>assembly</category>
+        
+        <category>retrocomputing</category>
+        
+        <category>c64</category>
+        
+        <category>blog</category>
+        
+      </item>
+    
+      <item>
+        <title>Forth</title>
+        <description>&lt;p&gt;A long time ago I briefly played with the programming language Forth.&lt;/p&gt;
 
 &lt;p&gt;I remember it being a revelatory experience and being on of the first
 languages I could understand to any real degree. That said it’s not
@@ -44,52 +424,48 @@ combined with expressivity. I find that programming in Forth feels a lot like bu
 language of your own design. Like you are building upwards from small pieces. I guess similarly to how scheme feels,
 but lower level.&lt;/p&gt;
 
-&lt;figure&gt;
-	&lt;img src=&quot;http://i.imgur.com/vbNBDhX.png&quot; alt=&quot;coding on vice&quot; /&gt;
-&lt;/figure&gt;
+&lt;div class=&quot;image-wrapper&quot;&gt;
+    &lt;img src=&quot;/images/forth1.png&quot; alt=&quot;durex forth screen&quot; /&gt;
+&lt;/div&gt;
 
 &lt;p&gt;I’ve used it both through VICE and &lt;a href=&quot;http://imgur.com/a/q4WWq&quot;&gt;through a real C64&lt;/a&gt; (software loaded from an &lt;a href=&quot;http://www.thefuturewas8bit.com/&quot;&gt;sd2iec&lt;/a&gt;) and it’s probably the most fun I’ve
 had actually programming &lt;em&gt;on&lt;/em&gt; a C64 - versus cross-compiling.&lt;/p&gt;
-
-    &lt;p&gt;&lt;a href=&quot;/forth/&quot;&gt;Forth&lt;/a&gt; was originally published by JC Leyba at &lt;a href=&quot;&quot;&gt;Softwave&lt;/a&gt; on December 08, 2015.&lt;/p&gt;
-  </content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Lambda Calculus]]></title>
- <link rel="alternate" type="text/html" href="/lambda-calculus/" />
-  <id>/lambda-calculus</id>
-  <published>2015-10-01T00:00:00-06:00</published>
-  <updated>2015-10-01T00:00:00-06:00</updated>
-  <author>
-    <name>JC Leyba</name>
-    <uri></uri>
-    <email>jcleyba92@gmail.com</email>
-  </author>
-  <content type="html">
-    &lt;p&gt;In my last post I had mentioned that I was playing around with &lt;a href=&quot;http://sonic-pi.net/&quot;&gt;Sonic Pi&lt;/a&gt;, and since then things have spiraled into me actually making a &lt;a href=&quot;https://lambdacalculus.bandcamp.com/&quot;&gt;Bandcamp page&lt;/a&gt; to share music I’ve made.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 08 Dec 2015 00:00:00 -0700</pubDate>
+        <link>http://yourdomain.com/forth/retrocomputing/c64/blog/2015/12/08/forth.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/forth/retrocomputing/c64/blog/2015/12/08/forth.html</guid>
+        
+        
+        <category>forth</category>
+        
+        <category>retrocomputing</category>
+        
+        <category>c64</category>
+        
+        <category>blog</category>
+        
+      </item>
+    
+      <item>
+        <title>Lambda Calculus</title>
+        <description>&lt;p&gt;In my last post I had mentioned that I was playing around with &lt;a href=&quot;http://sonic-pi.net/&quot;&gt;Sonic Pi&lt;/a&gt;, and since then things have spiraled into me actually making a &lt;a href=&quot;https://lambdacalculus.bandcamp.com/&quot;&gt;Bandcamp page&lt;/a&gt; to share music I’ve made.&lt;/p&gt;
 
 &lt;p&gt;I’m also learning &lt;a href=&quot;http://overtone.github.io/&quot;&gt;Overtone&lt;/a&gt;, Sonic Pi’s more powerful, Clojure sibling. In general I’ve been making an effort to properly learn lisp.&lt;/p&gt;
-
-    &lt;p&gt;&lt;a href=&quot;/lambda-calculus/&quot;&gt;Lambda Calculus&lt;/a&gt; was originally published by JC Leyba at &lt;a href=&quot;&quot;&gt;Softwave&lt;/a&gt; on October 01, 2015.&lt;/p&gt;
-  </content>
-</entry>
-
-
-<entry>
-  <title type="html"><![CDATA[Sonic Pi]]></title>
- <link rel="alternate" type="text/html" href="/sonic-pi/" />
-  <id>/sonic-pi</id>
-  <published>2015-09-22T00:00:00-06:00</published>
-  <updated>2015-09-22T00:00:00-06:00</updated>
-  <author>
-    <name>JC Leyba</name>
-    <uri></uri>
-    <email>jcleyba92@gmail.com</email>
-  </author>
-  <content type="html">
-    &lt;p&gt;Lately I’ve been playing with &lt;a href=&quot;http://sonic-pi.net/&quot;&gt;Sonic Pi&lt;/a&gt;, a delightful Ruby-based language for livecoding music.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 01 Oct 2015 00:00:00 -0600</pubDate>
+        <link>http://yourdomain.com/sonic-pi/blog/2015/10/01/lambda-calculus.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/sonic-pi/blog/2015/10/01/lambda-calculus.html</guid>
+        
+        
+        <category>sonic-pi</category>
+        
+        <category>blog</category>
+        
+      </item>
+    
+      <item>
+        <title>Sonic Pi</title>
+        <description>&lt;p&gt;Lately I’ve been playing with &lt;a href=&quot;http://sonic-pi.net/&quot;&gt;Sonic Pi&lt;/a&gt;, a delightful Ruby-based language for livecoding music.&lt;/p&gt;
 
 &lt;p&gt;I have a hard time making music with traditional software but somehow am able to code it - it’s easier.&lt;/p&gt;
 
@@ -122,9 +498,17 @@ had actually programming &lt;em&gt;on&lt;/em&gt; a C64 - versus cross-compiling.
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;It’s a ton of fun and a great way to waste time.&lt;/p&gt;
-
-    &lt;p&gt;&lt;a href=&quot;/sonic-pi/&quot;&gt;Sonic Pi&lt;/a&gt; was originally published by JC Leyba at &lt;a href=&quot;&quot;&gt;Softwave&lt;/a&gt; on September 22, 2015.&lt;/p&gt;
-  </content>
-</entry>
-
-</feed>
+</description>
+        <pubDate>Tue, 22 Sep 2015 00:00:00 -0600</pubDate>
+        <link>http://yourdomain.com/sonic-pi/blog/2015/09/22/sonic-pi.html</link>
+        <guid isPermaLink="true">http://yourdomain.com/sonic-pi/blog/2015/09/22/sonic-pi.html</guid>
+        
+        
+        <category>sonic-pi</category>
+        
+        <category>blog</category>
+        
+      </item>
+    
+  </channel>
+</rss>
