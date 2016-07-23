@@ -15,8 +15,7 @@ layout: default
             </a>
           </h3>
 
-          <!-- 
-          <p class="post-meta f6 tc">
+          <p class="post-meta tc f5 black-50">
             {% if (post.categories.size > 0 %}
             <span class="categories">
             {{ post.categories | array_to_sentence_string }}
@@ -25,14 +24,13 @@ layout: default
             <span class="post-date">
             {{ post.date | date: "%b %-d, %Y" }} 
             </span>
-          </p>     
-          -->     
-                    
+          </p>
+     
           <p>
             {{ post.excerpt }}  
           </p>
           <p>
-            <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title}}" class="pb2-ns f4 fw4 dim link black-80 mr2 mr3-m mr4-l dib thingy b">
+            <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title}}" class="mb4 pb2-ns f4 fw4 dim link black-80 mr2 mr3-m mr4-l dib thingy b">
               Read More
           </a>
           </p>

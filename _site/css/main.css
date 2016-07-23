@@ -6205,7 +6205,9 @@ code, .code {
   stroke: #111111; }
 
 .highlight {
-  background: #ffffff; }
+  background: #ffffff;
+  font-family: 'Inconsolata';
+  margin: 1em 0px; }
 
 .highlight .c {
   color: #999988;
@@ -6463,7 +6465,7 @@ html * {
   -moz-osx-font-smoothing: grayscale; }
 
 body, html {
-  font-family: 'Ubuntu Mono', 'Inconsolata', -apple-system,  'avenir next', avenir, roboto, noto, ubuntu, 'helvetica neue', helvetica, arial, sans-serif;
+  font-family: helvetica, arial, sans-serif;
   background-color: #fcfcfc;
   box-sizing: content-box; }
 
@@ -6501,8 +6503,7 @@ p {
 
 div.post {
   padding-top: .5em;
-  padding-bottom: 1em;
-  border-bottom: 1px #000000 solid; }
+  padding-bottom: 1em; }
 
 .woggle {
   border-bottom: 1px #000000 solid; }
@@ -6521,3 +6522,6 @@ a {
   max-width: 100% !important;
   height: auto;
   display: block; }
+
+.post-meta {
+  text-transform: uppercase; }
