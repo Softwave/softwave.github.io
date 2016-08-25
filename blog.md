@@ -3,9 +3,10 @@ layout: default
 title: Blog archive
 permalink: /blog/
 ---
-<div class="page-content wc-container">
+<div class="page-content wb-container">
   <h1 class="tc">Blog Archive</h1>
   <!-- site.categories.blog or site.posts? --> 
+  
   {% for post in site.categories.blog %}
   <ul class="posts">
     <li>
@@ -13,5 +14,5 @@ permalink: /blog/
     </li>
   </ul>
   {% endfor %}
-  
+
 </div>

@@ -10,10 +10,16 @@ layout: default
       {% for post in site.categories.blog limit:10 %}
         <div class="post">
           <h3 class="post-title tc">
-            <a class="pb2-ns f3 fw6 dim link black-80 mr2 mr3-m mr4-l dib thingy b" href="{{ post.url | prepend: site.baseurl }}">
+            <!--<a class="pb2-ns f3 fw6 dim link black-80 mr2 mr3-m mr4-l dib thingy b" href="{{ post.url | prepend: site.baseurl }}">-->
+            <a class="link f3" href="{{ post.url | prepend: site.baseurl }}">
               {{ post.title }}
             </a>
           </h3>
+          <p class="post-meta tc f6 b">
+            <span class="post-date">
+            {{ post.date | date: "%b %-d, %Y" }} 
+            </span>
+          </p>
 
           <!-- 
           <p class="post-meta tc f5 black-50">

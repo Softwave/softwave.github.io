@@ -72,6 +72,18 @@ p {
     }
 }
 
+.wb-container {
+    width: 70%;
+    max-width: $M; // see breakpoints in _sass/partials/_layout.scss
+    margin: 0 auto;
+
+    &::after { /* Clearfix */
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
 .page-content {
 	padding: 1em 0;
 	@include MQ(M) { padding: 2em 0; }
@@ -86,6 +98,12 @@ p {
 
 .post-title {
 	color: #000000;
+}
+
+.post-meta {
+  text-transform: uppercase;
+  margin-top: -0.5rem;
+  padding-bottom: 1em;
 }
 
 div.post {
@@ -115,8 +133,6 @@ a {
   display:block;
 }
 
-.post-meta {
-  text-transform: uppercase;
-}
+
 
 

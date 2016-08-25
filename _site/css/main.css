@@ -6487,6 +6487,16 @@ p {
     display: table;
     clear: both; }
 
+.wb-container {
+  width: 70%;
+  max-width: 768px;
+  margin: 0 auto; }
+  .wb-container::after {
+    /* Clearfix */
+    content: '';
+    display: table;
+    clear: both; }
+
 .page-content {
   padding: 1em 0; }
   @media only screen and (min-width: 768px) {
@@ -6500,6 +6510,11 @@ p {
 
 .post-title {
   color: #000000; }
+
+.post-meta {
+  text-transform: uppercase;
+  margin-top: -0.5rem;
+  padding-bottom: 1em; }
 
 div.post {
   padding-top: .5em;
@@ -6522,6 +6537,3 @@ a {
   max-width: 100% !important;
   height: auto;
   display: block; }
-
-.post-meta {
-  text-transform: uppercase; }
