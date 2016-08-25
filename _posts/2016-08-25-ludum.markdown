@@ -1,0 +1,8 @@
+---
+layout: post
+title:  Ludum Dare 36
+description: Unsure if participating
+categories: blog
+---
+
+Am presently unsure if I'll be able to participate in this weekends Ludum Dare. We'll see.  
