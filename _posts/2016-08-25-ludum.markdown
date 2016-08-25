@@ -5,4 +5,6 @@ description: Unsure if participating
 categories: blog
 ---
 
-Am presently unsure if I'll be able to participate in this weekends Ludum Dare. We'll see.  
+Am presently unsure if I'll be able to participate in this weekends [Ludum Dare](http://ludumdare.com/compo/). We'll see.  
+
+I've either not participated or failed to produce anything the last few rounds and I do hope I can change that. 

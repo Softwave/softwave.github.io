@@ -21,7 +21,7 @@ layout: default
 
     {% for post in site.categories.work limit:10 %}
 
-      <div class="w-100 w-50-ns fl">
+      <div class="w-100 w-50-ns fl gal">
         <a href="{{ post.url | prepend: site.baseurl }}" class="f2 f1-l f3-xl link white pa4 pv5-ns dim db" title="SW" 
         style="background: {{ post.color }} url({{ post.image }}) no-repeat 0 0; background-size: cover; min-height: 135px;">
           <span class="ttu fw6 db">

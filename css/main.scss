@@ -104,6 +104,10 @@ p {
 	color: #000000;
 }
 
+.post-title a {
+  color: #000000;
+}
+
 .post-meta {
   text-transform: uppercase;
   margin-top: -0.5rem;
@@ -119,7 +123,17 @@ div.post {
 }
 
 a {
-  color: #000000;
+  color: #e07280;
+  text-decoration: none;
+  border-bottom: 2px transparent solid;
+  &:hover, &:focus, &:active {
+      border-bottom-color: inherit;
+    }
+}
+
+.gal a {
+  color: #ffffff;
+  border-bottom: 0px;
 }
 
 .image-wrapper{
