@@ -44,7 +44,8 @@ html * {
 }
 
 body, html {
-  font-family: helvetica, arial, sans-serif;
+  font-family: 'Inconsolata', helvetica, arial, sans-serif;
+  //helvetica, arial, sans-serif;
   //'Inconsolata', -apple-system,  'avenir next', avenir, roboto, noto, ubuntu, 'helvetica neue', helvetica, arial, sans-serif;
   background-color: #fcfcfc;
   box-sizing: content-box;
@@ -85,8 +86,11 @@ p {
 }
 
 .page-content {
+  padding: 1em 0;
+  /*
 	padding: 1em 0;
 	@include MQ(M) { padding: 2em 0; }
+  */
 }
 
 .thingy {
@@ -107,7 +111,6 @@ p {
 }
 
 div.post {
-	padding-top: .5em;
   padding-bottom: 1em;
 }
 
@@ -134,5 +137,6 @@ a {
 }
 
 
-
-
+.readmore {
+  color: #e07280;
+}

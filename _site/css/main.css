@@ -6465,7 +6465,7 @@ html * {
   -moz-osx-font-smoothing: grayscale; }
 
 body, html {
-  font-family: helvetica, arial, sans-serif;
+  font-family: 'Inconsolata', helvetica, arial, sans-serif;
   background-color: #fcfcfc;
   box-sizing: content-box; }
 
@@ -6498,10 +6498,11 @@ p {
     clear: both; }
 
 .page-content {
-  padding: 1em 0; }
-  @media only screen and (min-width: 768px) {
-    .page-content {
-      padding: 2em 0; } }
+  padding: 1em 0;
+  /*
+	padding: 1em 0;
+	@include MQ(M) { padding: 2em 0; }
+  */ }
 
 .thingy {
   border-bottom: 2px transparent solid; }
@@ -6517,7 +6518,6 @@ p {
   padding-bottom: 1em; }
 
 div.post {
-  padding-top: .5em;
   padding-bottom: 1em; }
 
 .woggle {
@@ -6537,3 +6537,6 @@ a {
   max-width: 100% !important;
   height: auto;
   display: block; }
+
+.readmore {
+  color: #e07280; }
