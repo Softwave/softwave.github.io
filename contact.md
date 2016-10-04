@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Work
-permalink: /work/
+title: Contact
+permalink: /contact/
 ---
 
 Hi! I'm JC Leyba and I'm a developer presently living in New Mexico.

@@ -2,50 +2,21 @@
 layout: default
 ---
 
-<!-- site.categories.blog or site.posts? -->
+<div class="home page-wrap">
 
+	<h1>Posts</h1>
 
-<div id="home" class="home page-content wc-container">
-    <div class="posts">
-      {% for post in site.categories.blog limit:10 %}
-        <div class="post">
-          <h3 class="post-title tc">
-            <!--<a class="pb2-ns f3 fw6 dim link black-80 mr2 mr3-m mr4-l dib thingy b" href="{{ post.url | prepend: site.baseurl }}">-->
-            <a class="link f3 thingy" href="{{ post.url | prepend: site.baseurl }}">
-              {{ post.title }}
-            </a>
-          </h3>
-          <p class="post-meta tc f6 b">
-            <span class="post-date">
-            {{ post.date | date: "%b %-d, %Y" }} 
-            </span>
-          </p>
+	  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <!--<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>-->
 
-          <!-- 
-          <p class="post-meta tc f5 black-50">
-            {% if (post.categories.size > 0 %}
-            <span class="categories">
-            {{ post.categories | array_to_sentence_string }}
-            </span> |
-            {% endif %}
-            <span class="post-date">
-            {{ post.date | date: "%b %-d, %Y" }} 
-            </span>
-          </p>
-          -->
-     
-          <p>
-            {{ post.excerpt }}  
-          </p>
-          <p>
-            <a href="{{ post.url | prepend: site.baseurl }}" title="{{ post.title}}" class="readmore dim link thingy">
-              Read More
-          </a>
-          </p>
-        </div>
-      {% endfor %}
-  </div>
-  <div class="tc pv4">
-    <a class="pb2-ns f3 tc fw4 dim link black-80 mr2 mr3-m mr4-l dib thingy b" href="/blog">Blog archive</a>
-  </div>
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a> 
+          <div class="post-date"><span>{{ post.date | date: "%b %-d, %Y" }}</span></div>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+
 </div>
