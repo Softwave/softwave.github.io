@@ -17,8 +17,3 @@ github_username:  Softwave
 
 # Build settings
 markdown: kramdown
-
-#
-gems: [jekyll-paginate]
-paginate: 5
-paginate_path: "page:num"

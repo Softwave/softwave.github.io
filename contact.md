@@ -4,6 +4,9 @@ title: Contact
 permalink: /contact/
 ---
 
-Hi! I'm JC Leyba and I'm a developer presently living in New Mexico.
+You can find me at the following places:
 
-I'm interested in Creative Coding, video games, design, and software as art.
+* [itch.io](https://softwave.itch.io/)
+* [twitter](https://twitter.com/JC_Leyba)
+* [GitHub](https://github.com/Softwave)
+

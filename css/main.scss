@@ -3,12 +3,50 @@
 ---
 @charset "utf-8";
 
+// Color variables 
+// white
+$whitesmoke: #F5F5F5;
+$mistyrose: #FFE4E1;
+$seashell: #FFF5EE;
+$linen: #FAF0E6;
+$ivory: #FFFFF0;
+
+// green
+$teal: #008080;
+
+// red
+$firebrick: #B22222;
+$indianred: #CD5C5C;
+$crimson: #DC143C;
+
+// purple
+$rebeccapurple: #663399;
+$lavender: #E6E6FA;
+$darkslateblue: #483D8B;
+$slateblue: #6A5ACD;
+$indigo: #4B0082;
+
+//
+$plainblack: #000000;
+$plainwhite: #ffffff;
+
 body {
 	margin: 0 auto;
 	max-width: 40em;
-	font-family: "Helvetica", "Arial", sans-serif;
+	font-family: "Inconsolata", "Helvetica", "Arial", sans-serif;
 	line-height: 1.5;
 	padding: 4em 1em;
+	color: $plainblack;
+	background-color: $plainwhite;
+}
+
+a {
+	color: $firebrick;
+	text-decoration: none;
+}
+
+a:hover, a:focus {
+    text-decoration:underline;
 }
 
 .tc {
@@ -20,13 +58,10 @@ body {
 	padding-top: 1em;
 }*/
 
-a {
-	color: #e81c4f;
-	text-decoration: none;
+h1, h2, h3, h4, h5, h6, {
+	font-family: "Helvetica", "Arial", sans-serif;
 }
-a:hover, a:focus {
-    text-decoration:underline;
-}
+
 
 ul li, ol li {
     word-wrap: break-word;
@@ -45,7 +80,7 @@ h1.site-title {
 	font-size: 3em;
 	letter-spacing: .2em;
 	font-family: 'avenir next', avenir, "Helvetica", "Arial", sans-serif;
-	margin: 0 0 20px 0;
+	margin: 0 0 1rem 0;
 }
 h1.site-title a {
 	color: #000000;
@@ -53,8 +88,9 @@ h1.site-title a {
 
 .site-header {
 	font-size: 1.25rem;
-	margin-bottom: 60px;
+	margin-top: 1rem;
 }
+
 
 .image-wrapper{
   max-width:90%;
@@ -88,13 +124,38 @@ pre {
   padding: 1em;
 }
 
+// post
+.post-title {
+	text-align: center;
+}
+//
+
+// pagination
+.pagination {
+	margin: 3rem 0;
+	font-weight: bold;
+}
+//
+
+// psot date
+.post-date {
+}
+//
+
+//
+.blogindex {
+	margin: 0 auto;
+	max-width: 40em;
+}
+//
+
 $spacing-unit:     30px;
 
 h1, h2, h3, h4, h5, h6,
 p, blockquote, pre,
 ul, ol, dl, figure,
 %vertical-rhythm {
-    margin-bottom: $spacing-unit / 2;
+    margin-bottom: 0;
 }
 
 @import "syntax-highlighting";
