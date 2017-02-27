@@ -1,24 +1,27 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely need to edit after that.
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'jekyll serve'. If you change this file, please restart the server process.
+# Blog settings
+permalink: /blog/:title
 
-# Site settings
-title: Softwave
-email: jcleyba92@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  Code, old computers
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username: JC_Leyba
-github_username:  Softwave
 
-# Build settings
+# My variables
+name: Softwave
+description: I code things.
+google_verification: null
+
+
+# File management
+include: [".htaccess"]
+#exclude: ["README.md", "LICENSE"]
+
+
+# Sass
+sass:
+  style: :compressed
+  sass_dir: _sass
+
+
+# Markdown
 markdown: kramdown
-
-#
-gems: [jekyll-paginate]
-paginate: 5
-paginate_path: "page:num"
+kramdown:
+  input: GFM
+  hard_wrap: false
+highlighter: rouge

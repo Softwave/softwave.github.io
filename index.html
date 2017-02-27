@@ -2,40 +2,25 @@
 layout: default
 ---
 
-<div class="home page-wrap blogindex">
-
-	<h1>Posts</h1>
-
-	  <ul class="post-list">
-    {% for post in paginator.posts %}
-      <li>
-        <!--<span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>-->
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a> 
-        </h2>
-        <div class="post-date"><span>{{ post.date | date: "%b %-d, %Y" }}</span></div>
-
-      </li>
-    {% endfor %}
-	  </ul>
-
-
-    <!-- Pagination -->
-	  <div class="pagination">
-	    {% if paginator.previous_page %}
-        <a href="{{ paginator.previous_page_path }}" class="previous">Previous</a>
-      {% else %}
-        <span class="previous">Previous</span>
-      {% endif %}
-
-      <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
-
-      {% if paginator.next_page %}
-        <a href="{{ paginator.next_page_path }}" class="next">Next</a>
-      {% else %}
-        <span class="next ">Next</span>
-      {% endif %}
-	  </div>
-
+<div class="header">
+    <h1 class="site-title">
+        <a class="site-titlelink" href="{{ site.baseurl }}/">SOFTWAVE</a>
+    </h1>
+    <ul>
+        {% for item in site.data.navigation %}
+        <li>
+            <a href="{{ item.url }}">{{ item.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<div class="blog">
+    <h1>Blog Posts:</h1>
+    <ul>
+        {% for post in site.posts %}
+        <li>
+            <span class="date">{{ post.date | date: '%Y %b %d' }}</span> - <a href="{{ post.url }}">{{ post.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
 </div>
