@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<!-- <script src="/assets/js/three.js"></script>
+
+
+<style>
+    #blog-threejs canvas {
+      /* force the canvas to fill out the entire area */
+      width: 100%!important; height: 100%!important; 
+      
+      /* force the z-pos of the canvas to be on-top */
+      z-index: 0; 
+    }
+</style>
+<div id="blog-threejs"></div>
+ -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    
+        <title>Trying out p5.js</title>
+    
+
+    <meta name="description" content="I code things.">
+
+    
+
+    <link rel="icon" href="/assets/img/favicon.png">
+
+    <!-- FONTS -->
+    <link rel="stylesheet" 
+href="https://fonts.googleapis.com/css?family=Inconsolata:400,700">
+
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="post">
+	<div class="post__back">
+    	<a href="/">&lt;-- home</a>
+    </div>
+    <div class="post__title">
+    	<h1>Trying out p5.js</h1>
+    </div>
+    <div class="post__date">
+    	<p>August 24, 2017</p>
+    </div>
+    <div class="post__meta">
+    	<p></p>
+    </div>
+    <div class="post__content"?>
+        <script src="/assets/js/p5.js"></script>
+
+<!-- Addons -->
+<script src="/assets/js/p5addons/p5.scribble.js"></script>
+
+<style>
+	canvas {
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: -1;
+	}
+</style>
+
+<p>Now I’m playing around with <a href="https://p5js.org/">p5.js</a>.</p>
+
+<p>It’s rad.</p>
+
+<script>
+var critters = [];
+// Scribble and settings
+//var scribble = new Scribble();
+// Default settings
+//scribble.bowing = 1;
+//scribble.roughness = 1;
+//scribble.maxOffset = 2;
+//scribble.numEllipseSteps = 9;
+
+
+function setup() {
+    createCanvas(windowWidth,windowHeight);
+    //
+    for (var i = 0; i < 50; i++) {
+        critters.push(new Creature());
+    }
+}
+
+function draw() {
+    background('#ffffff');
+    // Draw here
+    for (var i = 0; i < critters.length; i++) {
+        critters[i].update();
+        critters[i].display();
+    }
+    //
+}
+
+function Creature() {
+    //
+    this.x = random(width);
+    this.y = random(height);
+    this.width = random(10, 50);
+    this.speed = random(1, 2);
+    this.r = random(255);
+    this.g = random(255);
+    this.b = random(255);
+
+    var xSpeed = random(-this.speed, this.speed);
+    var ySpeed = random(-this.speed, this.speed);
+
+    //
+    this.update = function() {
+        this.x += xSpeed;
+        this.y += ySpeed;
+
+        if (this.x < 0) {
+            this.x = windowWidth;
+            //console.log("Went over left edge");
+        }
+        if (this.x > windowWidth) {
+            this.x = 0;
+            //console.log("Went over right edge");
+        }
+        if (this.y < 0) {
+            this.y = windowHeight;
+        }
+        if (this.y > windowHeight) {
+            this.y = 0;
+        }
+
+
+
+    }
+
+    //
+    this.display = function() {
+        fill(this.r, this.g, this.b);
+        strokeWeight(2);
+        stroke(this.r / 2, this.g / 2, this.b / 2);
+        ellipse(this.x, this.y, this.width);
+        //scribble.scribbleEllipse(this.x, this.y, this.width, this.width);
+
+    }
+};
+
+</script>
+
+
+    </div>
+</div>
+
+    </div>
+
+</body>
+
+</html>
