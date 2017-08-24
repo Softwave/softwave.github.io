@@ -1,1 +1,15 @@
 jekyll serve --host=0.0.0.0
+
+
+<!--
+<style>
+    #blog-threejs canvas {
+      /* force the canvas to fill out the entire area */
+      width: 100%!important; height: 100%!important; 
+      
+      /* force the z-pos of the canvas to be on-top */
+      z-index: 0; 
+    }
+</style>
+<div id="blog-threejs"></div>
+-->

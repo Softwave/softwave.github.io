@@ -10,10 +10,17 @@
       width: 100%!important; height: 100%!important; 
       
       /* force the z-pos of the canvas to be on-top */
-      z-index: 0; 
+      z-index: -1; 
     }
+    canvas {
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: -1;
+	}
 </style>
 <div id="blog-threejs"></div>
+
  -->
 
 <head>
@@ -64,8 +71,14 @@ href="https://fonts.googleapis.com/css?family=Inconsolata:400,700">
       width: 100%!important; height: 100%!important; 
       
       /* force the z-pos of the canvas to be on-top */
-      z-index: 0; 
+      z-index: -1; 
     }
+    canvas {
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: -1;
+	}
 </style>
 
 <div id="blog-threejs"></div>
@@ -264,7 +277,7 @@ function createBackground (opt) {
     document.getElementById("blog-threejs").appendChild( renderer.domElement ); 
   
     var geometry = new THREE.BoxGeometry( 1, 1, 1 );
-    var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+    var material = new THREE.MeshBasicMaterial( { color: 0x000000, wireframe: true } );
     var cube = new THREE.Mesh( geometry, material );
     scene.add( cube );
 
