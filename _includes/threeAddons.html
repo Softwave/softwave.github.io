@@ -1,0 +1,44 @@
+<script src="/assets/js/three.js"></script>
+<script src="/assets/js/app.js"></script>
+
+<!-- LIB CODE -->
+<script src="/assets/js/threeAddons/stats.min.js"></script>
+<script src="/assets/js/threeAddons/controls/TrackballControls.js"></script>
+<script src="/assets/js/threeAddons/dat.gui.min.js"></script>
+
+<!-- SHADERS -->
+<script src="/assets/js/threeAddons/shaders/CopyShader.js"></script>
+<script src="/assets/js/threeAddons/shaders/FilmShader.js"></script>
+<script src="/assets/js/threeAddons/shaders/DotScreenShader.js"></script>
+<script src="/assets/js/threeAddons/shaders/RGBShiftShader.js"></script>
+<script src="/assets/js/threeAddons/shaders/ConvolutionShader.js"></script>
+<script src="/assets/js/threeAddons/shaders/DigitalGlitch.js"></script>
+<script src="/assets/js/threeAddons/shaders/VignetteShader.js"></script>
+
+<script src="/assets/js/threeAddons/postprocessing/EffectComposer.js"></script>
+<script src="/assets/js/threeAddons/postprocessing/BloomPass.js"></script>
+<script src="/assets/js/threeAddons/postprocessing/DotScreenPass.js"></script>
+<script src="/assets/js/threeAddons/postprocessing/FilmPass.js"></script>
+<script src="/assets/js/threeAddons/postprocessing/RenderPass.js"></script>
+<script src="/assets/js/threeAddons/postprocessing/MaskPass.js"></script>
+<script src="/assets/js/threeAddons/postprocessing/ShaderPass.js"></script>
+<script src="/assets/js/threeAddons/postprocessing/GlitchPass.js"></script>
+<!-- END SHADERS -->
+
+<style>
+    #blog-threejs canvas {
+      /* force the canvas to fill out the entire area */
+      width: 100%!important; height: 100%!important; 
+      
+      /* force the z-pos of the canvas to be on-top */
+      z-index: -1; 
+    }
+    canvas {
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: -1;
+	}
+</style>
+<div id="blog-threejs"></div>
+
