@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<!-- <script src="/assets/js/three.js"></script>
+<script src="/assets/js/app.js"></script>
+
+
+<style>
+    #blog-threejs canvas {
+      /* force the canvas to fill out the entire area */
+      width: 100%!important; height: 100%!important; 
+      
+      /* force the z-pos of the canvas to be on-top */
+      z-index: -1; 
+    }
+    canvas {
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: -1;
+	}
+</style>
+<div id="blog-threejs"></div>
+
+ -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    
+        <title>Hello World on the C64</title>
+    
+
+    <meta name="description" content="I code things.">
+
+    
+
+    <link rel="icon" href="/assets/img/favicon.png">
+
+    <!-- highlighting -->
+    <link href="/assets/css/syntax.css" rel="stylesheet" >
+
+    <!-- FONTS -->
+    <link rel="stylesheet" 
+href="https://fonts.googleapis.com/css?family=Inconsolata:400,700">
+
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="post">
+	<div class="post__back">
+    	<a href="/">&lt;-- home</a>
+    </div>
+    <div class="post__title">
+    	<h1>Hello World on the C64</h1>
+    </div>
+    <div class="post__date">
+    	<p>August 20, 2017</p>
+    </div>
+    <div class="post__meta">
+    	<p></p>
+    </div>
+    <div class="post__content"?>
+        <p>Programming for the Commodore 64 is fun. Of all 8-bit, retro systems, I think, by far, the C64 has the most and the best development tools.</p>
+
+<p>The Commodore 64 is basically extremely mainstream by retrocomputing standards - new software is being written literally daily for a 35 year old computer. Most development these days is done through cross-asselmbers. I personally prefer <a href="http://www.theweb.dk/KickAssembler/Main.html">Kick Assembler</a>, mostly for its advances macro and other features.</p>
+
+<p>This <a href="https://packagecontrol.io/packages/Kick%20Assembler%20(C64)">Kick Assembler Package for Sublime Text</a> is very useful. You’ll also want to have an emulator of course. I recommend <a href="http://vice-emu.sourceforge.net/">Vice</a>.</p>
+
+<p>The following is an extremely simple program that makes the screen black, the text white, and prints “HELLO WORLD!” to the middle of the screen.</p>
+
+<p>I’ll add more examples when I have the time.</p>
+
+<div class="language-nasm highlighter-rouge"><pre class="highlight"><code><span class="n">BasicUpstart2</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+
+<span class="c1">// Entry point
+</span><span class="o">*</span> <span class="o">=</span> <span class="err">$</span><span class="mi">4000</span>
+<span class="n">start</span><span class="o">:</span>
+    <span class="c1">// Make screen black and text white
+</span>    <span class="n">lda</span> <span class="err">#$</span><span class="mi">00</span>
+    <span class="n">sta</span> <span class="err">$</span><span class="n">d020</span>
+    <span class="n">sta</span> <span class="err">$</span><span class="n">d021</span>
+    <span class="n">lda</span> <span class="err">#$</span><span class="mi">01</span>
+    <span class="n">sta</span> <span class="err">$</span><span class="mi">0286</span>
+    <span class="c1">// Clear the screen and jump to draw routine
+</span>    <span class="n">jsr</span> <span class="err">$</span><span class="n">e544</span>
+    <span class="n">jsr</span> <span class="n">draw_text</span>
+    <span class="k">jmp</span> <span class="o">*</span>
+
+
+<span class="n">msg</span><span class="o">:</span>
+    <span class="p">.</span><span class="n">text</span> <span class="s">"              hello world!              "</span>
+
+<span class="n">draw_text</span><span class="o">:</span>
+    <span class="n">ldx</span> <span class="err">#$</span><span class="mi">00</span>
+<span class="n">draw_loop</span><span class="o">:</span>
+    <span class="n">lda</span> <span class="n">msg</span><span class="p">,</span><span class="n">x</span>
+    <span class="n">sta</span> <span class="err">$</span><span class="mi">05</span><span class="n">e0</span><span class="p">,</span><span class="n">x</span>
+    <span class="n">inx</span>
+    <span class="n">cpx</span> <span class="err">#$</span><span class="mi">28</span>
+    <span class="n">bne</span> <span class="n">draw_loop</span>
+    <span class="n">rts</span>
+</code></pre>
+</div>
+
+<p>This results in the following program (here running on Vice):
+<img src="http://i.imgur.com/BZgdNt4.jpg" alt="Screenshot" /></p>
+
+
+    </div>
+</div>
+
+    </div>
+
+</body>
+
+</html>
