@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<!-- <script src="/assets/js/three.js"></script>
+<script src="/assets/js/app.js"></script>
+
+
+<style>
+    #blog-threejs canvas {
+      /* force the canvas to fill out the entire area */
+      width: 100%!important; height: 100%!important; 
+      
+      /* force the z-pos of the canvas to be on-top */
+      z-index: -1; 
+    }
+    canvas {
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: -1;
+	}
+</style>
+<div id="blog-threejs"></div>
+
+ -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    
+        <title>EVEN MORE three.js fun</title>
+    
+
+    <meta name="description" content="I code things.">
+
+    
+
+    <link rel="icon" href="/assets/img/favicon.png">
+
+    <!-- highlighting -->
+    <link href="/assets/css/syntax.css" rel="stylesheet" >
+
+    <!-- FONTS -->
+    <link rel="stylesheet" 
+href="https://fonts.googleapis.com/css?family=Inconsolata:400,700">
+
+
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <div class="post">
+	<div class="post__back">
+    	<a href="/">&lt;-- home</a>
+    </div>
+    <div class="post__title">
+    	<h1>EVEN MORE three.js fun</h1>
+    </div>
+    <div class="post__date">
+    	<p>August 25, 2017</p>
+    </div>
+    <div class="post__meta">
+    	<p></p>
+    </div>
+    <div class="post__content"?>
+        <script src="/assets/js/three.js"></script>
+
+<script src="/assets/js/app.js"></script>
+
+<style>
+    #blog-threejs canvas {
+      /* force the canvas to fill out the entire area */
+      width: 100%!important; height: 100%!important; 
+      
+      /* force the z-pos of the canvas to be on-top */
+      z-index: -1; 
+    }
+    canvas {
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: -1;
+	}
+</style>
+
+<div id="blog-threejs"></div>
+
+<p>Vertex shaders are fun.</p>
+
+<style>
+body {
+  color: #ffffff;
+}
+a {
+  color: #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+.post__content a {
+  color: #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+a:visited {
+  color: #ffffff;
+}
+.post__title h1 {
+  border-bottom: 3px solid #ffffff;
+}
+</style>
+
+<script>
+var loader = new THREE.FileLoader();
+      loader.load( '../junk/hyper.json', function ( text ) {
+
+        var player = new APP.Player();
+        player.load( JSON.parse( text ) );
+        player.setSize( window.innerWidth, window.innerHeight );
+        player.play();
+
+        document.body.appendChild( player.dom );
+
+        window.addEventListener( 'resize', function () {
+          player.setSize( window.innerWidth, window.innerHeight );
+        } );
+
+        if ( location.search === '?edit' ) {
+          var button = document.createElement( 'a' );
+          button.id = 'edit';
+          button.href = 'https://threejs.org/editor/#file=' + location.href.split( '/' ).slice( 0, - 1 ).join( '/' ) + '/app.json';
+          button.target = '_blank';
+          button.textContent = 'EDIT';
+          document.body.appendChild( button );
+        }
+
+      } );
+</script>
+
+
+    </div>
+</div>
+
+    </div>
+
+</body>
+
+</html>
