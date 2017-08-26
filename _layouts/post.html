@@ -2,6 +2,10 @@
 layout: default
 ---
 
+{% if site.tags != "" %}
+  {% include collecttags.html %}
+{% endif %}
+
 <div class="post">
 	<div class="post__back">
     	<a href="/">&lt;-- home</a>
@@ -13,9 +17,15 @@ layout: default
     	<p>{{ page.date | date: '%B %-d, %Y' }}</p>
     </div>
     <div class="post__meta">
-    	<p>{{ tags_content }}</p>
+    	<span>
+        {% for tag in page.tags %}
+            {% capture tag_name %}{{ tag }}{% endcapture %}
+            <a href="/tag/{{ tag_name }}">{{ tag_name }}</a>
+        {% endfor %}
+        </span>
     </div>
     <div class="post__content"?>
         {{ content }}
     </div>
+
 </div>

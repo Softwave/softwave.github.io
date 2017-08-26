@@ -1,6 +1,7 @@
 ---
 layout: post
 title: EVEN MORE three.js fun
+tags: demo threejs
 ---
 
 {% include three.html %}
