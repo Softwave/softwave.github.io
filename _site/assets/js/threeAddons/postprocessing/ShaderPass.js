@@ -20,7 +20,7 @@ THREE.ShaderPass = function ( shader, textureID ) {
 
 		this.material = new THREE.ShaderMaterial( {
 
-			defines: shader.defines || {},
+			defines: Object.assign( {}, shader.defines ),
 			uniforms: this.uniforms,
 			vertexShader: shader.vertexShader,
 			fragmentShader: shader.fragmentShader
@@ -42,7 +42,7 @@ THREE.ShaderPass.prototype = Object.assign( Object.create( THREE.Pass.prototype 
 
 	constructor: THREE.ShaderPass,
 
-	render: function( renderer, writeBuffer, readBuffer, delta, maskActive ) {
+	render: function( renderer, writeBuffer, readBuffer, deltaTime, maskActive ) {
 
 		if ( this.uniforms[ this.textureID ] ) {
 

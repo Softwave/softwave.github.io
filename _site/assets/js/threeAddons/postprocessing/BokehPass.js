@@ -57,7 +57,7 @@ THREE.BokehPass = function ( scene, camera, params ) {
 	bokehUniforms[ "farClip" ].value = camera.far;
 
 	this.materialBokeh = new THREE.ShaderMaterial( {
-		defines: bokehShader.defines,
+		defines: Object.assign( {}, bokehShader.defines ),
 		uniforms: bokehUniforms,
 		vertexShader: bokehShader.vertexShader,
 		fragmentShader: bokehShader.fragmentShader
@@ -82,7 +82,7 @@ THREE.BokehPass.prototype = Object.assign( Object.create( THREE.Pass.prototype )
 
 	constructor: THREE.BokehPass,
 
-	render: function ( renderer, writeBuffer, readBuffer, delta, maskActive ) {
+	render: function ( renderer, writeBuffer, readBuffer, deltaTime, maskActive ) {
 
 		this.quad2.material = this.materialBokeh;
 
