@@ -121,7 +121,88 @@ href="https://fonts.googleapis.com/css?family=Inconsolata:400,700">
 
 <div id="blog-threejs"></div>
 
+<style>
+body {
+  color: #ffffff;
+}
+a {
+  color: #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+.post__content a {
+  color: #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+a:visited {
+  color: #ffffff;
+}
+.post__title h1 {
+  border-bottom: 3px solid #ffffff;
+}
+</style>
+
 <script> 
+// A little program to celebrate my transition 
+
+var camera, scene, renderer, clock, mesh;
+var stars = [];
+
+function init() {
+	scene = new THREE.Scene();
+	camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+	camera.position.z = 80; 
+	renderer = new THREE.WebGLRenderer({antialias:true});
+	renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.getElementById("blog-threejs").appendChild(renderer.domElement)
+
+    // Add stars
+    for (var i = -1000; i<1000; i+=20) {
+    	var geometry = new THREE.SphereGeometry(0.5, 8, 8);
+    	var material = new THREE.MeshBasicMaterial({color: 0xffffff, wireframe:false});
+    	var sphere = new THREE.Mesh(geometry, material);
+
+    	sphere.position.x = Math.random() * 1000 - 500;
+    	sphere.position.y = Math.random() * 1000 - 500;
+
+    	sphere.position.z = i;
+
+    	sphere.scale.x = sphere.scale.y = 2;
+
+    	scene.add(sphere);
+    	stars.push(sphere);
+    }
+
+    // Add Box
+    var geometry = new THREE.OctahedronGeometry(20, 0);
+    //new THREE.BoxGeometry(10,10,10);
+    var material = new THREE.MeshBasicMaterial({color:0xffffff, wireframe: true});
+    mesh = new THREE.Mesh(geometry, material);
+    scene.add(mesh);
+    mesh.position.y = -10;
+}
+
+function animate() {
+	requestAnimationFrame(animate);
+	renderer.render(scene, camera);
+	animateStars();
+
+	mesh.rotation.x += 0.01;
+	mesh.rotation.y += 0.01; 
+}
+
+function animateStars() {
+	for (var i = 0; i < stars.length; i++) {
+        star = stars[i];
+        star.position.z += i / 10;
+        if (star.position.z > 1000) {
+            star.position.z -= 2000;
+        }
+    }
+}
+
+init();
+animate(); 
 </script>
 
 <p>So… as it turns out, I am a transgender woman. I guess this is kind of a coming out post. I have known this about myself for years and years - I have known I was trans and contextualized it in that manner for about ten years now. Even before then, it’s always been there (even without me quite understanding it as transness). I have been on HRT since September 12th. 2019 and my only regret is that I didn’t start sooner.</p>
