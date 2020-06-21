@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Playing around with Manjaro Linux
-tags: demo linux computing 
+tags: linux computing 
 ---
 
 The past few days I've had an enjoyable time setting up and playing with GNU/Linux, in particular the Manjaro distribution. Some time in the past I used various Linux distros as my primary operating system and today it is possible for me to use all three of the major desktop operating systems on a daily basis. I think this is a near-ideal scenario for somebody who intends to make cross-platform software and games. I have two SSDs installed in my main desktop computer, one with Windows 10 installed and the other (which I am presently using) with [Manjaro](https://manjaro.org/), a distribution based on [Arch](https://www.archlinux.org/). So far I have been extremely impressed. 
