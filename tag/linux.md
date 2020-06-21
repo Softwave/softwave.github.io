@@ -1,6 +1,6 @@
 ---
 layout: tagpage
-title: "Tag: c64"
-tag: c64
+title: "Tag: linux"
+tag: linux
 robots: noindex
 ---
