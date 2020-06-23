@@ -3,5 +3,5 @@ layout: page
 title: About me
 ---
 
-Hi! My name is Jessica Leyba and I’m a developer presently living in Albuquerque, New Mexico.
-I’m interested in Creative Coding, video games, design, and software as art.
+Hello! My name is Jessica Leyba and I am a developer living in Albuquerque, New Mexico. I am interested in creative coding, computer graphics, computer games, design, and software as art. I daydream constantly and want to use the computer to make the worlds I imagine in my head real. I intend to contribute more to open source projects in the future. Really what I want to do is make things. 
+
