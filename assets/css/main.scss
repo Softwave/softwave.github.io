@@ -4,10 +4,15 @@
 @import "reset";
 @import "config";
 
+@font-face {
+	font-family: iaWriterDuoV;
+	src: url(/assets/fonts/iAWriterDuoV.ttf);
+}
+
 body {
 	color: $color-black;
 	background: $color-white;
-	font-family: "Inconsolata", "Helvetica", "Arial", sans-serif;
+	font-family: iaWriterDuoV, "Inconsolata", "Helvetica", "Arial", sans-serif;
 	font-size: 100%;
 	font-weight: 400;
 }
