@@ -9,6 +9,11 @@
 	src: url(/assets/fonts/iAWriterDuoV.ttf);
 }
 
+@font-face {
+	font-family: AssistantExtraBold;
+	src: url(/assets/fonts/Assistant-ExtraBold.ttf);
+}
+
 body {
 	color: $color-black;
 	background: $color-white;
@@ -42,8 +47,8 @@ a {
 ul {
 	list-style: none;
 	li {
-		padding: 5px;
-		padding-left: 10px;
+		padding-block: 5px;
+		//padding-left: 10px;
 		@media screen and (max-width: $br) {
 			padding: 10px 0 10px 0;
 		}
@@ -67,6 +72,12 @@ blockquote {
 	}
 }
 
+@media screen and (orientation: portrait) {
+	.wrapper {
+		max-width: 1000px;
+	}
+}
+
 
 .header {
 	justify-content: space-between;
@@ -79,16 +90,17 @@ blockquote {
 		font-size: 2em;
 		margin-bottom: 0;
 		letter-spacing: .2em;
-		font-family: 'avenir next', avenir, "Helvetica", "Arial", sans-serif;
+		font-family: AssistantExtraBold, 'avenir next', avenir, "Helvetica", "Arial", sans-serif;
 		font-weight: bold;
+		text-align: center;
 	}
 	ul {
 		margin-top: 10px;
 		li {
 			display: inline;
 			padding: 0;
-			padding-left: 5px;
 		}
+		text-align: center;
 	}
 }
 
@@ -105,6 +117,8 @@ h1.site-title a {
 		margin-bottom: 5px;
 	}
 }
+
+
 
 .music {
 	padding-bottom: 30px;
@@ -185,7 +199,7 @@ h1.site-title a {
 		}
 		ul {
 			font-size: 1em;
-			list-style: circle;
+			list-style: square;
 			margin-left: 30px;
 			margin-top: -10px;
 			margin-bottom: 15px;
