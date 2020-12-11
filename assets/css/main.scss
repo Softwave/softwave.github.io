@@ -69,7 +69,6 @@ blockquote {
 
 
 .header {
-	display: flex;
 	justify-content: space-between;
 	align-items: baseline;
 	padding-bottom: 50px;
@@ -161,9 +160,9 @@ h1.site-title a {
 		}
 		h2 {
 			font-size: 1.1em;
-			font-weight: 700;
+			font-weight: 600;
 			margin-top: 25px;
-			margin-bottom: 5px;
+			margin-bottom: 1em;
 		}
 		p {
 			font-size: 1em;
@@ -171,8 +170,8 @@ h1.site-title a {
 			margin-bottom: 15px;
 		}
 		a {
-			padding-bottom: 1px;
-			border-bottom: 1px solid $color-link;
+			padding-bottom: 0px;
+			border-bottom: 0px solid $color-link;
 			&:hover {
 				background-color: $color-grey;
 				text-decoration: none;

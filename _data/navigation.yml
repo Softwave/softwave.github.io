@@ -1,6 +1,9 @@
 - title: about
   url: /me
 
+- title: projects
+  url: /projects
+
 - title: github
   url: https://github.com/Softwave
 
@@ -15,3 +18,4 @@
 
 - title: flickr
   url: https://www.flickr.com/photos/115206255@N07/
+
