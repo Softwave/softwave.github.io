@@ -3,7 +3,7 @@ layout: page
 title: Projects 
 ---
 
-The following is an (incomplete) list of some of my personal projects. More can be found on my [GitHub](https://github.com/Softwave) and my [itch.io.](https://softwave.itch.io/). 
+The following is an (incomplete) list of some of my personal projects. More can be found on my [GitHub](https://github.com/Softwave) and my [itch.io.](https://softwave.itch.io/)
 
 ## Apps and Programs 
 
