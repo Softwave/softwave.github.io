@@ -8,6 +8,7 @@ The following is an (incomplete) list of some of my personal projects. More can 
 ## Apps and Programs 
 
 * [image-glitcher](http://www.s0ftwave.com/image-glitcher/) - Single page application to glitch images; made with React and prototyped in Figma.
+* [Radix](http://www.s0ftwave.com/radix-app/) - Single page application to convert number bases; made with the Aurelia framework and TypeScript. 
 * [SuperShapes 2](https://softwave.itch.io/supershapes-2) - A program for playing with 3d supershapes. Made with the Godot game engine. 
 
 ## Computer Games 
