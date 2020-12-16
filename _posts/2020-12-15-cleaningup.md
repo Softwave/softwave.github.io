@@ -29,7 +29,7 @@ function draw() {
   for (var i = 0; i < 60; i++) {
     translate(20, -24);
     angleMode(DEGREES);
-    rotate(-8 * sin(millis() / 32.0));
+    rotate(-8);
     scale(0.95, 0.95);
     ellipse(0, 0, 400, 400);
   }
