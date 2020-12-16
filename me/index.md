@@ -54,4 +54,4 @@ My name is Jessica Leyba and I'm a computer programmer from New Mexico. I love c
 
 This website serves as my blog and also an archive of my personal projects. Within my blog posts you'll often find a small sketch, basically, a small, quickly-made JavaScript program embedded in the page.
 
-I hope you find the whole thing interesting interesting. :)
+I hope you find the whole thing interesting. :)
