@@ -30,7 +30,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
     
-        <title>EVEN MORE three.js fun</title>
+        <title>More three.js fun</title>
     
 
     <meta name="description" content="I code things.">
@@ -68,19 +68,16 @@ href="https://fonts.googleapis.com/css?family=Inconsolata:400,700">
     	<a href="/">&lt;-- home</a>
     </div>
     <div class="post__title">
-    	<h1>EVEN MORE three.js fun</h1>
+    	<h1>More three.js fun</h1>
     </div>
     <div class="post__date">
-    	<p>August 25, 2017</p>
+    	<p></p>
     </div>
     <div class="post__meta">
     	<span>tags: 
         
             
-            <a href="/tag/demo">demo</a>
-        
-            
-            <a href="/tag/threejs">threejs</a>
+            <a href="/tag/demo threejs">demo threejs</a>
         
         </span>
     </div>
@@ -107,31 +104,11 @@ href="https://fonts.googleapis.com/css?family=Inconsolata:400,700">
 
 <div id="blog-threejs"></div>
 
-<p>Vertex shaders are fun.</p>
-
-<style>
-body {
-  color: #ffffff;
-}
-a {
-  color: #ffffff;
-  border-bottom: 1px solid #ffffff;
-}
-.post__content a {
-  color: #ffffff;
-  border-bottom: 1px solid #ffffff;
-}
-a:visited {
-  color: #ffffff;
-}
-.post__title h1 {
-  border-bottom: 3px solid #ffffff;
-}
-</style>
+<p>Playing with <a href="https://threejs.org/">three.js</a> some more. :)</p>
 
 <script>
 var loader = new THREE.FileLoader();
-      loader.load( '../junk/hyper.json', function ( text ) {
+      loader.load( '../junk/shadTest.json', function ( text ) {
 
         var player = new APP.Player();
         player.load( JSON.parse( text ) );
