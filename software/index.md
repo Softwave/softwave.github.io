@@ -13,3 +13,4 @@ At this page is a selection of small computer programs that I have written that 
 ## Toys/Demos
 
 - [BlazingMandelbrot](BlazingMandelbrot.zip) - [_Win32_] Program that displays a cool, fiery version of the Mandelbrot fractal.
+- [GlowingJulia](GlowingJulia.zip) - [_Win32_] Another fun fractal-y program!
