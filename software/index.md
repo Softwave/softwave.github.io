@@ -3,7 +3,7 @@ layout: page
 title: Software
 ---
 
-At this page is a selection of small computer programs that I have written that can be quickly downloaded and run (or used online) and that don't fit super well being published on a game development site or as only source code on GitHub. Basically, little programs and utilities in binary-form will find their home here.
+At this page is a selection of small computer programs that I have written that can be quickly downloaded and run (or used online) and that don't fit super well being published on a game development site or as only source code on GitHub. Basically, little programs and utilities in binary-form will find their home here. For computer games, check out my [itch.io](https://softwave.itch.io/).
 
 ## Utilities
 
