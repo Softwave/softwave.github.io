@@ -13,7 +13,7 @@ body {
     font-family: "IA Writer Duo V", "Helvetica", "Arial", sans-serif;
     line-height: 1.5;
     padding: 3em 1em;
-    color: #000000;
+    color: #0D0A0B;
     background:#D6D5FE;
 }
 
@@ -24,7 +24,7 @@ h2,h3,h4,h5,h6 {
 h1,
 h2,
 strong {
-  color: #000000;
+  color: #0D0A0B;
 }
 
 code,
@@ -178,9 +178,7 @@ a:hover::after {
   padding: 0;
 }
 
-.date {
-  text-align: justify;
-}
+
 
 .date2 {
   margin: 0;
@@ -194,4 +192,20 @@ h1.nontitle {
 
 ul {
   padding-inline-start: 0px;
+  list-style-type: none;
+}
+
+img {
+  max-width: 600px;
+}
+
+@media (max-width: 480px) {
+  img {
+    max-width: 74%;
+  }
+}
+
+li.date {
+  font-family: "Inconsolata", sans-serif;
+  font-weight: bold;
 }
