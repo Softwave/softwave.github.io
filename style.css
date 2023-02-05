@@ -87,6 +87,11 @@ a:visited {
   padding: 0px 20px 60px 20px;
 }
 
+.page li a {
+  display: inline;
+width: 100%;
+}
+
 .base {
   margin: auto;
 }
@@ -209,3 +214,4 @@ li.date {
   font-family: "Inconsolata", sans-serif;
   font-weight: bold;
 }
+
