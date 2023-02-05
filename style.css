@@ -1,0 +1,197 @@
+
+/* Let's import some fonts */ 
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;800&display=swap');
+@font-face {
+  font-family: 'iA Writer Duo V';
+  src: url('iawriterduov.woff2') format('woff2');
+}
+
+body {
+    margin: 0 auto;
+    max-width: 50em;
+    font-family: "IA Writer Duo V", "Helvetica", "Arial", sans-serif;
+    line-height: 1.5;
+    padding: 3em 1em;
+    color: #000000;
+    background:#D6D5FE;
+}
+
+h2,h3,h4,h5,h6 {
+  font-family: "iA Writer Duo V", sans-serif;
+}
+
+h1,
+h2,
+strong {
+  color: #000000;
+}
+
+code,
+pre {
+  background: #eee;
+}
+
+code {
+  padding: 2px 4px;
+  vertical-align: text-bottom;
+}
+
+pre {
+  padding: 1em;
+}
+
+.header ul li {
+  display: inline;
+  padding: 0;
+}
+
+.title {
+  text-align: center;
+  font-family: 'Assistant', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  font-size: 2.5em;
+  margin: 0;
+}
+
+
+.navbar {
+  text-align: center;
+  margin: 0;
+}
+
+a {
+  font-weight: bold;
+  color: #625FE1;
+  text-decoration: none;
+  font-family: "iA Writer Duo V", sans-serif;
+}
+a:visited {
+  color: #625FE1;
+  text-decoration: none;
+}
+
+.backbtn {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 1em;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+.page {
+  max-width: 600px;
+  margin: auto;
+  padding: 0px 20px 60px 20px;
+}
+
+.base {
+  margin: auto;
+}
+
+
+
+#AboutMe {
+  margin-top: 3rem;
+}
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: #625FE1;
+}
+
+.hover-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: #625FE1;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+a {
+  display: inline-block;
+  position: relative;
+  color: #625FE1;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: #625FE1;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.wrapper {
+  max-width: 85%;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    max-width: 50em;
+  }
+  .date {
+    max-width: 50em;
+  }
+}
+
+.blog ul {
+  list-style: none;
+  margin-top: 0;
+  padding: 0;
+}
+.blog {
+  padding: 2rem 0px 0px 0px;
+  border: 0;
+}
+.blog2 {
+  padding:0;
+}
+.blog2 ul {
+  list-style: none;
+  margin-top: 0;
+  padding: 0;
+}
+
+.date {
+  text-align: justify;
+}
+
+.date2 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+h1.nontitle {
+  margin: 0;
+}
+
+ul {
+  padding-inline-start: 0px;
+}
