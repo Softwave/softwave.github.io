@@ -1,170 +1,230 @@
-var colour="#f0f"; // Farbe des Feenstaubes
-var sparkles=50;   // Anzahl der "Staubflocken"
-
-/*****************************
-*  Tinkerbell Magic Sparkle  *
-* (c) 2005 mf2fm web-design  *
-*  http://www.mf2fm.com/rv   *
-* DON'T EDIT BELOW THIS BOX  *
-* AB HIER NICHTS MEHR ÄNDERN *
-*****************************/
-var x_n=ox=400;
-var y_n=oy=300;
-var swide=800;
-var shigh=600;
-var sleft=sdown=0;
-var tiny=new Array();
-var star=new Array();
-var starv=new Array();
-var starx=new Array();
-var stary=new Array();
-var tinyx=new Array();
-var tinyy=new Array();
-var tinyv=new Array();
-
-window.onload=function() { if (document.getElementById) {
-  var i, rats, rlef, rdow;
-  for (var i=0; i<sparkles; i++) {
-    var rats=createDiv(3, 3);
-    rats.style.visibility="hidden";
-    document.body.appendChild(tiny[i]=rats);
-    starv[i]=0;
-    tinyv[i]=0;
-    var rats=createDiv(5, 5);
-    rats.style.backgroundColor="transparent";
-    rats.style.visibility="hidden";
-    var rlef=createDiv(1, 5);
-    var rdow=createDiv(5, 1);
-    rats.appendChild(rlef);
-    rats.appendChild(rdow);
-    rlef.style.top="2px";
-    rlef.style.left="0px";
-    rdow.style.top="0px";
-    rdow.style.left="2px";
-    document.body.appendChild(star[i]=rats);
-  }
-  set_width();
-  sparkle();
-}}
-
-function sparkle() {
-  var c;
-  if (x_n!=ox || y_n!=oy) {
-    ox=x_n;
-    oy=y_n;
-    for (c=0; c<sparkles; c++) if (!starv[c]) {
-      star[c].style.left=(starx[c]=x_n)+"px";
-      star[c].style.top=(stary[c]=y_n)+"px";
-      star[c].style.clip="rect(0px, 5px, 5px, 0px)";
-      star[c].style.visibility="visible";
-      starv[c]=50;
-      break;
+export function fairyDustCursor(options) {
+    let possibleColors = (options && options.colors) || [
+      "#D61C59",
+      "#E7D84B",
+      "#1B8798",
+    ];
+    let hasWrapperEl = options && options.element;
+    let element = hasWrapperEl || document.body;
+  
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    const cursor = { x: width / 2, y: width / 2 };
+    const lastPos = { x: width / 2, y: width / 2 };
+    const particles = [];
+    const canvImages = [];
+    let canvas, context, animationFrame;
+  
+    const char = "*";
+  
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    );
+  
+    // Re-initialise or destroy the cursor when the prefers-reduced-motion setting changes
+    prefersReducedMotion.onchange = () => {
+      if (prefersReducedMotion.matches) {
+        destroy();
+      } else {
+        init();
+      }
+    };
+  
+    function init() {
+      // Don't show the cursor trail if the user has prefers-reduced-motion enabled
+      if (prefersReducedMotion.matches) {
+        console.log(
+          "This browser has prefers reduced motion turned on, so the cursor did not init"
+        );
+        return false;
+      }
+  
+      canvas = document.createElement("canvas");
+      context = canvas.getContext("2d");
+      canvas.style.top = "0px";
+      canvas.style.left = "0px";
+      canvas.style.pointerEvents = "none";
+  
+      if (hasWrapperEl) {
+        canvas.style.position = "absolute";
+        element.appendChild(canvas);
+        canvas.width = element.clientWidth;
+        canvas.height = element.clientHeight;
+      } else {
+        canvas.style.position = "fixed";
+        element.appendChild(canvas);
+        canvas.width = width;
+        canvas.height = height;
+      }
+  
+      context.font = "21px serif";
+      context.textBaseline = "middle";
+      context.textAlign = "center";
+  
+      possibleColors.forEach((color) => {
+        let measurements = context.measureText(char);
+        let bgCanvas = document.createElement("canvas");
+        let bgContext = bgCanvas.getContext("2d");
+  
+        bgCanvas.width = measurements.width;
+        bgCanvas.height =
+          measurements.actualBoundingBoxAscent +
+          measurements.actualBoundingBoxDescent;
+  
+        bgContext.fillStyle = color;
+        bgContext.textAlign = "center";
+        bgContext.font = "21px serif";
+        bgContext.textBaseline = "middle";
+        bgContext.fillText(
+          char,
+          bgCanvas.width / 2,
+          measurements.actualBoundingBoxAscent
+        );
+  
+        canvImages.push(bgCanvas);
+      });
+  
+      bindEvents();
+      loop();
+    }
+  
+    // Bind events that are needed
+    function bindEvents() {
+      element.addEventListener("mousemove", onMouseMove);
+      element.addEventListener("touchmove", onTouchMove, { passive: true });
+      element.addEventListener("touchstart", onTouchMove, { passive: true });
+      window.addEventListener("resize", onWindowResize);
+    }
+  
+    function onWindowResize(e) {
+      width = window.innerWidth;
+      height = window.innerHeight;
+  
+      if (hasWrapperEl) {
+        canvas.width = element.clientWidth;
+        canvas.height = element.clientHeight;
+      } else {
+        canvas.width = width;
+        canvas.height = height;
+      }
+    }
+  
+    function onTouchMove(e) {
+      if (e.touches.length > 0) {
+        for (let i = 0; i < e.touches.length; i++) {
+          addParticle(
+            e.touches[i].clientX,
+            e.touches[i].clientY,
+            canvImages[Math.floor(Math.random() * canvImages.length)]
+          );
+        }
+      }
+    }
+  
+    function onMouseMove(e) {
+      window.requestAnimationFrame(() => {
+        if (hasWrapperEl) {
+          const boundingRect = element.getBoundingClientRect();
+          cursor.x = e.clientX - boundingRect.left;
+          cursor.y = e.clientY - boundingRect.top;
+        } else {
+          cursor.x = e.clientX;
+          cursor.y = e.clientY;
+        }
+  
+        const distBetweenPoints = Math.hypot(
+          cursor.x - lastPos.x,
+          cursor.y - lastPos.y
+        );
+  
+        if (distBetweenPoints > 1.5) {
+          addParticle(
+            cursor.x,
+            cursor.y,
+            canvImages[Math.floor(Math.random() * possibleColors.length)]
+          );
+  
+          lastPos.x = cursor.x;
+          lastPos.y = cursor.y;
+        }
+      });
+    }
+  
+    function addParticle(x, y, color) {
+      particles.push(new Particle(x, y, color));
+    }
+  
+    function updateParticles() {
+      if (particles.length == 0) {
+        return;
+      }
+  
+      context.clearRect(0, 0, width, height);
+  
+      // Update
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update(context);
+      }
+  
+      // Remove dead particles
+      for (let i = particles.length - 1; i >= 0; i--) {
+        if (particles[i].lifeSpan < 0) {
+          particles.splice(i, 1);
+        }
+      }
+  
+      if (particles.length == 0) {
+        context.clearRect(0, 0, width, height);
+      }
+    }
+  
+    function loop() {
+      updateParticles();
+      animationFrame = requestAnimationFrame(loop);
+    }
+  
+    function destroy() {
+      canvas.remove();
+      cancelAnimationFrame(animationFrame);
+      element.removeEventListener("mousemove", onMouseMove);
+      element.removeEventListener("touchmove", onTouchMove);
+      element.removeEventListener("touchstart", onTouchMove);
+      window.addEventListener("resize", onWindowResize);
+    };
+  
+    function Particle(x, y, canvasItem) {
+      const lifeSpan = Math.floor(Math.random() * 30 + 60);
+      this.initialLifeSpan = lifeSpan; //
+      this.lifeSpan = lifeSpan; //ms
+      this.velocity = {
+        x: (Math.random() < 0.5 ? -1 : 1) * (Math.random() / 2),
+        y: Math.random() * 0.7 + 0.9,
+      };
+      this.position = { x: x, y: y };
+      this.canv = canvasItem;
+  
+      this.update = function (context) {
+        this.position.x += this.velocity.x;
+        this.position.y += this.velocity.y;
+        this.lifeSpan--;
+  
+        this.velocity.y += 0.02;
+  
+        const scale = Math.max(this.lifeSpan / this.initialLifeSpan, 0);
+  
+        context.drawImage(
+          this.canv,
+          this.position.x - (this.canv.width / 2) * scale,
+          this.position.y - this.canv.height / 2,
+          this.canv.width * scale,
+          this.canv.height * scale
+        );
+      };
+    }
+  
+    init();
+  
+    return {
+      destroy: destroy
     }
   }
-  for (c=0; c<sparkles; c++) {
-    if (starv[c]) update_star(c);
-    if (tinyv[c]) update_tiny(c);
-  }
-  setTimeout("sparkle()", 40);
-}
-
-function update_star(i) {
-  if (--starv[i]==25) star[i].style.clip="rect(1px, 4px, 4px, 1px)";
-  if (starv[i]) {
-    stary[i]+=1+Math.random()*3;
-    if (stary[i]<shigh+sdown) {
-      star[i].style.top=stary[i]+"px";
-      starx[i]+=(i%5-2)/5;
-      star[i].style.left=starx[i]+"px";
-    }
-    else {
-      star[i].style.visibility="hidden";
-      starv[i]=0;
-      return;
-    }
-  }
-  else {
-    tinyv[i]=50;
-    tiny[i].style.top=(tinyy[i]=stary[i])+"px";
-    tiny[i].style.left=(tinyx[i]=starx[i])+"px";
-    tiny[i].style.width="2px";
-    tiny[i].style.height="2px";
-    star[i].style.visibility="hidden";
-    tiny[i].style.visibility="visible"
-  }
-}
-
-function update_tiny(i) {
-  if (--tinyv[i]==25) {
-    tiny[i].style.width="1px";
-    tiny[i].style.height="1px";
-  }
-  if (tinyv[i]) {
-    tinyy[i]+=1+Math.random()*3;
-    if (tinyy[i]<shigh+sdown) {
-      tiny[i].style.top=tinyy[i]+"px";
-      tinyx[i]+=(i%5-2)/5;
-      tiny[i].style.left=tinyx[i]+"px";
-    }
-    else {
-      tiny[i].style.visibility="hidden";
-      tinyv[i]=0;
-      return;
-    }
-  }
-  else tiny[i].style.visibility="hidden";
-}
-
-
-function mouse(e) {
-  set_scroll();
-  y_n=(e)?e.pageY:event.y+sdown;
-  x_n=(e)?e.pageX:event.x+sleft;
-}
-
-function set_scroll() {
-  if (typeof(self.pageYOffset)=="number") {
-    sdown=self.pageYOffset;
-    sleft=self.pageXOffset;
-  }
-  else if (document.body.scrollTop || document.body.scrollLeft) {
-    sdown=document.body.scrollTop;
-    sleft=document.body.scrollLeft;
-  }
-  else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
-    sleft=document.documentElement.scrollLeft;
-	sdown=document.documentElement.scrollTop;
-  }
-  else {
-    sdown=0;
-    sleft=0;
-  }
-}
-
-window.onresize=set_width;
-function set_width() {
-  if (typeof(self.innerWidth)=="number") {
-    swide=self.innerWidth;
-    shigh=self.innerHeight;
-  }
-  else if (document.documentElement && document.documentElement.clientWidth) {
-    swide=document.documentElement.clientWidth;
-    shigh=document.documentElement.clientHeight;
-  }
-  else if (document.body.clientWidth) {
-    swide=document.body.clientWidth;
-    shigh=document.body.clientHeight;
-  }
-}
-
-function createDiv(height, width) {
-  var div=document.createElement("div");
-  div.style.position="absolute";
-  div.style.height=height+"px";
-  div.style.width=width+"px";
-  div.style.overflow="hidden";
-  div.style.backgroundColor=colour;
-  return (div);
-}
-
-document.onmousemove=mouse;

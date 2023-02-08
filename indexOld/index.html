@@ -5,7 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Homepage</title>
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <script src="sparkle.js"></script>
+    <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
+    <script type="module">
+      import { fairyDustCursor } from "https://unpkg.com/cursor-effects@latest/dist/esm.js";
+
+      new cursoreffects.fairyDustCursor({
+        colors: ["#ff00aa", "#4a4edd", "#FF85BE"],
+      });
+    </script>
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
