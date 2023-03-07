@@ -221,3 +221,14 @@ li.date {
   height: 2.5em;
 }
 
+.badgeContainer {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+.badge {
+    display: flex;
+    padding: 1em;
+    margin: 0 0.1em; 
+}
