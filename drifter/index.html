@@ -7,13 +7,22 @@
     <link rel="stylesheet" href="/style.css" />
     <script src="https://unpkg.com/cursor-effects@latest/dist/browser.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.8/dist/medium-zoom.min.js"></script>
     <script type="module">
       import { fairyDustCursor } from "https://unpkg.com/cursor-effects@latest/dist/esm.js";
 
       new cursoreffects.fairyDustCursor({
         colors: ["#ff00aa", "#4a4edd", "#FF85BE"],
       });
+
+      mediumZoom('.zoom-image', {
+  margin: 24,
+  background: '#000000',
+  scrollOffset: 40
+})
+
     </script>
+    
   </head>
   <body>
     <div class="page">
