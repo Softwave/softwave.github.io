@@ -81,12 +81,11 @@ a:visited {
   vertical-align: baseline;
 }
 
-
 .page {
+  max-width: 600px;
   margin: auto;
   padding: 0px 20px 60px 20px;
 }
-
 
 .page li a {
   display: inline;
@@ -219,16 +218,4 @@ li.date {
 .logo {
   text-align: center;
   height: 2.5em;
-}
-
-.badgeContainer {
-    text-align: center;
-    display: flex;
-    justify-content: center;
-}
-
-.badge {
-    display: flex;
-    padding: 1em;
-    margin: 0 0.1em; 
 }
