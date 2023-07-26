@@ -239,6 +239,10 @@ li.date {
   background-color: #8381EF; /* Change this to your desired hover background color */
 }
 
+.flat-button:visited {
+  color: #ffffff;
+}
+
 .swlogo {
   text-align: center;
 }
