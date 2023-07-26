@@ -12,7 +12,10 @@ body {
     max-width: 50em;
     font-family: "IA Writer Duo V", "Helvetica", "Arial", sans-serif;
     line-height: 1.5;
-    padding: 3em 1em;
+    padding-top: 0em;
+    padding-bottom: 3em;
+    padding-left: 1em;
+    padding-right: 1em;
     color: #0D0A0B;
     background:#D6D5FE;
 }
@@ -238,4 +241,13 @@ li.date {
 
 .swlogo {
   text-align: center;
+}
+
+#renderCanvas {
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  outline-color: #8381EF;
+  outline-width: 8px;
+  outline-style: solid;
 }
