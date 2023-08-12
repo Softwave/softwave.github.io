@@ -247,7 +247,8 @@ li.date {
 }
 
 img {
-  max-width: 600px;
+  max-width: 75%;
+  margin: auto;
 }
 
 .swlogo {
