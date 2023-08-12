@@ -244,6 +244,8 @@ li.date {
 .border-image {
   border-radius: 8px;
   border: 4px solid #8381EF;
+  text-align: center;
+  display: block;
 }
 
 img {
