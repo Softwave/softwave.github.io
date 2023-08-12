@@ -18,7 +18,8 @@
   </head>
   <body>
     <div id="myModal" class="modal">
-        <span class="close">&times;</span>
+        <span title="Close image modal" class="close">&times;</span>
+        <span title="Open image in new window" class="open-new">◉</span>
         <img class="modal-content" id="img01">
         <div id="caption"></div>
       </div>
@@ -64,6 +65,13 @@ var span = document.getElementsByClassName("close")[0];
 
 span.onclick = function() { 
   modal.style.display = "none";
+}
+
+var openy = document.getElementsByClassName("open-new")[0];
+
+openy.onclick = function() {
+  // Open image in new window
+  window.open(modalImg.src, '_blank');
 }
     </script>
   </body>

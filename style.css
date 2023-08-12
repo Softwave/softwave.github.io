@@ -87,7 +87,7 @@ a:visited {
 .page {
   max-width: 600px;
   margin: auto;
-  padding: 0px 20px 60px 20px;
+  padding: 0px 20px 0px 20px;
 }
 
 .page li a {
@@ -283,6 +283,22 @@ li.date {
   cursor: pointer;
 }
 
+.open-new {
+  position: absolute;
+  top: 15px;
+  left: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.open-new:hover,
+.open-new:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 img {
   max-width: 100%;
   margin: auto;
@@ -299,4 +315,11 @@ img {
   outline-color: #8381EF;
   outline-width: 8px;
   outline-style: solid;
+}
+
+/* Basic Tooltip */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
 }
