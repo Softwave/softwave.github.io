@@ -17,6 +17,11 @@
     <script src="https://cdn.babylonjs.com/babylon.js"></script>
   </head>
   <body>
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+      </div>
     <div class="page">
     <header>
       <!-- <h1 class="title">Drifter</h1> -->
@@ -27,6 +32,7 @@
       </div>
     </header>
     <main>
+      
       <h1>Drifter</h1>
 <p>Drifter is an experimental exploration game I made with Unity in May of 2015. It’s not finished and I’ve wanted to either update or (more likely) completely re-do it for a long time. That said, I’m proud of the aesthetic and feeling of the game, and also that it was reviewed (quite fairly I'd say) by IndieImpressions/RockLeeSmile, a youtuber I do enjoy.</p>
 <p><a class="flat-button" href="https://softwave.itch.io/drifter" target="_blank">Download on itch.io</a></p>
@@ -37,6 +43,28 @@
       <h4>(C) SOFTWAVE 2023</h4>
     </main>
     </div>
+    <script>
+      // script.js
+var modal = document.getElementById("myModal");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+
+var images = document.getElementsByClassName('border-image');
+for (var i = 0; i < images.length; i++) {
+  var img = images[i];
+  img.onclick = function(evt) {
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+  }
+}
+
+var span = document.getElementsByClassName("close")[0];
+
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+    </script>
   </body>
 </html>
 

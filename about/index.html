@@ -17,6 +17,11 @@
     <script src="https://cdn.babylonjs.com/babylon.js"></script>
   </head>
   <body>
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+      </div>
     <div class="page">
     <header>
       <!-- <h1 class="title">ABOUT</h1> -->
@@ -27,6 +32,7 @@
       </div>
     </header>
     <main>
+      
       <p>Hi, I'm Jessica and I'm a Jesus and (Anglican) theology enthusiast, an amateur computer programmer and game developer, an appreciator of bats 🦇, and also someone who has made it a point of pride to be always steadfastly archaic. In the world of technology I have a particular passion for graphics, design, the history of computing, and the notion of code as art.</p>
 <p>In my spare time I write bad love stories and cry about them.</p>
 <p>I use she/her pronouns and I support you.🏳️‍🌈🏳️‍⚧️</p>
@@ -35,6 +41,28 @@
       <h4>(C) SOFTWAVE 2023</h4>
     </main>
     </div>
+    <script>
+      // script.js
+var modal = document.getElementById("myModal");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+
+var images = document.getElementsByClassName('border-image');
+for (var i = 0; i < images.length; i++) {
+  var img = images[i];
+  img.onclick = function(evt) {
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+  }
+}
+
+var span = document.getElementsByClassName("close")[0];
+
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+    </script>
   </body>
 </html>
 
