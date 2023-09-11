@@ -10,6 +10,7 @@ module.exports = function(eleventyConfig) {
       "woff2",
       "png",
       "js",
-      "css" // css is not yet a recognized template extension in Eleventy
+      "css", // css is not yet a recognized template extension in Eleventy
+      "pdf"
     ]);
   };
