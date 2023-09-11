@@ -230,6 +230,7 @@ li.date {
   border: 2px solid #8381EF; /* Border color */
   border-radius: 3px; /* Border radius to make it round */
   text-decoration: none; /* Remove underline from the text */
+  margin-top: 5px;
 }
 
 /* Optional hover effect */
