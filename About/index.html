@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About</title>
+    <link rel="stylesheet" href="/style.css" />
+    <!-- Cool libraries to play with! -->
+    <!-- <script src="https://cdn.babylonjs.com/babylon.js"></script> -->
+  </head>
+  <body>
+    <div id="myModal" class="modal">
+        <span title="Close image modal" class="close">&times;</span>
+        <span title="Open image in new window" class="open-new">◉</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+      </div>
+    <div class="page">
+    <header>
+      <!-- <h1 class="title">About</h1> -->
+      <div class="backbtn">
+        < <a class="about__back" href="/pages">pages</a>
+        << <a class="about__back" href="/">home</a>
+      </div>
+    </header>
+    <main>
+      
+      <p>More thorough information about me, and links to my various presences online.</p>
+<h2>Links</h2>
+<ul>
+<li><strong>GitHub:</strong> <a href="https://github.com/Softwave">Softwave</a></li>
+<li><strong>YouTube:</strong> <a href="https://www.youtube.com/channel/UCkfgPY7WMSN954j3nR5COwQ">Softwave</a></li>
+<li><strong>Buy Me A Coffee:</strong> <a href="https://www.buymeacoffee.com/jleyba92k">Or a tea, rather</a></li>
+<li><strong>Substack:</strong> <a href="https://serene1662.substack.com/">Where I talk about Jesus things 🙏🏽</a></li>
+<li><strong>Pronouns:</strong> <a href="https://pronouns.cc/@Serene1662">pronouns.cc/@Serene1662</a></li>
+<li><strong>DeviantArt:</strong> <a href="https://www.deviantart.com/spacenoodle92">SpaceNoodle92</a></li>
+<li><strong>Flickr:</strong> <a href="https://www.flickr.com/photos/115206255@N07/">My Flickr</a></li>
+</ul>
+<h2>Software Setup</h2>
+<p>This is something people ask me about relatively frequently, so I thought I'd put all that information here.</p>
+<ul>
+<li><strong>Operating System:</strong> <a href="https://fedoraproject.org/">Fedora Linux</a> and <a href="https://www.microsoft.com/en-us/windows/windows-11?r=1">Windows 11</a></li>
+<li><strong>Desktop Environment:</strong> <a href="https://github.com/NsCDE/NsCDE">NsCDE</a></li>
+<li><strong>Shell + Terminal:</strong> <a href="https://ohmyz.sh/">zsh</a>, <a href="https://docs.xfce.org/apps/terminal/start">xfce4-terminal</a>, <a href="https://github.com/Swordfish90/cool-retro-term">cool-retro-term</a></li>
+<li><strong>Text Editors:</strong> <a href="https://www.gnu.org/software/emacs/">Emacs</a> as a general-purpose code editor, <a href="https://www.qt.io/product/development-tools">Qt Creator</a> as a C/C++ IDE, <a href="https://micro-editor.github.io/">micro</a> as a terminal editor, <a href="https://github.com/codebrainz/mousepad">Mousepad</a> for a fast GUI editor.</li>
+<li><strong>File Manager:</strong> <a href="https://en.wikipedia.org/wiki/PCMan_File_Manager">PCManFM</a></li>
+<li><strong>Web Browser:</strong> <a href="https://thorium.rocks/">Thorium</a></li>
+<li><strong>Editor/Terminal Font:</strong> <a href="https://int10h.org/oldschool-pc-fonts/fontlist/">IBM BIOS-2y from The Ultimate Oldschool PC Font Pack</a></li>
+<li><strong>Note Taking and Organization:</strong> <a href="https://obsidian.md/">Obsidian</a></li>
+<li><strong>Game Engines:</strong> <a href="https://godotengine.org/">Godot</a>, <a href="https://unity.com/">Unity</a></li>
+<li><strong>3D Tools:</strong> <a href="https://www.blender.org/">Blender</a>, <a href="https://goxel.xyz/">Goxel</a></li>
+<li><strong>Raster Graphics:</strong> <a href="https://affinity.serif.com/en-us/photo/">Affinity Photo (On Windows)</a>, <a href="https://www.gimp.org/">GIMP</a></li>
+<li><strong>Vector Graphics:</strong> <a href="https://affinity.serif.com/en-us/designer/">Affinity Designer (On Windows)</a>, <a href="https://boxy-svg.com/">Boxy SVG</a>, <a href="https://inkscape.org/">Inkscape</a></li>
+<li><strong>Pixel Art/Sprites:</strong> <a href="https://www.aseprite.org/">Aseprite</a>, <a href="http://grafx2.chez.com/">GrafX2</a>, <a href="https://graphicsgale.com/us/">GraphicsGale (On Windows)</a></li>
+<li><strong>Digital Painting:</strong> <a href="https://krita.org/en/">Krita</a>, <a href="https://www.systemax.jp/en/sai/">PaintTool SAI (On Windows)</a></li>
+</ul>
+<h2>Hardware</h2>
+<p>My computer is the first desktop I've ever built.</p>
+<ul>
+<li><strong>Processor:</strong> Intel Core i5-12400F @ 4.4GHz (6 cores, 12 threads)</li>
+<li><strong>RAM:</strong> 32GB Corsair</li>
+<li><strong>GPU:</strong> RTX 3060 w. 12GB vRAM</li>
+<li><strong>Case:</strong> <a href="https://www.fractal-design.com/products/cases/focus/focus-2/white-tg-clear-tint/">Fractal Design Focus 2 (White)</a></li>
+<li><strong>Storage:</strong> 1TB M.2, 1TB SATA</li>
+<li><strong>Keyboard:</strong> <a href="https://www.keychron.com/products/keychron-k6-wireless-mechanical-keyboard">Keychron K6</a> with <a href="https://www.gloriousgaming.com/products/glorious-panda-mechanical-switches?variant=37691905933487">Glorious Panda switches</a> and KBDFans SA profile Violet PBT keycaps</li>
+</ul>
+
+      <h4>(C) SOFTWAVE 2024</h4>
+    </main>
+    </div>
+    <script>
+      // script.js
+var modal = document.getElementById("myModal");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+
+var images = document.getElementsByClassName('border-image');
+for (var i = 0; i < images.length; i++) {
+  var img = images[i];
+  img.onclick = function(evt) {
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+  }
+}
+
+var span = document.getElementsByClassName("close")[0];
+
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+
+var openy = document.getElementsByClassName("open-new")[0];
+
+openy.onclick = function() {
+  // Open image in new window
+  window.open(modalImg.src, '_blank');
+}
+    </script>
+  </body>
+</html>
+
