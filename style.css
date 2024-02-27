@@ -224,17 +224,17 @@ li.date {
 .flat-button {
   display: inline-block;
   padding: 5px 10px;
-  background-color: #ABA9FA; /* Change this to your desired background color */
+  background-color: #c2cae8; /* Change this to your desired background color */
   color: #fff; /* Text color */
-  border: 2px solid #8381EF; /* Border color */
-  border-radius: 3px; /* Border radius to make it round */
+  border: 0px;/*2px solid #c2cae8;  Border color */
+  border-radius: 0px; /* Border radius to make it round */
   text-decoration: none; /* Remove underline from the text */
   margin-top: 5px;
 }
 
 /* Optional hover effect */
 .flat-button:hover {
-  background-color: #8381EF; /* Change this to your desired hover background color */
+  background-color: #373d52; /* Change this to your desired hover background color */
 }
 
 .flat-button:visited {
@@ -242,11 +242,12 @@ li.date {
 }
 
 .border-image {
-  border-radius: 0px;
-  border: 5px solid #8381EF;
+  border-radius: 0%;
+  border: 3px solid #254e70;
   text-align: center;
   display: block;
   cursor: pointer;
+  max-width: 50%;
 }
 
 .modal {
