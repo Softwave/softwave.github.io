@@ -324,3 +324,9 @@ img {
   display: inline-block;
   border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
 }
+
+
+#pageCanvas {
+  width: 0;
+  height: 0;
+}
