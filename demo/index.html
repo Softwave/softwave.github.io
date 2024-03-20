@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="/style.css" />
     <!-- Cool libraries to play with! -->
     <!-- <script src="https://cdn.babylonjs.com/babylon.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   </head>
   <body>
-    <canvas id="pageCanvas"></canvas>
+    <!-- <canvas id="pageCanvas"></canvas> -->
     <div id="myModal" class="modal">
         <span title="Close image modal" class="close">&times;</span>
         <span title="Open image in new window" class="open-new">◉</span>
@@ -45,7 +47,6 @@
 		z-index: -1;
 	}
 </style>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
 <script>
 let particles = [];
 class Particle {
@@ -84,6 +85,16 @@ class Particle {
       let dis = dist(this.x,this.y,element.x,element.y);
       if(dis<85) {
         //stroke('rgba(255,255,255,0.04)');
+        stroke('#c2cae8');
+        line(this.x,this.y,element.x,element.y);
+      }
+    });
+  }
+
+  drawLines(particles) {
+    particles.forEach(element =>{
+      let dis = dist(this.x,this.y,element.x,element.y);
+      if(dis<85) {
         stroke('#c2cae8');
         line(this.x,this.y,element.x,element.y);
       }

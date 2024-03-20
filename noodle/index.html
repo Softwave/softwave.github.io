@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Programs</title>
+    <title>Noodle</title>
     <link rel="stylesheet" href="/style.css" />
     <!-- Cool libraries to play with! -->
     <!-- <script src="https://cdn.babylonjs.com/babylon.js"></script> -->
@@ -11,7 +11,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
   </head>
   <body>
-    <!-- <canvas id="pageCanvas"></canvas> -->
+    <canvas id="pageCanvas"></canvas>
     <div id="myModal" class="modal">
         <span title="Close image modal" class="close">&times;</span>
         <span title="Open image in new window" class="open-new">◉</span>
@@ -20,7 +20,7 @@
       </div>
     <div class="page">
     <header>
-      <!-- <h1 class="title">Programs</h1> -->
+      <!-- <h1 class="title">Noodle</h1> -->
       <div class="backbtn">
         << <a class="about__back" href="/">home</a>
         < <a class="about__back" href="/pages">pages</a>
@@ -28,15 +28,29 @@
     </header>
     <main>
       
-      <h2>Programs</h2>
-<p>This page is a repository of various computer programs or other software I've created that isn't necessarily somewhere else. Much of this is available on my <a href="https://drive.google.com/drive/folders/1LcpJmHBHaP62GYaOqpmqHD4Yd-egVIFb?usp=drive_link">Google Drive</a>.</p>
-<h2>MISC</h2>
-<ul>
-<li><strong>Cranmer:</strong> Anglican Discord bot for retrieving the 39 Articles. <a href="https://github.com/Softwave/Cranmer">[GitHub]</a></li>
-<li><strong>fib.c:</strong> Calculates the nth fibonacci number quickly and to an arbitrary level of precision using <a href="https://gmplib.org/">GMP</a>. <a href="https://drive.google.com/drive/folders/1uK8MvlcJhOw5X9mDKA6e2SLcpWJ_NCLP">[LINK]</a> <a href="https://www.youtube.com/watch?v=MbIiAr5dt24">[YouTube]</a></li>
-<li><strong>NBody:</strong> CUDA particle system demo. Old.  <a href="https://drive.google.com/file/d/19FvhL4qVsdOkje3qaNA1w60DPgu5OjlS/view?usp=drive_link">[LINK]</a> <a href="https://www.youtube.com/watch?v=g2o3xo3V-mQ">[YouTube]</a></li>
-</ul>
+      <h2>Noodle</h2>
+<p>This is a test post.</p>
+<div id="resbtn" class="flat-button" href="#" target="_blank">Download My Resume 📄</div>
+<style>
+    #blog-threejs canvas {
+      /* force the canvas to fill out the entire area */
+      width: 100%!important; height: 100%!important; 
 
+      /* force the z-pos of the canvas to be on-top */
+      z-index: -1; 
+    }
+    canvas {
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: -1;
+	}
+</style>
+<script>
+$("#resbtn").on("click" function() {
+    alert("Noodle!!");'
+});
+</script>
       <h4>(C) SOFTWAVE 2024</h4>
     </main>
     </div>
