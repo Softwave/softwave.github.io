@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ</title>
+    <link rel="stylesheet" href="/style.css" />
+    <!-- Cool libraries to play with! -->
+    <!-- <script src="https://cdn.babylonjs.com/babylon.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <!-- <canvas id="pageCanvas"></canvas> -->
+    <div id="myModal" class="modal">
+        <span title="Close image modal" class="close">&times;</span>
+        <span title="Open image in new window" class="open-new">◉</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+      </div>
+    <div class="page">
+    <header>
+      <!-- <h1 class="title">FAQ</h1> -->
+      <div class="backbtn">
+        << <a class="about__back" href="/">home</a>
+        < <a class="about__back" href="/pages">pages</a>
+      </div>
+    </header>
+    <main>
+      
+      <h2>FAQ</h2>
+<p><strong>Last Updated: 2025-02-15</strong></p>
+<p>Some responses to questions I am often asked.</p>
+<h2>What are your system specs?</h2>
+<p>I run a dual-boot of Fedora Linux and Windows 11 on a mid-range-ish desktop computer I've built that I call &quot;Discovery&quot;. Frequently people think I must have some monstrously powerful computer, in reference to a few videos (link to <a href="https://www.youtube.com/watch?v=MbIiAr5dt24">1</a>, &amp; <a href="https://www.youtube.com/watch?v=cmshJmQ6o90">2</a>) I've done where I've pointed out the speed of computers, but it really isn't so. Computers, just, in a very general kind of way, are very fast. My computer suits my needs, presently, and I'm happy with it.</p>
+<ul>
+<li><strong>Name:</strong> Discovery</li>
+<li><strong>Processor:</strong> Intel Core i5-12400F @ 4.4GHz (6 cores, 12 threads)</li>
+<li><strong>RAM:</strong> 32GB Corsair</li>
+<li><strong>GPU:</strong> RTX 3060 w. 12GB vRAM</li>
+<li><strong>Case:</strong> <a href="https://www.fractal-design.com/products/cases/focus/focus-2/white-tg-clear-tint/">Fractal Design Focus 2 (White)</a></li>
+<li><strong>Storage:</strong> 1TB M.2, 1TB SATA</li>
+</ul>
+<h2>What is that terminal you're using?</h2>
+<p>In some of my videos I've used <a href="https://github.com/Swordfish90/cool-retro-term">cool-retro-term</a>, a terminal emulator that emulates a CRT television. It might be silly, but I find it fun and reasonably aesthetically pleasing. Otherwise, I use xfce4-terminal, that comes with the XFCE desktop environment. On Windows, I simply use the default Windows terminal, sometimes with the CRT shader setting applied.</p>
+<h2>What is that font you're using?</h2>
+<p>For my terminal and editor(s), I usually use any of a number of fonts from <a href="https://int10h.org/oldschool-pc-fonts/fontlist/">The Ultimate Oldschool PC Font Pack</a>. I particularly like IBM BIOS-2y.</p>
+<h2>How does your desktop look like that?/What desktop environment do you use?</h2>
+<p>I very much enjoy using <a href="https://github.com/NsCDE/NsCDE">NsCDE</a>. It's a modern version of the old <a href="https://en.wikipedia.org/wiki/Common_Desktop_Environment">CDE</a> desktop from the 90s, and I love it. I love to have a look that brings to mind an old Sun workstation, and NsCDE does that splendidly.</p>
+<h2>What keyboard do you use?</h2>
+<p>I use a <a href="https://www.keychron.com/products/keychron-k6-wireless-mechanical-keyboard">Keychron K6</a> with <a href="https://www.gloriousgaming.com/products/glorious-panda-mechanical-switches">Glorious Panda switches</a> and KBDFans SA profile Violet PBT keycaps. I like it, but it's a bit loud for my tastes. My next keyboard will be quieter.</p>
+<h2>What is the deal with the fibonacci program?/Can I have it?</h2>
+<p>It's a little program I wrote in C. It calculates the nth fibonacci number quickly and to an arbitrary level of precision using <a href="https://gmplib.org/">GMP</a>.</p>
+<p>You can download an updated version of it (with additions from others) <a href="https://drive.google.com/file/d/19FvhL4qVsdOkje3qaNA1w60DPgu5OjlS/view?usp=drive_link">here</a>. There is also an MS-DOS port, there. The original gist is <a href="https://gist.github.com/Softwave/f61091aed8c8d8249014b5056447a698">here</a>.</p>
+
+      <h4>(C) SOFTWAVE 2025</h4>
+    </main>
+    </div>
+    <script>
+      // script.js
+var modal = document.getElementById("myModal");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+
+var images = document.getElementsByClassName('border-image');
+for (var i = 0; i < images.length; i++) {
+  var img = images[i];
+  img.onclick = function(evt) {
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+  }
+}
+
+var span = document.getElementsByClassName("close")[0];
+
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+
+var openy = document.getElementsByClassName("open-new")[0];
+
+openy.onclick = function() {
+  // Open image in new window
+  window.open(modalImg.src, '_blank');
+}
+    </script>
+  </body>
+</html>
+
