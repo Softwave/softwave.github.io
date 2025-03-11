@@ -61,11 +61,16 @@ pre {
 
 .navbar {
   text-align: center;
-  margin: 0;
+  margin-left: -10%;
+	width: 120%;
 }
 
 .navbar a {
-  font-size: 1.2em;
+  font-size: 1.2rem;
+}
+
+.navbar li {
+	text-align: center;
 }
 
 a {
