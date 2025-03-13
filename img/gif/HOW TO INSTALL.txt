@@ -1,0 +1,11 @@
+How to install all of these cursors to your computer:
+
+1. Select all cursors and copy them
+2. Go to Local Disk -> Windows -> Cursors, and then paste the cursors in the Cursor folder.
+3. Go to your mouse settings and change each cursor to the corrosponding cursor.
+4. Save the theme so you can go back and forth between different cursor themes at will.
+5. You are done! Have fun!!!
+
+Cursors made by Kiunlo
+https://kiunlo.neocities.org/
+https://kiunlo.tumblr.com/

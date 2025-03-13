@@ -1,0 +1,676 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+
+
+body {
+    margin: auto;
+    font-family: "EB Garamond", serif;
+    line-height: 1.5;
+    padding-top: 0em;
+    padding-bottom: 3em;
+    padding-left: 1em;
+    padding-right: 1em;
+    color: #000;
+    background: #f2e8d5; /* Slightly warmer, parchment-like background */
+    font-weight: 400;
+    font-size: 1.1em; /* Slightly smaller base font size */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+}
+
+p strong {
+  font-weight: 500;
+  color: #8b0000;
+}
+
+em {
+  color: #000000;
+}
+
+em a {
+  color: #aa0000;
+}
+em a:visited {
+  color: #aa0000;
+}
+em a:hover {
+  color: #5a4a42;
+}
+
+.red {
+  color: #8b0000;
+  display: inline;
+}
+
+.red:visited {
+  color: #8b0000;
+  display: inline;
+}
+
+.big {
+  display: inline-block;
+  font-size: 1.2em;
+}
+
+h2,h3,h4,h5,h6 {
+  font-family: "EB Garamond", serif;
+  font-weight: 500;
+}
+
+h1,
+strong {
+  color: #aa0000;
+  font-weight: 400;
+}
+
+h2 {
+    font-weight: 400;
+}
+
+h2 em {
+  color: #aa0000;
+}
+
+.page h2 {
+  color: #aa0000;
+}
+
+.page h2::before {
+  content: "❧ "; /* Decorative fleuron */
+  color: #8b0000;
+}
+
+h3 {
+    color: #8b0000;
+    font-weight: 400;
+}
+h3::before {
+  /*content: "§ ";*/
+  color: #8b0000;
+}
+h4 {
+  color: #8b0000;
+  font-weight: 400;
+  font-size: 1.17em;
+  margin: 1em 0;
+}
+h4 a {
+  color: #8b0000;
+}
+h4 a:visited {
+  color: #8b0000;
+}
+p::before {
+  /*content: "¶ ";*/
+}
+
+
+code,
+pre {
+  background: #eee;
+}
+
+code {
+  padding: 2px 4px;
+  vertical-align: text-bottom;
+}
+
+pre {
+  padding: 1em;
+}
+
+.header ul li {
+  display: inline;
+  padding: 0;
+}
+
+header {
+  text-align: center;
+}
+
+.toptitle {
+  text-align: center;
+  font-family: "EB Garamond", sans-serif;
+  font-weight: 400;
+  font-size: 1.75em;
+  line-height: 1em;
+  margin-top: 0.5em;
+  color: #000000;
+
+}
+.title {
+  text-align: center;
+  font-family: "EB Garamond", sans-serif;
+  font-weight: 400;
+  font-size: 2.75em;
+  line-height: 1em;
+    margin-bottom: 0.5em;
+  color: #aa0000;
+  margin-top: 0.5em;
+  letter-spacing: 0.05em;
+}
+.subtitle {
+    text-align: center;
+    font-size: 1.1em;
+    font-style: italic;
+    margin-bottom: 0.5em;
+    margin-top: -0.5em;
+    font-weight: 400;
+    color: #5a4a42;
+}
+.little {
+    margin: -1em;
+    padding: 0px;
+    display: inline-block;
+    font-size: 0.9em;
+    color: #000000;
+}
+
+.navbar {
+  text-align: center;
+  margin: 0;
+  margin-inline: 0.5em;
+  
+}
+
+.navbar li {
+  display: inline; /* Display inline for a horizontal nav */
+  margin-right: 20px; /* Adjust spacing between items */
+}
+
+
+
+
+
+a {
+  font-weight: 500;
+  text-decoration: none;
+  font-family: "EB Garamond", sans-serif;
+  color: #6a5a52;
+  display: inline;
+
+
+}
+a:visited {
+  color: #6a5a52;
+}
+a:hover {
+  color: #8b0000;
+}
+
+.page {
+  max-width: 700px; /* Narrower content area */
+  border: 1px solid #d3c7b1;
+  padding: 0 2em;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  background-color: #f9f5ed;  /* Slightly lighter than the body background */
+  margin-top: 2em;
+}
+
+.page li a {
+  display: inline;
+  width: 100%;
+  font-weight: 500;
+}
+
+.navbar a {
+  text-decoration: none; 
+  color: #5a4a42; 
+  font-size: 20px; 
+  letter-spacing: 0.5px; 
+  text-transform: none; 
+  font-weight: 400;
+  position: relative;
+  display: inline-block;
+  font-style:normal;
+}
+
+.navbar a::before {
+  font-style: normal;
+  content: "";
+  color: #aa0000;
+}
+.navbar a::after {
+  content: ''; /* Empty content for the underline */
+  position: absolute;
+  width: 0;
+  height: 2px; /* Thickness of the underline */
+  bottom: -3px; /* Distance of the underline from the text */
+  left: 0em;
+  background-color: #aa0000; /* Color of the underline */
+  visibility: hidden; /* Hide initially */
+  transition: all 0.2s ease-in-out; /* Smooth transition for the effect */
+}
+.navbar a:hover::after {
+  visibility: visible; /* Make the underline visible on hover */
+  width: 100%; /* Extend the underline across the full width of the text */
+}
+
+.navbar a:hover {
+  color: #aa0000; /* Optional: Change color on hover */
+}
+
+.backbtn {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 1em;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+
+
+
+.base {
+  margin: auto;
+}
+
+/**/
+
+#AboutMe {
+  margin-top: 3rem;
+}
+
+/*
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: #aa0000;
+}
+
+.hover-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 3px;
+  bottom: -3px;
+  left: 0;
+  background-color: #aa0000;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+*/
+
+
+
+
+/* Turns links pink when hovering over them */
+
+
+
+/*
+a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: #aa0000;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+  background-color: #aa0000;
+}
+*/
+
+
+.wrapper {
+  max-width: 85%;
+  margin: auto;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    max-width: 50em;
+  }
+  .date {
+    max-width: 50em;
+  }
+}
+
+.blog ul {
+  list-style: none;
+  margin-top: 0;
+  padding: 0;
+}
+.blog {
+  padding: 2rem 0px 0px 0px;
+  border: 0;
+}
+.blog2 {
+  padding:0;
+}
+.blog2 ul {
+  list-style: none;
+  margin-top: 0;
+  padding: 0;
+}
+
+.blog2 ul li a {
+  color: #aa0000;
+}
+.blog2 ul li a:hover {
+  color: #5a4a42;
+}
+
+
+
+.date2 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+h1.nontitle {
+  margin: 0;
+}
+
+ul {
+  padding-inline-start: 0px;
+  list-style-type: none;
+}
+
+.list ul  {
+  padding-inline-start: 0px;  /* Add some left padding */
+  list-style-type: none;  /* Remove default bullets */
+}
+
+.list ul li {
+  position: relative;
+  padding-inline-start: 0;
+  padding-left: 20px;  /* Space for custom bullet */
+  margin-bottom: 8px;  /* Space between list items */
+}
+
+.list ul li::before {
+  content: "✠";  /* Use a decorative fleuron as bullet */
+  position: absolute;
+  left: 0;
+  color: #aa0000;  /* Match your theme's accent color */
+}
+
+@media (max-width: 480px) {
+  img {
+    max-width: 74%;
+  }
+}
+
+li.date {
+  font-family: "EB Garamond", sans-serif;
+
+}
+
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.border-image {
+  border-radius: 0%;
+  border: 3px solid #254e70;
+  text-align: center;
+  display: block;
+  cursor: pointer;
+  max-width: 50%;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+  z-index: 50;
+}
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.open-new {
+  position: absolute;
+  top: 15px;
+  left: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.open-new:hover,
+.open-new:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+img:not(.logo) {
+  border: 1px solid #d3c7b1;
+  padding: 5px;
+  background: #fff;
+}
+
+img {
+  display: block;;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.swlogo {
+  text-align: center;
+}
+
+#renderCanvas {
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  outline-color: #8381EF;
+  outline-width: 8px;
+  outline-style: solid;
+}
+
+/* Basic Tooltip */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+
+#pageCanvas {
+  width: 0;
+  height: 0;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #d3c7b1;
+  text-align: center;
+  overflow: visible;
+  margin: 2em 0;
+}
+
+hr:after {
+  content: "✠";
+  display: inline-block;
+  position: relative;
+  top: -0.7em;
+  font-size: 1.5em;
+  padding: 0 0.25em;
+  background: #f2e8d5;
+  color: #8b0000;
+}
+
+/* Full dropcap for longer paragraphs */
+.full-dropcap p:first-of-type::first-letter {
+  font-size: 3.5em;
+  float: left;
+  line-height: 0.8;
+  margin-right: 0.1em;
+  color: #8b0000;
+  font-weight: normal;
+}
+
+.full-dropcap-poem p:first-of-type::first-letter {
+  font-size: 3.7em;
+  float: left;
+  line-height: 0.8;
+  margin-right: 0.1em;
+  color: #8b0000;
+  font-weight: normal;
+}
+
+/* Enhanced initial letter for shorter text */
+.enhanced-initial::first-letter {
+  font-size: 1.5em;
+  font-weight: normal;
+  color: #8b0000;
+}
+
+/* Styling for the Article quote */
+.article-quote {
+  background-color: #f9f5ed;
+  border-left: 4px solid #8b0000;
+  padding: 20px;
+  margin: 20px 0;
+  font-family: "EB Garamond", serif;
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.article-quote::before {
+  content: none;
+  display: block;
+  font-size: 1.5em;
+  color: #8b0000;
+  margin-bottom: 10px;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+blockquote strong {
+  color: #8b0000;
+  font-weight: 600;
+}
+
+blockquote {
+  background-color: #f9f5ed;
+  border-left: 4px solid #8b0000;
+  padding: 20px;
+  margin: 20px 0;
+  font-family: "EB Garamond", serif;
+  font-size: 1.1em;
+  line-height: 1.6;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+blockquote::before {
+  content: none;
+  display: block;
+  font-size: 1.5em;
+  color: #8b0000;
+  margin-bottom: 10px;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+blockquote strong {
+  color: #8b0000;
+  font-weight: 600;
+}
+
+.highlight-box {
+  background-color: #f8f8f8;
+  border-left: 3px solid #aa0000;
+  padding: 1em;
+  margin: 1em 0;
+}
+hr {
+  border: none;
+  border-top: 1px solid #d3c7b1;
+  margin: 2em 0;
+}
+
+.poem {
+  padding: 0em;
+  line-height: 1.6;
+}
+
+/* Medium screens (tablets) */
+@media screen and (min-width: 768px) {
+  .poem {
+      padding: 1.5em;
+  }
+}
+
+/* Large screens (desktops) */
+@media screen and (min-width: 1024px) {
+  .poem {
+      padding: 2em;
+  }
+  
+}
+
+.tags {
+  margin-top: 1em;
+  margin-bottom: 1em;;
+}
+
+.tag {
+  display: inline-block;
+  padding: 0.2em 0.5em;
+  margin: 0.2em;
+  background-color: #f2e8d5;
+  color: #5a4a42;
+  text-decoration: none;
+  border-radius: 3px;
+}
+
+.tag:hover {
+  background-color: #e6d8c0;
+}

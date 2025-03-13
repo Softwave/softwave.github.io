@@ -1,0 +1,672 @@
+/* Let's import some fonts */ 
+/* @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;800&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+
+@font-face {
+  font-family: 'iA Writer Duo V';
+  src: url('iawriterduov.woff2') format('woff2');
+}
+
+body {
+    margin: auto;
+    font-family: "IA Writer Duo V", "Helvetica", "Arial", sans-serif;
+    line-height: 1.5;
+    padding-top: 0em;
+    padding-bottom: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
+    color: #0b132b;
+    background:#F7F7FF;
+	cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="%23c2cae8" stroke="%23254e70" stroke-width="1"/></svg>') 8 8, auto;
+}
+
+/* Pixelated background pattern 
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23254e70' fill-opacity='0.03' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 5v1H0V0h5z'/%3E%3C/g%3E%3C/svg%3E");
+  z-index: -1;
+}
+*/
+
+/* Styled hr divider */
+hr {
+  border: 2px;
+  height: 3px;
+  background-image: linear-gradient(to right, rgba(37, 78, 112, 0), rgba(37, 78, 112, 0.75), rgba(37, 78, 112, 0));
+  margin: 2rem 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #7b90b5; 
+  border: 1px solid #c2cae8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7b90b5;
+  border: 2px solid #B2C3D8;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6884a0;
+}
+
+* Status section styling */
+.now-status {
+  background-color: rgba(194, 202, 232, 0.3);
+  border: 1px solid #c2cae8;
+  border-radius: 2px;
+  padding: 10px 15px;
+  margin: 1.5rem 0;
+  font-family: "Inconsolata", monospace;
+  font-size: 0.9rem;
+}
+
+.now-status h4 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-family: "Inconsolata", monospace;
+  color: #254e70;
+  letter-spacing: 0.05em;
+}
+
+.status-item {
+  margin-bottom: 0.3rem;
+  display: flex;
+}
+
+.status-label {
+  flex: 0 0 100px;
+  color: #254e70;
+}
+
+/* Pixelated borders for images */
+.pixel-border {
+  border: 0;
+  box-shadow: 
+    2px 0 0 0 #254e70,
+    0 2px 0 0 #254e70,
+    2px 2px 0 0 #254e70,
+    2px 0 0 0 #254e70 inset,
+    0 2px 0 0 #254e70 inset;
+  padding: 5px;
+  margin: 10px 0;
+}
+
+/* Window-style boxes */
+.retro-window {
+  border: 2px solid #254e70;
+  border-radius: 0;
+  background-color: #F7F7FF;
+  margin: 20px 0;
+  overflow: hidden;
+}
+
+.window-title {
+  background-color: #254e70;
+  color: white;
+  padding: 5px 5px;
+  font-family: "IBM Plex Mono" ,"Inconsolata", monospace;
+  display: flex;
+  justify-content: space-between;
+}
+
+.window-buttons {
+  display: flex;
+	padding: 0px 0px;
+}
+
+.window-button {
+  border-radius: 0px;
+	background-color: #7b90b5;
+	width: 18px;
+	height: 22px;
+
+}
+
+.window-button::before {
+	content: "X";
+	text-align: center;
+	margin-top: 2px;
+	margin-inline: 5px;
+}
+
+.window-button-red {
+  background-color: #ff5f56;
+}
+
+.window-button-yellow {
+  background-color: #ffbd2e;
+}
+
+.window-button-green {
+  background-color: #27c93f;
+}
+
+.window-content {
+  padding: 15px;
+}
+
+/* Text selection color */
+::selection {
+  background-color: #c2cae8;
+  color: #0b132b;
+}
+
+span {
+	font-family: 'IBM Plex Mono';
+}
+
+/* Mini badges */
+.badge {
+  display: inline-block;
+  background-color: #254e70;
+  color: white;
+  font-family: "Inconsolata", monospace;
+  font-size: 0.7rem;
+  padding: 3px 6px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  border-radius: 3px;
+}
+
+/* Blink animation (use sparingly!) */
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.blink {
+  animation: blink 1s infinite;
+}
+
+/* Marque/updated section */
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+  border-top: 1px solid #c2cae8;
+  border-bottom: 1px solid #c2cae8;
+  padding: 5px 0;
+  margin: 1.5rem 0;
+}
+
+.marquee-content {
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+  font-family: "Inconsolata", monospace;
+  color: #254e70;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Dev buttons */
+.dev-button {
+  display: inline-flex;
+  align-items: center;
+  background-color: #254e70;
+  color: white;
+  font-family: "Inconsolata", monospace;
+  padding: 5px 8px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+}
+
+.dev-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+}
+
+.dev-button img {
+  height: 16px;
+  margin-right: 5px;
+}
+
+/* ASCII art section */
+.ascii-art {
+  font-family: monospace;
+  white-space: pre;
+  font-size: 12px;
+  line-height: 12px;
+  color: #254e70;
+  background-color: rgba(194, 202, 232, 0.2);
+  padding: 15px;
+  margin: 20px 0;
+  overflow-x: auto;
+}
+
+/* Dot patterns */
+.dot-pattern {
+  position: relative;
+}
+
+.dot-pattern::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#254e70 1px, transparent 1px);
+  background-size: 10px 10px;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+/* Retro navbar */
+.retro-navbar {
+  display: flex;
+  justify-content: center;
+  background-color: rgba(194, 202, 232, 0.4);
+  padding: 0.5em;
+  border-top: 2px solid #254e70;
+  border-bottom: 2px solid #254e70;
+	border-left: 2px solid #254e70;
+	border-right: 2px solid #254e70;
+
+  margin-bottom: 2rem;
+  text-align: center;
+  margin-left: 0%;
+	margin-top: 0px;
+	
+}
+
+.retro-navbar a {
+  margin: 0 15px;
+  padding: 5px 10px;
+  font-family: "Inconsolata", monospace;
+  position: relative;
+}
+
+.retro-navbar a:hover {
+  background-color: rgba(194, 202, 232, 0.6);
+}
+
+/* "Under construction" sections */
+.under-construction {
+  border: 2px dashed #254e70;
+  padding: 15px;
+  margin: 20px 0;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(194, 202, 232, 0.2),
+    rgba(194, 202, 232, 0.2) 10px,
+    rgba(194, 202, 232, 0.3) 10px,
+    rgba(194, 202, 232, 0.3) 20px
+  );
+  position: relative;
+}
+
+.under-construction::before {
+  content: "⚠️ UNDER CONSTRUCTION ⚠️";
+  display: block;
+  text-align: center;
+  font-family: "Inconsolata", monospace;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #254e70;
+}
+
+/* Pixel corners */
+.pixel-corners {
+  clip-path: 
+    polygon(
+      0px 5px,
+      5px 5px,
+      5px 0px,
+      calc(100% - 5px) 0px,
+      calc(100% - 5px) 5px,
+      100% 5px,
+      100% calc(100% - 5px),
+      calc(100% - 5px) calc(100% - 5px),
+      calc(100% - 5px) 100%,
+      5px 100%,
+      5px calc(100% - 5px),
+      0px calc(100% - 5px)
+    );
+}
+
+h2,h3,h4,h5,h6 {
+  font-family: "iA Writer Duo V", sans-serif;
+}
+
+h1,
+h2,
+strong {
+  color: #0b132b;
+}
+
+code,
+pre {
+  background: #eee;
+}
+
+code {
+  padding: 2px 4px;
+  vertical-align: text-bottom;
+}
+
+pre {
+  padding: 1em;
+}
+
+.header ul li {
+  display: inline;
+  padding: 0;
+	margin-inline: -1em;
+}
+
+.title {
+  text-align: center;
+  font-family: 'Assistant', sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  font-size: 2.5em;
+  margin: 0;
+}
+
+
+.navbar {
+  text-align: center;
+  margin-left: -10%;
+	width: 120%;
+	margin-top: 0px;
+}
+
+.navbar a {
+  font-size: 1.2rem;
+}
+
+.navbar li {
+	text-align: center;
+}
+
+a {
+    font-weight: bold;
+    text-decoration: none;
+  color: #254e70;
+  font-family: "Inconsolata", sans-serif;
+}
+a:visited {
+  color: #254e70;
+  text-decoration: none;
+}
+
+.backbtn {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 1em;
+  font: inherit;
+  vertical-align: baseline;
+  font-size: 1.2em;
+}
+
+.page {
+  max-width: 800px;
+  margin: auto;
+  padding: 0px 20px 0px 20px;
+}
+
+.page li a {
+  display: inline;
+width: 100%;
+}
+
+.base {
+  margin: auto;
+}
+
+main {
+	margin: 1em;
+}
+
+/**/
+
+#AboutMe {
+  margin-top: 3rem;
+}
+
+.hover-underline-animation {
+  display: inline-block;
+  position: relative;
+  color: #254e70;
+}
+
+.hover-underline-animation::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 3px;
+  bottom: 0;
+  left: 0;
+  background-color: #254e70;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+a {
+  display: inline-block;
+  position: relative;
+}
+
+a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -3px;
+  left: 0;
+  background-color: #254e70;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+a:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.wrapper {
+  max-width: 85%;
+  margin: auto;
+  margin-top: 2rem;
+}
+
+@media (max-width: 480px) {
+  .wrapper {
+    max-width: 50em;
+  }
+  .date {
+    max-width: 50em;
+  }
+}
+
+.blog ul {
+  list-style: none;
+  margin-top: 0;
+  padding: 0;
+}
+.blog {
+  padding: 2rem 0px 0px 0px;
+  border: 0;
+}
+.blog2 {
+  padding:0;
+}
+.blog2 ul {
+  list-style: none;
+  margin-top: 0;
+  padding: 0;
+}
+
+
+
+.date2 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+h1.nontitle {
+  margin: 0;
+}
+
+ul {
+  padding-inline-start: 0px;
+  list-style-type: none;
+}
+
+
+
+@media (max-width: 480px) {
+  img {
+    max-width: 74%;
+  }
+}
+
+li.date {
+  font-family: "Inconsolata", sans-serif;
+  font-weight: bold;
+}
+
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.flat-button {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #c2cae8; /* Change this to your desired background color */
+  color: #fff; /* Text color */
+  border: 0px;/*2px solid #c2cae8;  Border color */
+  border-radius: 0px; /* Border radius to make it round */
+  text-decoration: none; /* Remove underline from the text */
+  margin-top: 5px;
+}
+
+/* Optional hover effect */
+.flat-button:hover {
+  background-color: #373d52; /* Change this to your desired hover background color */
+}
+
+.flat-button:visited {
+  color: #ffffff;
+}
+
+.border-image {
+  border-radius: 0%;
+  border: 3px solid #254e70;
+  text-align: center;
+  display: block;
+  cursor: pointer;
+  max-width: 50%;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+  z-index: 50;
+}
+.modal-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.open-new {
+  position: absolute;
+  top: 15px;
+  left: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.open-new:hover,
+.open-new:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  margin: auto;
+}
+
+.swlogo {
+  text-align: center;
+}
+
+#renderCanvas {
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  outline-color: #8381EF;
+  outline-width: 8px;
+  outline-style: solid;
+}
+
+/* Basic Tooltip */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+
+#pageCanvas {
+  width: 0;
+  height: 0;
+}

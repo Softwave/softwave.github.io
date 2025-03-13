@@ -1,34 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FAQ</title>
-    <link rel="stylesheet" href="/style.css" />
-    <!-- Cool libraries to play with! -->
-    <!-- <script src="https://cdn.babylonjs.com/babylon.js"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-  </head>
-  <body>
-    <!-- <canvas id="pageCanvas"></canvas> -->
-    <div id="myModal" class="modal">
-        <span title="Close image modal" class="close">&times;</span>
-        <span title="Open image in new window" class="open-new">◉</span>
-        <img class="modal-content" id="img01">
-        <div id="caption"></div>
-      </div>
-    <div class="page">
-    <header>
-      <!-- <h1 class="title">FAQ</h1> -->
-      <div class="backbtn">
-        << <a class="about__back" href="/">home</a>
-        < <a class="about__back" href="/pages">pages</a>
-      </div>
-    </header>
-    <main>
-      
-      <h2>FAQ</h2>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOFTWAVE</title>
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="icon" href="img/favicon.ico">
+</head>
+
+
+
+	<body>
+		<div class="page">
+			<header>
+				<div class="backbtn">
+        			<< <a class="about__back" href="/">home</a>
+        			< <a class="about__back" href="/pages">pages</a>
+      			</div>
+			</header>
+			<main>
+				<h2>FAQ</h2>
 <p><strong>Last Updated: 15 Feb 2025</strong></p>
 <p>Some responses to questions I am often asked.</p>
 <h2>What are your system specs?</h2>
@@ -53,38 +44,7 @@
 <p>It's a little program I wrote in C. It calculates the nth fibonacci number quickly and to an arbitrary level of precision using <a href="https://gmplib.org/">GMP</a>.</p>
 <p>You can download an updated version of it (with additions from others) <a href="https://drive.google.com/drive/folders/1uK8MvlcJhOw5X9mDKA6e2SLcpWJ_NCLP?usp=drive_link">here</a>. There is also an MS-DOS port, there. The original gist is <a href="https://gist.github.com/Softwave/f61091aed8c8d8249014b5056447a698">here</a>.</p>
 
-      <h4>(C) SOFTWAVE 2025</h4>
-    </main>
-    </div>
-    <script>
-      // script.js
-var modal = document.getElementById("myModal");
-var modalImg = document.getElementById("img01");
-var captionText = document.getElementById("caption");
-
-var images = document.getElementsByClassName('border-image');
-for (var i = 0; i < images.length; i++) {
-  var img = images[i];
-  img.onclick = function(evt) {
-    modal.style.display = "block";
-    modalImg.src = this.src;
-    captionText.innerHTML = this.alt;
-  }
-}
-
-var span = document.getElementsByClassName("close")[0];
-
-span.onclick = function() { 
-  modal.style.display = "none";
-}
-
-var openy = document.getElementsByClassName("open-new")[0];
-
-openy.onclick = function() {
-  // Open image in new window
-  window.open(modalImg.src, '_blank');
-}
-    </script>
-  </body>
-</html>
-
+				<h4>(C) SOFTWAVE 2025</h4>
+			</main>
+		</div>
+	</body>
