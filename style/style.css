@@ -9,14 +9,20 @@
 	font-family: "Cozette";
 	src:url("/fonts/CozetteVector.ttf");
 }
+@font-face {
+	font-family: "EditUndo";
+	src:url("/fonts/editundo.ttf");
+}
 
 :root {
 	--color-bg: #ccccff;
-	--color-text: #222222;
+	--color-text: #000000;
 	--color-primary: #7574cf;
+	--color-secondary: #8381ef;
 	--color-accent: #6a5cb3; 
 
 	--color-most-dark: #000000;
+	--color-light: #f0edff;
 }
 
 .pixel-decor {
@@ -31,7 +37,6 @@
 
 h2 {
 	font-weight: normal;
-	font-size: 2em;
 }
 
 h4 {
@@ -136,7 +141,8 @@ a {
 a:hover {
 	background: var(--color-primary);
 	border: 0;
-	color: var(--color-text);
+	color: #ffffff;
+	padding: 4px;
 }
 
 
@@ -218,3 +224,22 @@ a.current-link,a:hover {
       0 calc(100% - var(--pixel-size))
     );
 }
+
+
+button {
+	background-color: var(--color-accent);
+	color: var(--color-light);
+	padding: 6px 20px;
+	border: 2px dotted var(--color-primary);
+	font-family: "Cozette", monospace;
+}
+
+button:hover {
+  background-color: var(--color-primary);
+	border: 2px dotted var(--color-accent);
+}
+
+button:active {
+	background-color: var(--color-secondary);
+}
+
