@@ -13,6 +13,10 @@
 	font-family: "EditUndo";
 	src:url("/fonts/editundo.ttf");
 }
+@font-face {
+	font-family: "Scientifica";
+	src:url("/fonts/scientifica.ttf");
+}
 
 :root {
 	--color-bg: #ccccff;
@@ -50,7 +54,7 @@ h4 {
 
 body {
   	cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="%23c2cae8" stroke="%23254e70" stroke-width="1"/></svg>') 8 8, auto;
-	font-family: "Cozette", "IBM Plex Mono", monospace;
+	font-family: "Scientifica", "IBM Plex Mono", monospace;
 	margin: auto;
 	line-height: 1.5;
     padding-top: 0em;
@@ -59,6 +63,7 @@ body {
     padding-right: 1em;
     background: var(--color-bg);
 	color: var(--color-text);
+	font-size: large; 
 }
 
 
