@@ -23,7 +23,7 @@
 	--color-text: #ffffff;
 	--color-primary: #A7A6EB;
 	--color-secondary: #b24d7a;
-  --color-tertriary: #4888BE;
+  --color-tertriary: #63639c;
 	--color-accent: #9DC6E8; 
 
 	--color-most-dark: #000000;
@@ -145,9 +145,9 @@ a {
 
 a:hover {
 	background: var(--color-primary);
-	border: 4px groove var(--color-secondary);
-	color: var(--color-text);
-	padding: 6px;
+	color: var(--color-secondary);
+  border-bottom: none;
+  padding: 4px
 }
 
 
@@ -225,19 +225,55 @@ a:hover {
 
 
 button {
-	background-color: var(--color-accent);
-	color: var(--color-light);
+	background-color: var(--color-tertriary);
+	color: var(--color-most-dark);
 	padding: 6px 20px;
-	border: 2px dotted var(--color-primary);
+	border: 2px outset #8a8da5;
 	font-family: "Cozette", monospace;
+  font-size: large;
+  margin-bottom: 0.5em;
 }
 
-button:hover {
-  background-color: var(--color-primary);
-	border: 2px dotted var(--color-accent);
-}
+
 
 button:active {
-	background-color: var(--color-secondary);
+	background-color: #9999ad;
+	border: 2px inset #8a8da5;
+}
+
+.button {
+  background-color: var(--color-tertriary);
+	color: var(--color-most-dark);
+	padding: 6px 20px;
+	border: 2px outset #8a8da5;
+	font-family: "Cozette", monospace;
+  font-size: large;
+  margin-bottom: 0.5em;
+}
+
+.button:hover {
+  background-color: var(--color-tertriary);
+	color: var(--color-most-dark);
+	padding: 6px 20px;
+	border: 2px outset #8a8da5;
+	font-family: "Cozette", monospace;
+  font-size: large;
+}
+
+.button:active {
+  background-color: #9999ad;
+	border: 2px inset #8a8da5;
+}
+
+input {
+  border: 2px outset #8a8da5;
+	font-family: "Cozette", monospace;
+  font-size: large;
+  padding: 6px 4px;
+}
+
+input:focus {
+  border: 2px inset #8a8da5;
+  outline: none;
 }
 
