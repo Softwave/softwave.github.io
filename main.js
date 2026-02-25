@@ -74,7 +74,76 @@ $(function () {
     spriteImage.src = spriteSheetPath;
   }
 
+  function initImageLightbox() {
+    const $images = $(
+      "main img:not(.badge):not(.logo):not([data-lightbox-ignore='true'])"
+    ).filter(function () {
+      return $(this).closest("a").length === 0;
+    });
+
+    if ($images.length === 0) {
+      return;
+    }
+
+    const $lightbox = $(
+      '<div class="image-lightbox" aria-hidden="true"><button type="button" class="image-lightbox-close" aria-label="Close image viewer">×</button><img class="image-lightbox-content" alt=""><p class="image-lightbox-caption"></p></div>'
+    );
+    const $lightboxImage = $lightbox.find(".image-lightbox-content");
+    const $lightboxCaption = $lightbox.find(".image-lightbox-caption");
+
+    $("body").append($lightbox);
+
+    function closeLightbox() {
+      $lightbox.removeClass("is-open").attr("aria-hidden", "true");
+      $("html").removeClass("lightbox-open");
+      window.setTimeout(function () {
+        if (!$lightbox.hasClass("is-open")) {
+          $lightboxImage.attr("src", "");
+          $lightboxCaption.text("");
+        }
+      }, 220);
+    }
+
+    $images.each(function () {
+      const $image = $(this);
+      $image.addClass("image-lightbox-trigger");
+
+      $image.on("click", function () {
+        const src = $image.attr("src");
+        const alt = $image.attr("alt") || "";
+
+        if (!src) {
+          return;
+        }
+
+        $lightboxImage.attr({
+          src,
+          alt,
+        });
+        $lightboxCaption.text(alt);
+        $lightbox.addClass("is-open").attr("aria-hidden", "false");
+        $("html").addClass("lightbox-open");
+      });
+    });
+
+    $lightbox.on("click", function (event) {
+      const clickedBackdrop = $(event.target).is(".image-lightbox");
+      const clickedClose = $(event.target).is(".image-lightbox-close");
+
+      if (clickedBackdrop || clickedClose) {
+        closeLightbox();
+      }
+    });
+
+    $(document).on("keydown.imageLightbox", function (event) {
+      if (event.key === "Escape" && $lightbox.hasClass("is-open")) {
+        closeLightbox();
+      }
+    });
+  }
+
   initBatCursor();
+  initImageLightbox();
 
   function getCollapsedHeight($pre) {
     const lineHeight = parseFloat($pre.css("line-height")) || 24;
