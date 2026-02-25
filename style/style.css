@@ -60,9 +60,29 @@ h4 {
 	color: var(--color-accent);
 }
 
+html.use-bat-cursor,
+html.use-bat-cursor * {
+  cursor: none !important;
+}
+
+.bat-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  display: none;
+  pointer-events: none;
+  z-index: 9999;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  image-rendering: crisp-edges;
+  transform: translate3d(-100px, -100px, 0);
+}
+
 
 body {
-  	cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="7" fill="%23c2cae8" stroke="%23254e70" stroke-width="1"/></svg>') 8 8, auto;
+    cursor: url('https://s0ftwave.net/img/gif/bat2.gif'), auto;
 	font-family: "Scientifica", "IBM Plex Mono", monospace;
 	margin: auto;
 	line-height: 1.5;
@@ -615,3 +635,4 @@ img {
   max-width: 100%;
   height: auto;
 }
+
