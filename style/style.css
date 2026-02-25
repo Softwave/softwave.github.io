@@ -602,3 +602,16 @@ iframe {
   justify-content: center;
   margin: 1em 0;
 }
+
+
+.article-image {
+  display: flex;
+  justify-content: center;
+  margin: 1em 0;
+  border: 6px groove #BDBDD8;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
