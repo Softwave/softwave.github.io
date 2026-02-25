@@ -205,13 +205,13 @@ hr {
   font-size: clamp(1rem, 2.8vw, 1.2rem);
   color: var(--color-second-dark);
   border: 2px solid var(--color-primary);
-  padding: 4px 12px;
+  padding: 1px 10px;
 }
 
 .navbar li a:hover {
   background: var(--color-primary);
   color: var(--color-secondary);
-  padding: 4px 12px;
+  padding: 1px 10px;
   text-decoration: dotted underline;
 }
 
@@ -406,6 +406,10 @@ input:focus {
 @media (max-width: 640px) {
   .nav-toggle-label {
     display: inline-flex;
+  }
+
+  .navbar {
+    display: inline-grid;
   }
 
   .site-nav {
