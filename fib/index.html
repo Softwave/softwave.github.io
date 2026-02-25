@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fib.c</title>
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="icon" href="/img/favicon.ico">
+    <!-- Include JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script src="/main.js" type="text/javascript"></script>
+    <!-- Basic OpenGraph tags -->
+  <meta property="og:title" content="true">
+  <meta name="og:site_name" content="The Lantern"></meta>
+  <meta property="og:description" content="false">
+  <meta property="og:image" content="false">
+  <meta property="og:url" content="/fib/">
+  <meta property="og:type" content="website">
+  
+  <!-- Twitter Card tags (works for Twitter/X) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="true">
+  <meta name="twitter:description" content="false">
+  <meta name="twitter:image" content="false">
+</head>
+
+
+
+	<body>
+		<div class="page">
+			<header>
+				<div class="backbtn">
+        			<< <a class="about__back" href="/">home</a>
+        			< <a class="about__back" href="/pages">pages</a>
+      			</div>
+			</header>
+			<main>
+				<h1>fib.c</h1>
+<p><strong>Last Updated: 25 Feb 2026</strong></p>
+<p>One of my most popular YouTube videos is my demonstration of a fast Fibonacci number finder in C. The code is available below. With clever programming (and with <a href="https://gmplib.org/">GMP -- the GNU Multiple Precision Arithmetic Library</a>, as well as refinements from others), this program can calculate,  <em>and print out,</em> Fibonacci numbers with millions of digits in fractions of a second. The algorithm is based on the fast doubling method, which allows us to compute Fibonacci numbers in logarithmic time. Ie: <em>O log n</em>.</p>
+<p>The results speak for themselves. The <em>100 millionth</em> fibonacci number is calculated and printed to standard out in 1.46 seconds on my machine.</p>
+<p>This is a number with over <strong>20 million digits</strong>, and that if we pipe to a file yeilds us a twenty megabyte text file.</p>
+<p>If we search for the <em>five billionth</em> Fibonacci number, we get a number with over <strong>1.04 billion digits</strong>. It takes just 1 minute and 56 seconds to calculate and print this <em>almighty number</em>, and the resulting text file is over a full gigabyte in size.</p>
+<h2>Video Demo</h2>
+<div class="video-class"><iframe width="560" height="315" src="https://www.youtube.com/embed/cmshJmQ6o90?si=N2sMcDPmc9MibcPw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+<h2>Source Code</h2>
+<pre class="collapsed">
+<code>
+// Calculate Fibonacci Numbers
+// Originally written by Softwave (https://github.com/Softwave)
+// Public Domain
+// https://creativecommons.org/publicdomain/zero/1.0/
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+#include <gmp.h>
+#include <time.h>
+
+int main(int argc, char *argv[])
+{
+    // Get User Input
+    if (argc != 2) 
+    {
+        printf("usage: %s NUM\n", argv[0]);
+        return EXIT_FAILURE;
+    }
+
+    long count = strtol(argv[1], NULL, 10);
+
+    // Setup GMP
+    mpz_t a, b, p, q;
+    mpz_init_set_ui(a, 1);
+    mpz_init_set_ui(b, 0);
+    mpz_init_set_ui(p, 0);
+    mpz_init_set_ui(q, 1);
+
+    mpz_t tmp;
+    mpz_init(tmp);
+
+    // Start timing
+    const clock_t start_time = clock();
+    if (start_time == (clock_t) {-1}) 
+    {
+        fprintf(stderr, "Error start_time clock()\n");
+        return EXIT_FAILURE;
+    }
+
+
+
+       while (count > 0) 
+       {
+        if (count % 2 == 0) 
+        {
+            mpz_mul(tmp, q, q);
+            mpz_mul(q, q, p);
+            mpz_mul_2exp(q, q, 1);
+            mpz_add(q, q, tmp);
+
+            mpz_mul(p, p, p);
+            mpz_add(p, p, tmp);
+
+            count /= 2;
+        } 
+        else 
+        {
+            mpz_mul(tmp, a, q);
+
+            mpz_mul(a, a, p);
+            mpz_addmul(a, b, q);
+            mpz_add(a, a, tmp);
+
+            mpz_mul(b, b, p);
+            mpz_add(b, b, tmp);
+
+            count -= 1;
+        }
+       }
+
+    // End timing
+    const clock_t end_time = clock();
+    if (end_time == (clock_t) {-1})
+    {
+        fprintf(stderr, "Error end_time clock()\n");
+        return EXIT_FAILURE;
+    }
+
+
+    // Print the results to standard out
+       mpz_out_str(stdout, 10, b);
+       printf("\n");
+
+    // Cleanup
+       mpz_clear(a);
+       mpz_clear(b);
+       mpz_clear(p);
+       mpz_clear(q);
+       mpz_clear(tmp);
+
+    // Print time taken
+    const double time_taken = ((double) (end_time - start_time)) / (double) CLOCKS_PER_SEC;
+    if (printf("Calculation Time: %lf seconds\n", time_taken) < 0) 
+    {
+        return EXIT_FAILURE;
+    }
+    if (fflush(stdout) == EOF) return EXIT_FAILURE;
+    return EXIT_SUCCESS;
+}
+</code>
+</pre>
+<p>To build:
+<code>gcc fib.c -o fib -lgmp -O3</code></p>
+<h2>Download</h2>
+<p><a href="https://drive.google.com/file/d/1IzjnhfWSWtB2TNGVFIB55hGIjKF_B4gb/view?usp=sharing" class="button" target="_blank">Download Source</a></p>
+<p><a href="https://drive.google.com/file/d/1YVCskDONpluc0Eu9EKAJKnMZdWTK94Dv/view?usp=drive_link" class="button" target="_blank">Download for MS-DOS</a></p>
+<p><a href="https://drive.google.com/file/d/1Vr-EYO3pyyZrL3iWD0b7l3smiXphdK-K/view?usp=drive_link" class="button" target="_blank">Linux Binary </a></p>
+<p><a href="https://drive.google.com/file/d/1l2ooZ8hRq6a-OFhQoAofvlRNSS4wOpGw/view?usp=drive_link" class="button" target="_blank">Windows Binary</a></p>
+<style>
+h2 {
+    margin-bottom: 0em;
+    margin-top: 0em;
+}
+
+.button {
+    padding: 6px 10px;
+}
+</style>
+				<h4>(C) SOFTWAVE 2026</h4>
+			</main>
+		</div>
+	</body>
