@@ -315,6 +315,32 @@ main a:hover {
 
 
 button {
+  background-color: var(--color-tertriary);
+	color: var(--color-text);
+	padding: 6px 20px;
+	border: 2px outset #8a8da5;
+	font-family: "Cozette", monospace;
+  font-size: large;
+  margin-bottom: 0.5em;
+}
+
+button:hover {
+  background-color: var(--color-tertriary);
+	color: var(--color-text);
+	padding: 6px 20px;
+	border: 2px outset #8a8da5;
+	font-family: "Cozette", monospace;
+  font-size: large;
+}
+
+button:active {
+  color: var(--color-most-dark);
+  background-color: #9999ad;
+	border: 2px inset #8a8da5;
+}
+
+/*
+button {
 	background-color: var(--color-tertriary);
 	color: var(--color-text);
 	padding: 6px 20px;
@@ -340,7 +366,7 @@ button:hover {
 	font-family: "Cozette", monospace;
   font-size: large;
 }
-
+*/
 
 .button {
   background-color: var(--color-tertriary);
@@ -377,6 +403,48 @@ input {
 input:focus {
   border: 2px inset #8a8da5;
   outline: none;
+}
+
+.contact-form {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.contact-form .form-group {
+  margin-bottom: 0.75em;
+}
+
+.contact-form .form-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75em;
+}
+
+.contact-form .col {
+  min-width: 0;
+}
+
+.contact-form .form-control {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.contact-form textarea.form-control {
+  border: 2px outset #8a8da5;
+  font-family: "Cozette", monospace;
+  font-size: large;
+  padding: 6px 4px;
+  resize: vertical;
+}
+
+.contact-form textarea.form-control:focus {
+  border: 2px inset #8a8da5;
+  outline: none;
+}
+
+.contact-form .btn-block {
+  width: 100%;
+  display: block;
 }
 
 
@@ -437,6 +505,10 @@ input:focus {
 
   .guestbook-embed {
     height: 78vh;
+  }
+
+  .contact-form .form-row {
+    grid-template-columns: 1fr;
   }
 }
 
