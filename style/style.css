@@ -479,8 +479,6 @@ input:focus {
   display: block;
   width: 100%;
   height: clamp(380px, 72vh, 760px);
-  border: 0;
-  overflow: hidden;
 }
 
 @media (max-width: 640px) {
@@ -612,9 +610,7 @@ code {
   pointer-events: none;
 }
 
-iframe {
-  border: 6px groove #BDBDD8;
-}
+
 
 .video-class {
   display: flex;

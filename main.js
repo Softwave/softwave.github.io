@@ -6,6 +6,12 @@ $(function () {
   const collapsedPreviewLines = 2;
 
   function initBatCursor() {
+    const disableBatCursor = $("body").is("[data-disable-bat-cursor='true']");
+
+    if (disableBatCursor) {
+      return;
+    }
+
     const isCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
 
     if (isCoarsePointer) {
