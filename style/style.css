@@ -94,6 +94,11 @@ body {
 	font-size: large; 
 }
 
+body.no-scroll {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}
 
 
 /* Styled hr divider */
@@ -689,6 +694,12 @@ html.lightbox-open {
   overflow: hidden;
 }
 
+body.lightbox-scroll-lock {
+  position: fixed;
+  width: 100%;
+  overflow-y: scroll;
+}
+
 .image-lightbox-trigger {
   cursor: zoom-in;
 }
@@ -706,6 +717,8 @@ html.lightbox-open {
   transition: opacity 0.2s ease, visibility 0.2s ease;
   z-index: 10000;
   align-content: center;
+  touch-action: none;
+  overscroll-behavior: none;
 }
 
 @media (max-width: 640px) {

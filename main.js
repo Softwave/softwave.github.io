@@ -102,6 +102,9 @@ $(function () {
     function closeLightbox() {
       $lightbox.removeClass("is-open").attr("aria-hidden", "true");
       $("html").removeClass("lightbox-open");
+      const savedScrollY = $("body").data("lightbox-scroll-y") || 0;
+      $("body").removeClass("lightbox-scroll-lock").css("top", "");
+      window.scrollTo(0, savedScrollY);
       window.setTimeout(function () {
         if (!$lightbox.hasClass("is-open")) {
           $lightboxImage.attr("src", "");
@@ -128,7 +131,9 @@ $(function () {
         });
         $lightboxCaption.text(alt);
         $lightbox.addClass("is-open").attr("aria-hidden", "false");
-        $("html").addClass("lightbox-open");
+        $('html').addClass("lightbox-open");
+        const scrollY = window.scrollY;
+        $("body").data("lightbox-scroll-y", scrollY).css("top", `-${scrollY}px`).addClass("lightbox-scroll-lock");
       });
     });
 
