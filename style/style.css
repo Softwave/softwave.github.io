@@ -261,7 +261,6 @@ a:hover {
 }
 
 main a:hover:not(.button) {
-  padding: 4px;
   border-bottom: none;
 }
 
