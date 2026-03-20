@@ -782,3 +782,13 @@ article li::before,
 .page li::before {
   content: '>> ';
 }
+
+
+.badge-link {
+    text-decoration: none;
+    border: none!important;
+}
+
+.badge-link:hover {
+    border-bottom: 1px dotted var(--color-text)!important;
+}
