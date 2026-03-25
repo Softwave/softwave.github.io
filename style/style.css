@@ -236,13 +236,6 @@ hr {
   padding: 1px 10px;
 }
 
-.navbar li a:hover {
-  background: var(--color-primary);
-  color: var(--color-secondary);
-  padding: 1px 10px;
-  text-decoration: dotted underline;
-}
-
 .navbar li a:active {
   color: var(--color-text);
   background-color: var(--color-dark-border);
@@ -253,15 +246,6 @@ a {
 	color: var(--color-accent); 
 	border-bottom: 1px dotted var(--color-text);
 	text-decoration: none;
-}
-
-a:hover {
-	background: var(--color-primary);
-	color: var(--color-secondary);
-}
-
-main a:hover:not(.button) {
-  border-bottom: none;
 }
 
 
@@ -301,11 +285,6 @@ main a:hover:not(.button) {
   margin-left: auto;
   margin-right: auto;
 	margin-top: 1em;
-}
-
-.logo:hover {
-  border-bottom: 4px dashed var(--color-secondary);
-  padding-bottom: 0px;
 }
 /*.logo:active {
   border-bottom: 4px dashed var(--color-second-dark);
@@ -351,12 +330,6 @@ button {
   margin-bottom: 0.5em;
 }
 
-button:hover {
-  background-color: var(--color-tertriary);
-	color: var(--color-text);
-	font-family: "Cozette", monospace;
-}
-
 button:active {
   color: var(--color-most-dark);
   background-color: #9999ad;
@@ -399,12 +372,6 @@ button:hover {
 	font-family: "Cozette", monospace;
   font-size: large;
   margin-bottom: 0.5em;
-}
-
-.button:hover {
-  background-color: var(--color-tertriary);
-	color: var(--color-text);
-	font-family: "Cozette", monospace;
 }
 
 .button:active {
@@ -533,11 +500,6 @@ input:focus {
 
 .header-link {
   text-decoration: none;
-}
-
-.header-link a:hover {
-  text-decoration: none;
-  color: var(--color-secondary);
 }
 
 code {
@@ -789,10 +751,6 @@ article li::before,
     border: none!important;
 }
 
-.badge-link:hover {
-    border-bottom: 1px dotted var(--color-text)!important;
-}
-
 
 .retro-button {
   display: inline-block;
@@ -808,9 +766,61 @@ article li::before,
   border-bottom: 2px solid #808080;
 }
 
+
+@media (hover: hover) and (pointer: fine) {
+  .navbar li a:hover {
+    background: var(--color-primary);
+    color: var(--color-secondary);
+    padding: 1px 10px;
+    text-decoration: dotted underline;
+  }
+
+  a:hover {
+    background: var(--color-primary);
+    color: var(--color-secondary);
+  }
+
+  main a:hover:not(.button) {
+    border-bottom: none;
+  }
+
+  .logo:hover {
+    border-bottom: 4px dashed var(--color-secondary);
+    padding-bottom: 0px;
+  }
+
+  button:hover {
+    background-color: var(--color-tertriary);
+    color: var(--color-text);
+    font-family: "Cozette", monospace;
+  }
+
+  .button:hover {
+    background-color: var(--color-tertriary);
+    color: var(--color-text);
+    font-family: "Cozette", monospace;
+  }
+
+  .header-link a:hover {
+    text-decoration: none;
+    color: var(--color-secondary);
+  }
+
+  .badge-link:hover {
+    border-bottom: 1px dotted var(--color-text) !important;
+  }
+}
+
+
+@media (hover: hover) and (pointer: fine) {
 .retro-button:hover {
     border-bottom: 2px solid #808080!important;
+    background: var(--color-primary);
+    color: var(--color-secondary);
 }
+}
+
+
 
 .retro-button:active {
   border-top: 2px solid #808080;
@@ -819,6 +829,8 @@ article li::before,
   border-bottom: 2px solid #ffffff;
   border: 2px inset #8a8da5;
 }
+
+
 
 .button-icon {
     width: 16px;
