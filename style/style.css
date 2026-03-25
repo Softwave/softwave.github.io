@@ -17,6 +17,10 @@
 	font-family: "Scientifica";
 	src:url("/fonts/scientifica.ttf");
 }
+@font-face {
+    font-family: "Departure Mono";
+    src:url("/fonts/DepartureMono-Regular.otf");
+}
 
 :root {
 	--color-bg: #5956c8;
@@ -82,7 +86,7 @@ html.use-bat-cursor * {
 
 
 body {
-	font-family: "Scientifica", "IBM Plex Mono", monospace;
+	font-family: "Departure Mono", "Scientifica", "IBM Plex Mono", monospace;
 	margin: auto;
 	line-height: 1.5;
     padding-top: 0em;
@@ -91,13 +95,12 @@ body {
     padding-right: 1em;
     background: var(--color-bg);
 	color: var(--color-text);
-	font-size: large; 
+	font-size: 16px;
 }
 
 body.no-scroll {
   overflow: hidden;
   position: fixed;
-  width: 100%;
 }
 
 
@@ -170,12 +173,12 @@ hr {
   align-items: center;
   gap: 0.55em;
   width: fit-content;
-  margin: 0 auto 0.6em;
+  margin: 0 auto;
   padding: 6px 14px;
   border: 2px outset #8a8da5;
   background-color: var(--color-tertriary);
   color: var(--color-text);
-  font-family: "Cozette", monospace;
+  font-family: "Departure Mono", "Cozette", monospace;
   font-size: 1.05rem;
   line-height: 1;
   cursor: pointer;
@@ -203,7 +206,7 @@ hr {
 }
 
 .site-nav {
-  margin-top: 0.2em;
+    margin-top: 0.2em;
 }
 
 .navbar {
@@ -214,7 +217,7 @@ hr {
   gap: 0.45em;
   list-style: none;
   padding-inline-start: 0;
-  margin: 0;
+  margin: 0px 0px 1em 0px;
   background-color: var(--color-primary);
   border: 2px outset var(--color-tertriary);
 }
@@ -230,7 +233,7 @@ hr {
 
 .navbar li a {
   display: block;
-  font-size: clamp(1rem, 2.8vw, 1.2rem);
+  /*font-size: clamp(1rem, 2.8vw, 1.2rem);*/
   color: var(--color-second-dark);
   border: 2px solid var(--color-primary);
   padding: 1px 10px;
@@ -855,3 +858,7 @@ article li::before,
 * {
   outline: 1px solid red;
 }*/
+
+.backbtn {
+    margin-top: 1em;
+}
