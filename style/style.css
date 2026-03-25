@@ -811,14 +811,19 @@ article li::before,
   }
 }
 
+.retro-button:hover {
+        border-bottom: 2px solid #808080!important;
+        background: var(--color-primary);
+        color: var(--color-secondary);
+    }
 
-@media (hover: hover) and (pointer: fine) {
+/* @media (hover: hover) and (pointer: fine) {
     .retro-button:hover {
         border-bottom: 2px solid #808080!important;
         background: var(--color-primary);
         color: var(--color-secondary);
     }
-}
+}*/
 
 
 
