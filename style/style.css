@@ -825,7 +825,14 @@ article li::before,
     }
 }*/
 
-
+.retro-button:focus {
+    outline: none;
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #ffffff;
+    border-bottom: 2px solid #ffffff;
+    border: 2px inset #8a8da5;
+}
 
 .retro-button:active {
     border-top: 2px solid #808080;
