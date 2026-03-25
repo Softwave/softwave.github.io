@@ -133,7 +133,7 @@ $(function () {
         $lightbox.addClass("is-open").attr("aria-hidden", "false");
         $('html').addClass("lightbox-open");
         const scrollY = window.scrollY;
-        $("body").data("lightbox-scroll-y", scrollY).css("top", `-${scrollY}px`).addClass("lightbox-scroll-lock");
+        //$("body").data("lightbox-scroll-y", scrollY).css("top", `-${scrollY}px`).addClass("lightbox-scroll-lock");
       });
     });
 

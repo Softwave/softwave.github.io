@@ -655,11 +655,11 @@ html.lightbox-open {
   overflow: hidden;
 }
 
-body.lightbox-scroll-lock {
+/* body.lightbox-scroll-lock {
   position: fixed;
   width: 100%;
   overflow-y: scroll;
-}
+}*/
 
 .image-lightbox-trigger {
   cursor: zoom-in;
