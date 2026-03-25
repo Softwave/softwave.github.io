@@ -811,28 +811,21 @@ article li::before,
   }
 }
 
-.retro-button:hover {
+/*.retro-button:hover {
         border-bottom: 2px solid #808080!important;
         background: var(--color-primary);
         color: var(--color-secondary);
     }
+*/
 
-/* @media (hover: hover) and (pointer: fine) {
+ @media (hover: hover) and (pointer: fine) {
     .retro-button:hover {
         border-bottom: 2px solid #808080!important;
         background: var(--color-primary);
         color: var(--color-secondary);
     }
-}*/
-
-.retro-button:focus {
-    outline: none;
-    border-top: 2px solid #808080;
-    border-left: 2px solid #808080;
-    border-right: 2px solid #ffffff;
-    border-bottom: 2px solid #ffffff;
-    border: 2px inset #8a8da5;
 }
+
 
 .retro-button:active {
     border-top: 2px solid #808080;
