@@ -262,13 +262,14 @@ a {
 
 
 .backbtn {
-	margin: 0;
+ margin: 0px 0px 1em 0px;
   padding: 0;
   border: 0;
   font-size: 1em;
   font: inherit;
   vertical-align: baseline;
-  font-size: 1.2em;
+  font-size: x-large;
+  font-family: "Scientifica";
 }
 
 
@@ -859,6 +860,3 @@ article li::before,
   outline: 1px solid red;
 }*/
 
-.backbtn {
-    margin-top: 1em;
-}
