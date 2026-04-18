@@ -1,3 +1,6 @@
+// Copyright (c) 2026 Softwave https://s0ftwave.net/
+
+
 $(function () {
   const inlineCodeSelector = "main code:not(pre code)";
   const codeBlockSelector = "main pre:has(code)";
@@ -5,8 +8,8 @@ $(function () {
   const blockAnimationMs = 400;
   const collapsedPreviewLines = 2;
 
-  function initBatCursor() {
-    const disableBatCursor = $("body").is("[data-disable-bat-cursor='true']");
+    function initBatCursor() {
+        const disableBatCursor = $("body").is("[data-disable-bat-cursor='true']");
 
     if (disableBatCursor) {
       return;
