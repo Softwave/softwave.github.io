@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>plasmoid.asm</title>
+    <!-- js-dos style sheet -->
+    <link rel="stylesheet" href="https://v8.js-dos.com/latest/js-dos.css">
+
+    <!-- js-dos -->
+    <script src="https://v8.js-dos.com/latest/js-dos.js"></script>
+    <style>
+        * { box-sizing: border-box; }
+        html, body { margin: 0; padding: 0; }
+    </style>
+</head>
+<body>
+    <h1>plasmoid.asm</h1>
+
+    <div id="dos" style="width: 100%; height: calc(100vh - 3rem);"></div>
+    
+    <script>
+        const SETTINGS_KEY = "plasmoid:jsdos:player-settings";
+        const defaultSettings = {
+            theme: "lofi",
+            imageRendering: "pixelated",
+            renderAspect: "Fit",
+            scaleControls: 0.05,
+            mouseSensitivity: 0.5,
+            volume: 1,
+            noCursor: false,
+        };
+
+        function loadSettings() {
+            try {
+                const raw = localStorage.getItem(SETTINGS_KEY);
+                if (!raw) {
+                    return { ...defaultSettings };
+                }
+                return { ...defaultSettings, ...JSON.parse(raw) };
+            } catch {
+                return { ...defaultSettings };
+            }
+        }
+
+        function saveSettings(settings) {
+            localStorage.setItem(SETTINGS_KEY, JSON.stringify(settings));
+        }
+
+        const settings = loadSettings();
+        const props = Dos(document.getElementById("dos"), {
+            url: "/bundle.jsdos",
+            theme: settings.theme,
+            imageRendering: settings.imageRendering,
+            renderAspect: settings.renderAspect,
+            scaleControls: settings.scaleControls,
+            mouseSensitivity: settings.mouseSensitivity,
+            volume: settings.volume,
+            noCursor: settings.noCursor,
+        });
+
+        const persistableMethods = {
+            setTheme: "theme",
+            setImageRendering: "imageRendering",
+            setRenderAspect: "renderAspect",
+            setScaleControls: "scaleControls",
+            setMouseSensitivity: "mouseSensitivity",
+            setVolume: "volume",
+            setNoCursor: "noCursor",
+        };
+
+        Object.entries(persistableMethods).forEach(([methodName, key]) => {
+            const original = props[methodName];
+            if (typeof original !== "function") {
+                return;
+            }
+
+            props[methodName] = function(value) {
+                settings[key] = value;
+                saveSettings(settings);
+                return original.call(this, value);
+            };
+        });
+
+        saveSettings(settings);
+    </script>
+</body>
+</html>
