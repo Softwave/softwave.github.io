@@ -49,8 +49,9 @@
         }
 
         const settings = loadSettings();
+        const bundleUrl = new URL("bundle.jsdos", window.location.href).toString();
         const props = Dos(document.getElementById("dos"), {
-            url: "/bundle.jsdos",
+            url: bundleUrl,
             theme: settings.theme,
             imageRendering: settings.imageRendering,
             renderAspect: settings.renderAspect,

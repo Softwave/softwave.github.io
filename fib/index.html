@@ -99,8 +99,8 @@
       			</div>
 			</header>
 			<main>
-				<h1>fib.c</h1>
-<p><strong>Last Updated: 25 Feb 2026</strong></p>
+				<h1>fib.c <img src="/img/gif/purpledolphin.gif" alt="file icon" class="inline-icon"></h1>
+<p><strong>Last Updated: 19 June 2026</strong></p>
 <div class="article-image"><img
 	src="/img/fibScreen1.png"
 	alt="fib.c screenshot"
@@ -108,45 +108,83 @@
 	decoding="async"
 />
 </div>
-<p>One of my most popular YouTube videos is my demonstration of a fast Fibonacci number finder in C. The code is available below. With clever programming (and with <a href="https://gmplib.org/">GMP -- the GNU Multiple Precision Arithmetic Library</a>, as well as refinements from others), this program can calculate,  <em>and print out,</em> Fibonacci numbers with millions of digits in fractions of a second. The algorithm is based on the fast doubling method, which allows us to compute Fibonacci numbers in logarithmic time. Ie: <em>O log n</em>.</p>
+<p>One of my most popular YouTube videos is my demonstration of a fast Fibonacci number finder in C. The code is available below and <a href="https://github.com/Softwave/fib.c">on GitHub</a>. With clever programming (and with <a href="https://gmplib.org/">GMP -- the GNU Multiple Precision Arithmetic Library</a>, as well as refinements from others), this program can calculate,  <em>and print out,</em> Fibonacci numbers with millions of digits in fractions of a second. The algorithm is based on the fast doubling method, which allows us to compute Fibonacci numbers in logarithmic time. Ie: <em>O log n</em>.</p>
 <p>The results speak for themselves. The <em>100 millionth</em> fibonacci number is calculated and printed to standard out in 1.46 seconds on my machine.</p>
 <p>This is a number with over <strong>20 million digits</strong>, and that if we pipe to a file yeilds us a twenty megabyte text file.</p>
 <p>If we search for the <em>five billionth</em> Fibonacci number, we get a number with over <strong>1.04 billion digits</strong>. It takes just 1 minute and 56 seconds to calculate and print this <em>almighty number</em>, and the resulting text file is over a full gigabyte in size.</p>
 <p>Developed on Linux and cross-compiled to Windows and MS-DOS.</p>
-<h2>Video Demo</h2>
+<h2>Video Demo <img src="/img/gif/film3.gif" alt="file icon" class="inline-icon"></h2>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/cmshJmQ6o90?si=N2sMcDPmc9MibcPw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<h2>Source Code</h2>
+<h2>Source Code <img src="/img/gif/planet.gif" alt="file icon" class="inline-icon"></h2>
 <pre class="collapsed">
 <code>
 /*
 Calculate Fibonacci Numbers
-Originally written by Softwave 
-https://s0ftwave.net/
-https://github.com/Softwave
-Additions by by Francesco146 
-https://github.com/Francesco146 
-and LizzyFleckenstein03 
-https://github.com/LizzyFleckenstein03
+Originally written by Softwave (https://s0ftwave.net/)
+(https://github.com/Softwave)
+Additions by by Francesco146] (https://github.com/Francesco146)
+and LizzyFleckenstein03 (https://github.com/LizzyFleckenstein03)
+And more by Softwave ^_^
 Public Domain
 https://creativecommons.org/publicdomain/zero/1.0/
+Last updated: 19 June 2026
 */
 
 #include &lt;stdio.h&gt;
 #include &lt;stdlib.h&gt;
 #include &lt;ctype.h&gt;
 #include &lt;gmp.h&gt;
+
+#ifdef _WIN32
+#include &lt;windows.h&gt;
+static double now_seconds(void)
+{
+    LARGE_INTEGER freq, t;
+    QueryPerformanceFrequency(&freq);
+    QueryPerformanceCounter(&t);
+    return (double) t.QuadPart / (double) freq.QuadPart;
+}
+#else
 #include &lt;time.h&gt;
+static double now_seconds(void)
+{
+    struct timespec ts;
+    clock_gettime(CLOCK_MONOTONIC, &ts);
+    return (double) ts.tv_sec + (double) ts.tv_nsec / 1e9;
+}
+#endif
 
 int main(int argc, char *argv[])
 {
     // Get User Input
-    if (argc != 2) 
+    if (argc < 2 || argc > 3)
     {
-        printf("usage: %s NUM\n", argv[0]);
+        printf("usage: %s [-p] NUM\n", argv[0]);
         return EXIT_FAILURE;
     }
 
-    long count = strtol(argv[1], NULL, 10);
+    int plain = 0;
+    char *num_arg = NULL;
+
+    if (argc == 3)
+    {
+        if (strcmp(argv[1], "-p") == 0 || strcmp(argv[1], "--plain") == 0)
+        {
+            plain = 1;
+        }
+        else
+        {
+            printf("usage: %s [-p] NUM\n", argv[0]);
+            return EXIT_FAILURE;
+        }
+        num_arg = argv[2];
+    }
+    else
+    {
+        num_arg = argv[1];
+    }
+
+    long count = strtol(num_arg, NULL, 10);
 
     // Setup GMP
     mpz_t a, b, p, q;
@@ -159,80 +197,87 @@ int main(int argc, char *argv[])
     mpz_init(tmp);
 
     // Start timing
-    const clock_t start_time = clock();
-    if (start_time == (clock_t) {-1}) 
+    const double start_time = now_seconds();
+
+    while (count > 0)
     {
-        fprintf(stderr, "Error start_time clock()\n");
-        return EXIT_FAILURE;
-    }
-
-
-
-       while (count > 0) 
-       {
-        if (count % 2 == 0) 
+        if (count % 2 == 0)
         {
             mpz_mul(tmp, q, q);
             mpz_mul(q, q, p);
             mpz_mul_2exp(q, q, 1);
             mpz_add(q, q, tmp);
-
             mpz_mul(p, p, p);
             mpz_add(p, p, tmp);
-
             count /= 2;
-        } 
-        else 
+        }
+        else
         {
             mpz_mul(tmp, a, q);
-
             mpz_mul(a, a, p);
             mpz_addmul(a, b, q);
             mpz_add(a, a, tmp);
-
             mpz_mul(b, b, p);
             mpz_add(b, b, tmp);
-
             count -= 1;
         }
-       }
-
-    // End timing
-    const clock_t end_time = clock();
-    if (end_time == (clock_t) {-1})
-    {
-        fprintf(stderr, "Error end_time clock()\n");
-        return EXIT_FAILURE;
     }
 
+    // End timing
+    const double end_time = now_seconds();
 
-    // Print the results to standard out
-       mpz_out_str(stdout, 10, b);
-       printf("\n");
+    // Print the result to standard out
+    mpz_out_str(stdout, 10, b);
+    printf("\n");
 
     // Cleanup
-       mpz_clear(a);
-       mpz_clear(b);
-       mpz_clear(p);
-       mpz_clear(q);
-       mpz_clear(tmp);
+    mpz_clear(a);
+    mpz_clear(b);
+    mpz_clear(p);
+    mpz_clear(q);
+    mpz_clear(tmp);
 
-    // Print time taken
-    const double time_taken = ((double) (end_time - start_time)) / (double) CLOCKS_PER_SEC;
-    if (printf("Calculation Time: %lf seconds\n", time_taken) < 0) return EXIT_FAILURE;
-    if (fflush(stdout) == EOF) return EXIT_FAILURE;
+    // Print time taken (unless plain mode)
+    if (!plain)
+    {
+        const double time_taken = end_time - start_time;
+        if (printf("Calculation Time: %lf seconds\n", time_taken) < 0)
+        {
+            return EXIT_FAILURE;
+        }
+        if (fflush(stdout) == EOF)
+        {
+            return EXIT_FAILURE;
+        }
+    }
+
     return EXIT_SUCCESS;
 }
 
+
 </code>
 </pre>
-<p>To build:
+<h2>Usage <img src="/img/gif/film3.gif" alt="file icon" class="inline-icon"></h2>
+<p>To run: <code>fib &lt;nth Fibonacci number&gt;</code></p>
+<p>To run without timing: <code>fib -p &lt;nth Fibonacci number&gt;</code></p>
+<h2>Building <img src="/img/gif/sparkles.gif" alt="file icon" class="inline-icon"></h2>
+<p>All require GMP.</p>
+<p>To build on UNIX:
 <code>gcc fib.c -o fib -lgmp -O3</code></p>
+<p>To build for Windows on UNIX: <code>fib x86_64-w64-mingw32-gcc fib.c -o fib.exe -lgmp -O3</code></p>
+<p>To build for MS-DOS (djgpp): <code>gcc fibdos.c -o fibdos.exe -lgmp -O3</code></p>
 <h2>Download <img src="/img/gif/pink file icon.png" alt="file icon" class="inline-icon"></h2>
-<p><a href="https://drive.google.com/file/d/1IzjnhfWSWtB2TNGVFIB55hGIjKF_B4gb/view?usp=sharing" class="button" target="_blank"><img src="/img/gif/science_wm.png" class="button-icon">Download Source</a></p>
-<p><a href="https://drive.google.com/file/d/1YVCskDONpluc0Eu9EKAJKnMZdWTK94Dv/view?usp=drive_link" class="button" target="_blank"><img src="/img/gif/msdos_16x16.png" class="button-icon">MS-DOS Binary</a></p>
+<p><a href="https://github.com/Softwave/fib.c" class="button" target="_blank"><img src="/img/gif/science_wm.png" class="button-icon">Download Source</a></p>
+<p><a href="https://drive.google.com/file/d/14J-p6H7frEa7gS3aD4U8B7Q0OuOFCec8/view?usp=drive_link" class="button" target="_blank"><img src="/img/gif/msdos_16x16.png" class="button-icon">MS-DOS Binary</a></p>
 <p><a href="https://drive.google.com/file/d/1Vr-EYO3pyyZrL3iWD0b7l3smiXphdK-K/view?usp=drive_link" class="button" target="_blank"><img src="/img/gif/linux_wm.png" class="button-icon">Linux Binary</a></p>
 <p><a href="https://drive.google.com/file/d/1l2ooZ8hRq6a-OFhQoAofvlRNSS4wOpGw/view?usp=drive_link" class="button" target="_blank"><img src="/img/gif/win16.png" class="button-icon">Windows Binary</a></p>
+<h2>Credits <img src="/img/gif/axolotl2.gif" alt="file icon" class="inline-icon"></h2>
+<p>Uses <a href="https://gmplib.org/">GMP</a> for arbitrary precision arithmetic.</p>
+<p>Originally written by <a href="https://s0ftwave.net/">Softwave</a>.
+Massive speedups by <a href="https://github.com/Francesco146">Francesco146</a>.
+and <a href="https://github.com/LizzyFleckenstein03">LizzyFleckenstein03</a>.</p>
+<p>More additions then by myself (Softwave).</p>
+<p><strong>License:</strong> <a href="https://creativecommons.org/publicdomain/zero/1.0/">Public Domain/CC0</a></p>
 <style>
 h2 {
     margin-bottom: 0em;
